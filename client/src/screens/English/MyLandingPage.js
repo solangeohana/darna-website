@@ -13,9 +13,9 @@ import {
 } from "reactstrap";
 
 // core components
-import MyNavbar from "./MyNavbar";
-import MyHeader from "./MyHeader";
-import MyFooter from "./MyFooter";
+import MyNavbar from "../../components/English/MyNavbar";
+import MyHeader from "../../components/English/MyHeader";
+import MyFooter from "../../components/English/MyFooter";
 
 function LandingPage() {
   const [firstFocus, setFirstFocus] = React.useState(false);

@@ -16,12 +16,11 @@ import {
 } from "reactstrap";
 
 // core components
-import MyNavbar from "../Homepage/MyNavbar"
-import MyFooter from "../Homepage/MyFooter"
-import BuyingPageHeader from "./BuyingPageHeader"
-import SingleListing from "./SingleListing"
+import MyNavbar from "../../components/English/MyNavbar"
+import MyFooter from "../../components/English/MyFooter"
+import RentingPageHeader from "../../components/English/RentingPageHeader"
 
-function BuyingPage() {
+function RentingPage() {
   const [pills, setPills] = React.useState("2");
   React.useEffect(() => {
     document.body.classList.add("profile-page");
@@ -38,7 +37,7 @@ function BuyingPage() {
     <>
       <MyNavbar />
       <div className="wrapper">
-        <BuyingPageHeader />
+        <RentingPageHeader />
         <div className="section">
           <Container>
             <div className="button-container">
@@ -49,19 +48,19 @@ function BuyingPage() {
             </a>
             </div>
             <h5 className="description">
-            It’s always a good time to buy real estate…
+            Looking for an apartment or a house to rent? 
             <br/><br/>
-            As prices per square meter keep rising, we can say that your investment in real estate is your smartest move for now.  We are happy to help you find the property you are looking for, in the right area and at the right price.
+            Don’t have enough time and energy to apply for those properties and go through all the documentation approval process, viewings, etc..? 
             <br/><br/>
-            Prior to your search we find out what you are looking for, type of property, the purpose of your investment, budget, etc. and we will furnish you with the property that meets your criteria.  Thanks to our extensive working relationship with many local real estate agents and house management companies, we always have our hands on listings even before they are put online.
+            Let us take all this hustle away and do that for you! Our team of real estate agents will do all that work happily for you and support you with your desired property in no time!
+
             </h5>
             <h4 className = "content">Get in {" "}
               <a href="/en/contact">
                 touch
-              </a>{" "} for our newest listings!
+              </a>{" "} with us so we can find you a new home.
             </h4>
           </Container>
-          <SingleListing/>
         </div>
         <MyFooter />
       </div>
@@ -69,4 +68,4 @@ function BuyingPage() {
   )
 }
 
-export default BuyingPage;
+export default RentingPage;

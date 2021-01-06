@@ -4,21 +4,13 @@ import React from "react";
 
 import {
   Button,
-  NavItem,
-  NavLink,
-  Nav,
-  TabContent,
-  TabPane,
   Container,
-  Row,
-  Col,
-  UncontrolledTooltip,
 } from "reactstrap";
 
 // core components
-import NavbarDe from "../HomePageDe/NavbarDe"
-import FooterDe from "../HomePageDe/FooterDe"
-import BuyingPageHeaderDe from "./BuyingPageHeaderDe"
+import NavbarDe from "../../components/German/NavbarDe"
+import FooterDe from "../../components/German/FooterDe"
+import BuyingPageHeaderDe from "../../components/German/BuyingPageHeaderDe"
 
 function BuyingPageDe() {
   const [pills, setPills] = React.useState("2");

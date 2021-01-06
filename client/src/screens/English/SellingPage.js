@@ -4,24 +4,18 @@ import React from "react";
 
 import {
     Button,
-    NavItem,
-    NavLink,
-    Nav,
-    TabContent,
-    TabPane,
     Container,
     Row,
     Col,
-    UncontrolledTooltip,
 } from "reactstrap";
 
 // core components
-import MyNavbar from "../Homepage/MyNavbar"
-import MyFooter from "../Homepage/MyFooter"
-import SellingPageHeader from "./SellingPageHeader"
-import PhotoshootCarousel from "./PhotoshootCarousel"
+import MyNavbar from "../../components/English/MyNavbar"
+import MyFooter from "../../components/English/MyFooter"
+import SellingPageHeader from "../../components/English/SellingPageHeader"
+import PhotoshootCarousel from "../../components/English/PhotoshootCarousel"
 
-function SellingPage() {
+const SellingPage = () => {
     const [pills, setPills] = React.useState("2");
     React.useEffect(() => {
         document.body.classList.add("profile-page");

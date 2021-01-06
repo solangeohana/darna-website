@@ -7,13 +7,13 @@ import "assets/demo/demo.css?v=1.4.0";
 import "assets/demo/nucleo-icons-page-styles.css?v=1.4.0";
 // pages for this kit
 
-import MyLandingPage from "./components/English/Homepage/MyLandingPage";
-import BuyingPage from "./components/English/BuyingPage/BuyingPage"
-import LandingPageDe from "./components/German/HomePageDe/LandingPageDe";
-import BuyingPageDe from "./components/German/BuyingPageDe/BuyingPageDe"
-import RentingPage from "./components/English/RentingPage/RentingPage"
-import SellingPage from "./components/English/SellingPage/SellingPage"
-import FeeStructure from "./components/English/FeeStructure/FeeStructure"
+import MyLandingPage from "./screens/English/MyLandingPage";
+import BuyingPage from "./screens/English/BuyingPage"
+import LandingPageDe from "./screens/German/LandingPageDe";
+import BuyingPageDe from "./screens/German/BuyingPageDe"
+import RentingPage from "./screens/English/RentingPage"
+import SellingPage from "./screens/English/SellingPage"
+import FeeStructure from "./screens/English/FeeStructure"
 
 class App extends Component {
 

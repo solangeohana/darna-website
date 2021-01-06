@@ -13,9 +13,9 @@ import {
 } from "reactstrap";
 
 // core components
-import NavbarDe from "./NavbarDe";
-import HeaderDe from "./HeaderDe";
-import FooterDe from "./FooterDe";
+import NavbarDe from "../../components/German/NavbarDe";
+import HeaderDe from "../../components/German/HeaderDe";
+import FooterDe from "../../components/German/FooterDe";
 
 function LandingPageDe() {
   const [firstFocus, setFirstFocus] = React.useState(false);
