@@ -42,9 +42,6 @@ class App extends Component {
                     exact path="/en/fee-structure"
                     render={(props) => <FeeStructure {...props} />}
                 />
-                
-
-
                 <Route
                     exact path="/de"
                     render={(props) => <LandingPageDe {...props} />}
