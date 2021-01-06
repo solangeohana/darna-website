@@ -13,7 +13,6 @@ import {
     NavLink,
     Nav,
     Container,
-    UncontrolledTooltip,
 } from "reactstrap";
 
 function NavbarDe() {

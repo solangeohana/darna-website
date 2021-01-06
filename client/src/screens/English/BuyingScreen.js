@@ -13,7 +13,7 @@ import MyFooter from '../../components/English/MyFooter'
 import BuyingPageHeader from '../../components/English/BuyingPageHeader'
 
 function BuyingPage() {
-  const [pills, setPills] = React.useState('2')
+  // const [pills, setPills] = React.useState('2')
   React.useEffect(() => {
     document.body.classList.add('profile-page')
     document.body.classList.add('sidebar-collapse')

@@ -4,15 +4,7 @@ import React from "react";
 
 import {
   Button,
-  NavItem,
-  NavLink,
-  Nav,
-  TabContent,
-  TabPane,
   Container,
-  Row,
-  Col,
-  UncontrolledTooltip,
 } from "reactstrap";
 
 // core components
@@ -21,7 +13,7 @@ import MyFooter from "../../components/English/MyFooter"
 import RentingPageHeader from "../../components/English/RentingPageHeader"
 
 function RentingPage() {
-  const [pills, setPills] = React.useState("2");
+  // const [pills, setPills] = React.useState("2");
   React.useEffect(() => {
     document.body.classList.add("profile-page");
     document.body.classList.add("sidebar-collapse");

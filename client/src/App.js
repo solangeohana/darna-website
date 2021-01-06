@@ -5,15 +5,16 @@ import "assets/css/bootstrap.min.css";
 import "assets/scss/now-ui-kit.scss?v=1.4.0";
 import "assets/demo/demo.css?v=1.4.0";
 import "assets/demo/nucleo-icons-page-styles.css?v=1.4.0";
-// pages for this kit
 
-import MyLandingPage from "./screens/English/MyLandingPage";
-import BuyingPage from "./screens/English/BuyingPage"
-import LandingPageDe from "./screens/German/LandingPageDe";
-import BuyingPageDe from "./screens/German/BuyingPageDe"
-import RentingPage from "./screens/English/RentingPage"
-import SellingPage from "./screens/English/SellingPage"
-import FeeStructure from "./screens/English/FeeStructure"
+//English screens :
+import HomePageScreen from "./screens/English/HomePageScreen";
+import BuyingScreen from "./screens/English/BuyingScreen"
+import RentingScreen from "./screens/English/RentingScreen"
+import SellingScreen from "./screens/English/SellingScreen"
+import FeeStructureScreen from "./screens/English/FeeStructureScreen"
+//German screens : 
+import HomePageScreenDE from "./screens/German/HomePageScreenDE";
+import BuyingScreenDE from "./screens/German/BuyingScreenDE"
 
 class App extends Component {
 
@@ -24,31 +25,31 @@ class App extends Component {
             <Switch>
                 <Route
                     exact path="/en"
-                    render={(props) => <MyLandingPage {...props} />}
+                    render={(props) => <HomePageScreen {...props} />}
                 />
                 <Route
                     path="/en/buy"
-                    render={(props) => <BuyingPage {...props} />}
+                    render={(props) => <BuyingScreen {...props} />}
                 />
                 <Route
                     exact path="/en/rent"
-                    render={(props) => <RentingPage {...props} />}
+                    render={(props) => <RentingScreen {...props} />}
                 />
                  <Route
                     exact path="/en/sell"
-                    render={(props) => <SellingPage {...props} />}
+                    render={(props) => <SellingScreen {...props} />}
                 />
                 <Route
                     exact path="/en/fee-structure"
-                    render={(props) => <FeeStructure {...props} />}
+                    render={(props) => <FeeStructureScreen {...props} />}
                 />
                 <Route
                     exact path="/de"
-                    render={(props) => <LandingPageDe {...props} />}
+                    render={(props) => <HomePageScreenDE {...props} />}
                 />
                 <Route
                     path="/de/kaufen"
-                    render={(props) => <BuyingPageDe {...props} />}
+                    render={(props) => <BuyingScreenDE {...props} />}
                 />
                 <Redirect from="/" to="/en" />
 

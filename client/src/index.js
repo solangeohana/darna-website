@@ -3,7 +3,6 @@ import ReactDOM from "react-dom";
 import { BrowserRouter as Router } from "react-router-dom";
 import { Provider } from 'react-redux'
 import store from './store'
-import axios from 'axios'
 import App from './App'
 // styles for this kit
 import "assets/css/bootstrap.min.css";

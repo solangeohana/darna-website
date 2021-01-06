@@ -13,12 +13,11 @@ import {
 } from "reactstrap";
 
 // core components
-import MyNavbar from "../../components/English/MyNavbar";
-import MyHeader from "../../components/English/MyHeader";
-import MyFooter from "../../components/English/MyFooter";
+import NavbarDe from "../../components/German/NavbarDe";
+import HeaderDe from "../../components/German/HeaderDe";
+import FooterDe from "../../components/German/FooterDe";
 
-function LandingPage() {
-  const [firstFocus, setFirstFocus] = React.useState(false);
+function LandingPageDe() {
   const [lastFocus, setLastFocus] = React.useState(false);
   React.useEffect(() => {
     document.body.classList.add("landing-page");
@@ -33,18 +32,17 @@ function LandingPage() {
   }, []);
   return (
     <>
-      <MyNavbar />
+      <NavbarDe/>
       <div className="wrapper">
-        <MyHeader />
+        <HeaderDe/>
         <div className="section section-about-us">
           <Container>
             <Row>
               <Col className="ml-auto mr-auto text-center" md="8">
-                <h2 className="title">Who we are?</h2>
+                <h2 className="title">Wer Sind Wir ? </h2>
                 <p className="content">
-                  We are a community-driven LGBTQ+ focused organization that takes all possible paths to empower our queer community!
-                <br />
-                Empowerment at DARNA has various faces.  Whether it is supporting you with a safe home, where you can feel secure in being fully yourself, or providing you with a safe and loving workspace, where you are able to meet, connect and collaborate with many other talented queers and allies - we will find the perfect way to help you embrace yourself and grow the gem in you.
+                Wir sind eine Community- und LGBTIQ+ orientierte Organisation, die auf allen erdenklichen Wegen unsere Queer Community unterstützt!                <br/>
+                Die Unterstützung durch DARNA ist vielfältig. Ob wir euch ein sicheres Zuhause vermitteln, wo ihr unbehelligt ihr selbst sein könnt, oder einen sichere und liebevolle Arbeitsatmosphäre sucht, wo ihr viele andere talentierte queere Menschen kennenlernt, euch vernetzt und miteinander arbeitet. Wir finden gemeinsam den Weg, der euch dahin führt, euch selbst zu akzeptieren, wie ihr seid, und das Beste aus euch herauszuholen.                
                 </p>
               </Col>
             </Row>
@@ -76,16 +74,14 @@ function LandingPage() {
                         "url(" + require("assets/img/landing-2.jpg") + ")",
                     }}
                   ></div>
-                  <br /><br />
+                  <br/><br/>
                   <h3>
-                    Our Mission
+                    Unsere Mission 
                   </h3>
                   <p className="content">
-                    Established in 2019, DARNA started as the first Queer Real Estate Agency in Germany with emphasis on providing the queer community with safe accommodations and secure workspaces where no one would discriminate against you for being you.
-                  </p>
+                  DARNA wurde 2019 als erste queere Immobilienagentur in Deutschland gegründet und begann zunächst schwerpunktmäßig, der Queer Community Unterkünfte und sichere Arbeitsräume zu vermitteln, wo niemand um seiner selbst willen diskriminiert wird.                  </p>
                   <p>
-                    Today, DARNA has grown up and became The Professional Queer Hub of Germany.  DARNA’s mission has expanded to nurture new start-ups and businesses, and help them develop personally and professionally under one safe and loving space.
-                  </p>
+                  Heute ist DARNA gewachsen und zu dem Professional Queer Hub Deutschlands geworden. Wir fördern inzwischen auch neue Start-Ups und Unternehmen und helfen ihnen dabei, sich in einer sicheren und liebevollen Umgebung zu entwickeln.                  </p>
                 </Col>
               </Row>
             </div>
@@ -93,15 +89,15 @@ function LandingPage() {
         </div>
         <div className="section section-team text-center">
           <Container>
-            <h2 className="title">Our Team</h2>
-            <img src="/images/group-photo.jpeg" height="500px"/>
+            <h2 className="title">Unsere Team</h2>
+            <img src="/images/group-photo.jpeg" alt='Team' height="500px"/>
 
           </Container>
         </div>
         <div className="section section-contact-us text-center">
           <Container>
-            <h2 className="title">Subscribe</h2>
-            <p className="content">Sign up with your email address to receive news and updates</p>
+            <h2 className="title">Abonnieren</h2>
+            <p className="content">Melden Sie sich mit Ihrer E-Mail-Adresse an, um Neuigkeiten und Updates zu erhalten</p>
             <Row>
               <Col className="text-center ml-auto mr-auto" lg="6" md="8">
                 <InputGroup
@@ -109,7 +105,6 @@ function LandingPage() {
                     "input-lg" + (lastFocus ? " input-group-focus" : "")
                   }
                 >
-                
                   <InputGroupAddon addonType="prepend">
                     <InputGroupText>
                       <i className="now-ui-icons ui-1_email-85"></i>
@@ -131,17 +126,17 @@ function LandingPage() {
                     onClick={(e) => e.preventDefault()}
                     size="lg"
                   >
-                    Send
+                    Absenden 
                   </Button>
                 </div>
               </Col>
             </Row>
           </Container>
         </div>
-        <MyFooter />
+        <FooterDe />
       </div>
     </>
   );
 }
 
-export default LandingPage;
+export default LandingPageDe;

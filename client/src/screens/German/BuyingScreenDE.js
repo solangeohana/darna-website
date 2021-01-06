@@ -13,7 +13,7 @@ import FooterDe from "../../components/German/FooterDe"
 import BuyingPageHeaderDe from "../../components/German/BuyingPageHeaderDe"
 
 function BuyingPageDe() {
-  const [pills, setPills] = React.useState("2");
+  // const [pills, setPills] = React.useState("2");
   React.useEffect(() => {
     document.body.classList.add("profile-page");
     document.body.classList.add("sidebar-collapse");
