@@ -20,7 +20,7 @@ const getRentingById = asyncHandler(async (req, res) => {
     res.json(renting)
   } else {
     res.status(404)
-    throw new Error('Product not found')
+    throw new Error('Listing not found')
   }
 })
 

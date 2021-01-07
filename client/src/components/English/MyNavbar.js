@@ -91,7 +91,6 @@ function MyNavbar() {
                   <DropdownToggle
                     caret
                     data-toggle='dropdown'
-                    href='/real-estate'
                     id='navbarDropdown'
                     tag='a'
                     onClick={(e) => e.preventDefault()}>
@@ -101,6 +100,7 @@ function MyNavbar() {
                     <DropdownItem href='/en/rent'>RENT</DropdownItem>
                     <DropdownItem href='/en/buy'>BUY</DropdownItem>
                     <DropdownItem href='/en/sell'>SELL</DropdownItem>
+                    <DropdownItem href='/en/commercial'>COMMERCIAL</DropdownItem>
                     <DropdownItem divider></DropdownItem>
                     <DropdownItem href='en/fee-structure'>
                       Fee structure

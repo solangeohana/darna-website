@@ -51,6 +51,11 @@ function LandingPageHeader() {
                 RENT
             </Button>
             </a>
+            <a href="en/commercial">
+            <Button className="btn-round" color="info" type="button" size="lg">
+                COMMERCIAL
+            </Button>
+            </a>
             </div>
           </Container>
         </div>

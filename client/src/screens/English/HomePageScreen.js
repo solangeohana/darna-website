@@ -16,7 +16,7 @@ import {
 import MyNavbar from '../../components/English/MyNavbar'
 import MyHeader from '../../components/English/MyHeader'
 import MyFooter from '../../components/English/MyFooter'
-
+import Loader from '../../components/Loader'
 function LandingPage() {
   const [lastFocus, setLastFocus] = React.useState(false)
   React.useEffect(() => {
@@ -41,7 +41,7 @@ function LandingPage() {
               <Col className='ml-auto mr-auto text-center' md='8'>
                 <h2 className='title'>Who we are?</h2>
                 <p className='content'>
-                  We are a community-driven LGBTQ+ focused organization that
+                  We are a community-driven LGBTQ+ focused organization that 
                   takes all possible paths to empower our queer community!
                   <br />
                   Empowerment at DARNA has various faces. Whether it is
