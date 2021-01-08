@@ -44,7 +44,10 @@ export const listRentingDetails = (id) => async (dispatch) => {
         dispatch({ type: RENTING_DETAILS_REQUEST })
 
         const { data } = await axios.get(`/api/rentings/${id}`)
-
+        console.log('data:', data)
+        console.log('address:', data.location.address)
+        console.log('image 1 :', data.images[0])
+        
         dispatch({
             type: RENTING_DETAILS_SUCCESS, 
             payload: data

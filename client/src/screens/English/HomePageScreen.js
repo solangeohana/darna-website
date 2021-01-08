@@ -16,8 +16,8 @@ import {
 import MyNavbar from '../../components/English/MyNavbar'
 import MyHeader from '../../components/English/MyHeader'
 import MyFooter from '../../components/English/MyFooter'
-import Loader from '../../components/Loader'
-function LandingPage() {
+
+const LandingPage = () => {
   const [lastFocus, setLastFocus] = React.useState(false)
   React.useEffect(() => {
     document.body.classList.add('landing-page')

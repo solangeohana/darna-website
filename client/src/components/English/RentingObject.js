@@ -19,7 +19,7 @@ const RentingObject = ({renting}) => {
                 </Link>
             </Card.Body>
             <Card.Text as='div'>
-                {renting.nbRooms} Rooms    |    {renting.sqm} sqm
+                {renting.nbRooms} Rooms | {renting.sqm} sqm | {renting.location.address}, {renting.location.postalCode} {renting.location.city}
             </Card.Text>
         </Card>
     )

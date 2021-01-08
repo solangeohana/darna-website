@@ -9,7 +9,7 @@ import {
   deleteRenting,
   createRenting,
 } from '../../actions/rentingActions'
-// import { RENTING_CREATE_RESET } from '../../constants/rentingConstants'
+import { RENTING_CREATE_RESET } from '../../constants/rentingConstants'
 
 const RentingListScreen = ({ history, match }) => {
 
@@ -38,9 +38,9 @@ const RentingListScreen = ({ history, match }) => {
   const { userInfo } = userLogin
 
   useEffect(() => {
-    // dispatch({ type: RENTING_CREATE_RESET })
+    dispatch({ type: RENTING_CREATE_RESET })
 
-    if (!userInfo.isAdmin) {
+    if (!userInfo || !userInfo.isAdmin) {
       history.push('/login')
     }
 
