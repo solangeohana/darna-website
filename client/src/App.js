@@ -1,5 +1,10 @@
 import React, { Component } from 'react'
-import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom'
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Redirect,
+} from 'react-router-dom'
 
 // styles for this kit
 import 'assets/css/bootstrap.min.css'
@@ -22,6 +27,7 @@ import BuyingScreenDE from './screens/German/BuyingScreenDE'
 import LoginScreen from './screens/Admin/LoginScreen'
 import DashboardScreen from './screens/Admin/DashboardScreen'
 import RentingListScreen from './screens/Admin/RentingListScreen'
+import RentingEditScreen from './screens/Admin/RentingEditScreen'
 
 class App extends Component {
   render() {
@@ -65,7 +71,7 @@ class App extends Component {
             path='/de/kaufen'
             render={(props) => <BuyingScreenDE {...props} />}
           />
-           <Route
+          <Route
             path='/admin/login'
             render={(props) => <LoginScreen {...props} />}
           />
@@ -74,8 +80,13 @@ class App extends Component {
             render={(props) => <DashboardScreen {...props} />}
           />
           <Route
+            exact
             path='/admin/rent'
             render={(props) => <RentingListScreen {...props} />}
+          />
+          <Route
+            path='/admin/rent/:id'
+            render={(props) => <RentingEditScreen {...props} />}
           />
           {/* <Redirect from='/' to='/en' /> */}
         </Switch>

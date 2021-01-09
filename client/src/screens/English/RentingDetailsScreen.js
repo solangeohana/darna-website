@@ -6,7 +6,7 @@ import Loader from '../../components/Loader'
 import Message from '../../components/Message'
 import { listRentingDetails } from '../../actions/rentingActions'
 
-const RentingDetailsScreen = ({ history, match }) => {
+const RentingDetailsScreen = ({ match }) => {
   const dispatch = useDispatch()
 
   const rentingDetails = useSelector((state) => state.rentingDetails)

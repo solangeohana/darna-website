@@ -17,7 +17,7 @@ const rentingSchema = mongoose.Schema(
     },
     coverPhoto: {
       type: String,
-      required: true,
+      required: false,
     },
     nbRooms: {
       type: Number,

@@ -37,7 +37,7 @@ export const rentingDetailsReducer = (
 ) => {
   switch (action.type) {
     case RENTING_DETAILS_REQUEST:
-      return { loading: true, ...state } //...state = whatever is in the current state
+      return { loading: true, ...state } 
     case RENTING_DETAILS_SUCCESS:
       return { loading: false, renting: action.payload }
     case RENTING_DETAILS_FAIL:

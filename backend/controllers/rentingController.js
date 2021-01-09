@@ -54,14 +54,16 @@ const createRenting = asyncHandler(async (req, res) => {
     balcony: false,
     cellar: false,
     location: {
-      address: 'Address',
-      city: 'Berlin',
+      address: '',
+      city: '',
       postalCode: 0,
-      country: 'Germany',
+      country: '',
     },
     available: true,
-    description: 'description',
+    description: '',
     images: [],
+    feature1: '', 
+    feature2: ''
   })
 
   const createdRenting = await renting.save()

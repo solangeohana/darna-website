@@ -47,7 +47,7 @@ const RentingListScreen = ({ history, match }) => {
     if (successCreate) {
       history.push(`/admin/rent/${createdRenting._id}/edit`)
     } else {
-      dispatch(listRentings)    }
+      dispatch(listRentings(''))}
   }, [
     dispatch,
     history,
@@ -93,7 +93,9 @@ const RentingListScreen = ({ history, match }) => {
             <thead>
               <tr>
                 <th>NAME</th>
-                <th>COVER PHOTO</th>
+                <th>ADDRESS</th>
+                <th>ZIP</th>
+                <th>CITY</th>
                 <th>SQM</th>
                 <th>ROOMS</th>
                 <th>AVAILABLE</th>
@@ -104,10 +106,18 @@ const RentingListScreen = ({ history, match }) => {
               {rentings.map((renting) => (
                 <tr key={renting._id}>
                   <td>{renting.name}</td>
-                  <td>{renting.coverPhoto}kfkf</td>
-                  <td>{renting.sqm}lalala</td>
+                  <td>{renting.location.address}</td>
+                  <td>{renting.location.postalCode}</td>
+                  <td>{renting.location.city}</td>
+                  <td>{renting.sqm} sqm</td>
                   <td>{renting.nbRooms}</td>
-                  <td>{renting.available}</td>
+                  <td>
+                  {renting.available ? (
+                    <i className='fas fa-check' style={{ color: 'green' }}></i>
+                  ) : (
+                    <i className='fas fa-times' style={{ color: 'red' }}></i>
+                  )}
+                </td>
                   <td>
                     <LinkContainer to={`/admin/rent/${renting._id}/edit`}>
                       <Button variant='light' className='btn-sm'>
