@@ -44,8 +44,9 @@ const deleteRenting = asyncHandler(async (req, res) => {
 // @access  Private/Admin
 const createRenting = asyncHandler(async (req, res) => {
   const renting = new Renting({
-    name: ' Name',
-    title: 'Title',
+    name: 'Name Sample',
+    title_en: 'Title Sample English',
+    title_de: 'Title Sample Deutsch',
     user: req.user._id,
     coverPhoto: '/images/unicorn.png',
     nbRooms: 0,
@@ -54,16 +55,19 @@ const createRenting = asyncHandler(async (req, res) => {
     balcony: false,
     cellar: false,
     location: {
-      address: '',
-      city: '',
+      address: 'Address Sample',
+      city: 'Berlin',
       postalCode: 0,
-      country: '',
+      country: 'Germany',
     },
     available: true,
-    description: '',
+    description_en: 'Description English',
+    description_de: 'Description Deutsch',
     images: [],
-    feature1: '', 
-    feature2: ''
+    feature1_en: '', 
+    feature2_en: '',
+    feature1_de: '', 
+    feature2_de: ''
   })
 
   const createdRenting = await renting.save()
@@ -76,7 +80,8 @@ const createRenting = asyncHandler(async (req, res) => {
 const updateRenting = asyncHandler(async (req, res) => {
   const {
     name,
-    title,
+    title_en,
+    title_de,
     coverPhoto,
     nbRooms,
     sqm,
@@ -84,15 +89,21 @@ const updateRenting = asyncHandler(async (req, res) => {
     balcony,
     cellar,
     available,
-    description,
+    description_en,
+    description_de,
     images,
+    feature1_en,
+    feature2_en,
+    feature1_de, 
+    feature2_de
   } = req.body
 
   const renting = await Renting.findById(req.params.id)
 
   if (renting) {
     renting.name = name
-    renting.title = title
+    renting.title_en = title_en
+    renting.title_de = title_de
     renting.coverPhoto = coverPhoto
     renting.nbRooms = nbRooms
     renting.sqm = sqm
@@ -106,8 +117,13 @@ const updateRenting = asyncHandler(async (req, res) => {
       country: req.body.country,
     }
     renting.available = available
-    renting.description = description
+    renting.description_en = description_en
+    renting.description_de = description_de
     renting.images = images
+    renting.feature1_en = feature1_en
+    renting.feature2_en = feature2_en
+    renting.feature1_de = feature1_de
+    renting.feature2_de = feature2_de
 
     const updatedRenting = await renting.save()
     res.json(updatedRenting)

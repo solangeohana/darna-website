@@ -3,7 +3,7 @@ import {
   BrowserRouter as Router,
   Route,
   Switch,
-  Redirect,
+//   Redirect,
 } from 'react-router-dom'
 
 // styles for this kit

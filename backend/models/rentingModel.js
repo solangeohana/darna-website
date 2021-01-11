@@ -11,7 +11,11 @@ const rentingSchema = mongoose.Schema(
       type: String,
       required: true,
     },
-    title: {
+    title_en: {
+      type: String,
+      required: true,
+    },
+    title_de: {
       type: String,
       required: true,
     },
@@ -48,22 +52,34 @@ const rentingSchema = mongoose.Schema(
       address: { type: String, required: true },
       city: { type: String, required: true },
       postalCode: { type: Number, required: true },
-      country: { type: String, required: true }
+      country: { type: String, required: false }
     },
     available: {
       type: Boolean,
       required: true,
       default: true,
     },
-    description: {
+    description_en: {
       type: String,
-      required: true
+      required: false
     },
-    feature1: {
+    description_de: {
+      type: String,
+      required: false
+    },
+    feature1_en: {
       type: String,
       required: false,
     },
-    feature2: {
+    feature1_de: {
+      type: String,
+      required: false,
+    },
+    feature2_en: {
+      type: String,
+      required: false,
+    },
+    feature2_de: {
       type: String,
       required: false,
     },

@@ -11,7 +11,11 @@ const buyingSchema = mongoose.Schema(
       type: String,
       required: true,
     },
-    title: {
+    title_en: {
+      type: String,
+      required: true,
+    },
+    title_de: {
       type: String,
       required: true,
     },
@@ -29,27 +33,51 @@ const buyingSchema = mongoose.Schema(
       required: true,
       default: 0,
     },
-    feature1: {
+    feature1_en: {
       type: String,
       required: false,
     },
-    feature2: {
+    feature2_en: {
       type: String,
       required: false,
     },
-    feature3: {
+    feature3_en: {
       type: String,
       required: false,
     },
-    feature4: {
+    feature4_en: {
       type: String,
       required: false,
     },
-    feature5: {
+    feature5_en: {
       type: String,
       required: false,
     },
-    feature6: {
+    feature6_en: {
+      type: String,
+      required: false,
+    },
+    feature1_de: {
+      type: String,
+      required: false,
+    },
+    feature2_de: {
+      type: String,
+      required: false,
+    },
+    feature3_de: {
+      type: String,
+      required: false,
+    },
+    feature4_de: {
+      type: String,
+      required: false,
+    },
+    feature5_de: {
+      type: String,
+      required: false,
+    },
+    feature6_de: {
       type: String,
       required: false,
     },
@@ -64,7 +92,11 @@ const buyingSchema = mongoose.Schema(
       required: true,
       default: true,
     },
-    description: {
+    description_en: {
+      type: String,
+      required: true,
+    },
+    description_de: {
       type: String,
       required: true,
     },

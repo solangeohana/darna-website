@@ -77,18 +77,26 @@ const createCommercial = asyncHandler(async (req, res) => {
 const updateCommercial = asyncHandler(async (req, res) => {
   const {
     name,
-    title,
+    title_en,
+    title_de,
     coverPhoto,
     nbRooms,
     sqm,
-    feature1,
-    feature2,
-    feature3,
-    feature4,
-    feature5,
-    feature6,
+    feature1_en,
+    feature2_en,
+    feature3_en,
+    feature4_en,
+    feature5_en,
+    feature6_en,
+    feature1_de,
+    feature2_de,
+    feature3_de,
+    feature4_de,
+    feature5_de,
+    feature6_de,
     available,
-    description,
+    description_en,
+    description_de,
     images,
   } = req.body
 
@@ -96,16 +104,23 @@ const updateCommercial = asyncHandler(async (req, res) => {
 
   if (commercial) {
     commercial.name = name
-    commercial.title = title
+    commercial.title_en = title_en
+    commercial.title_de = title_de
     commercial.coverPhoto = coverPhoto
     commercial.nbRooms = nbRooms
     commercial.sqm = sqm
-    commercial.feature1 = feature1
-    commercial.feature2 = feature2
-    commercial.feature3 = feature3
-    commercial.feature4 = feature4
-    commercial.feature5 = feature5
-    commercial.feature6 = feature6
+    commercial.feature1_en = feature1_en
+    commercial.feature2_en = feature2_en
+    commercial.feature3_en = feature3_en
+    commercial.feature4_en = feature4_en
+    commercial.feature5_en = feature5_en
+    commercial.feature6_en = feature6_en
+    commercial.feature1_de = feature1_de
+    commercial.feature2_de = feature2_de
+    commercial.feature3_de = feature3_de
+    commercial.feature4_de = feature4_de
+    commercial.feature5_de = feature5_de
+    commercial.feature6_de = feature6_de
     commercial.location = {
       address: req.body.address,
       city: req.body.city,
@@ -113,7 +128,8 @@ const updateCommercial = asyncHandler(async (req, res) => {
       country: req.body.country,
     }
     commercial.available = available
-    commercial.description = description
+    commercial.description_en = description_en
+    commercial.description_de = description_de
     commercial.images = images
 
     const updatedCommercial = await commercial.save()

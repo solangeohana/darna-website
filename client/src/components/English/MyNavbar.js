@@ -57,7 +57,7 @@ function MyNavbar() {
               tag={Link}
               id='navbar-brand'>
               <img
-                src='/images/navbar-logo.png'
+                src='/images/navbar-logo-black.png'
                 alt='logo darna'
                 height='90px'></img>
             </NavbarBrand>

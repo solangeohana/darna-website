@@ -14,7 +14,7 @@ const RentingObject = ({renting}) => {
                     <Card.Title as='div'>
                         <strong>{renting.name}</strong>
                         <br/>
-                        {renting.title}
+                        {renting.title_en}
                     </Card.Title>
                 </Link>
             </Card.Body>

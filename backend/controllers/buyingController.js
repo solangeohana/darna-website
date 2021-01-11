@@ -44,18 +44,25 @@ const deleteBuying = asyncHandler(async (req, res) => {
 // @access  Private/Admin
 const createBuying = asyncHandler(async (req, res) => {
   const buying = new Buying({
-    name: ' Name',
-    title: 'Title',
+    name: ' Name Sample',
+    title_en: 'Title English',
+    title_de: 'Title Deutsch',
     user: req.user._id,
     coverPhoto: '/images/unicorn.png',
     price: 0,
     sqm: 0,
-    feature1: '',
-    feature2: '',
-    feature3: '',
-    feature4: '',
-    feature5: '',
-    feature6: '',
+    feature1_en: '',
+    feature2_en: '',
+    feature3_en: '',
+    feature4_en: '',
+    feature5_en: '',
+    feature6_en: '',
+    feature1_de: '',
+    feature2_de: '',
+    feature3_de: '',
+    feature4_de: '',
+    feature5_de: '',
+    feature6_de: '',
     location: {
       address: 'Address',
       city: 'Berlin',
@@ -63,7 +70,8 @@ const createBuying = asyncHandler(async (req, res) => {
       country: 'Germany',
     },
     available: true,
-    description: 'description',
+    description_en: 'description english',
+    description_de: 'description deutsch',
     images: [],
   })
 
@@ -77,18 +85,26 @@ const createBuying = asyncHandler(async (req, res) => {
 const updateBuying = asyncHandler(async (req, res) => {
   const {
     name,
-    title,
+    title_en,
+    title_de,
     coverPhoto,
     price,
     sqm,
-    feature1,
-    feature2,
-    feature3,
-    feature4,
-    feature5,
-    feature6,
+    feature1_en,
+    feature2_en,
+    feature3_en,
+    feature4_en,
+    feature5_en,
+    feature6_en,
+    feature1_de,
+    feature2_de,
+    feature3_de,
+    feature4_de,
+    feature5_de,
+    feature6_de,
     available,
-    description,
+    description_en,
+    description_de,
     images,
   } = req.body
 
@@ -96,16 +112,23 @@ const updateBuying = asyncHandler(async (req, res) => {
 
   if (buying) {
     buying.name = name
-    buying.title = title
+    buying.title_en = title_en
+    buying.title_de = title_de
     buying.coverPhoto = coverPhoto
     buying.price = price
     buying.sqm = sqm
-    buying.feature1 = feature1
-    buying.feature2 = feature2
-    buying.feature3 = feature3
-    buying.feature4 = feature4
-    buying.feature5 = feature5
-    buying.feature6 = feature6
+    buying.feature1_en = feature1_en
+    buying.feature2_en= feature2_en
+    buying.feature3_en = feature3_en
+    buying.feature4_en = feature4_en
+    buying.feature5_en = feature5_en
+    buying.feature6_en = feature6_en
+    buying.feature1_de = feature1_de
+    buying.feature2_de = feature2_de
+    buying.feature3_de = feature3_de
+    buying.feature4_de = feature4_de
+    buying.feature5_de = feature5_de
+    buying.feature6_de = feature6_de
     buying.location = {
       address: req.body.address,
       city: req.body.city,
@@ -113,7 +136,8 @@ const updateBuying = asyncHandler(async (req, res) => {
       country: req.body.country,
     }
     buying.available = available
-    buying.description = description
+    buying.description_en = description_en
+    buying.description_de = description_de
     buying.images = images
 
     const updatedBuying = await buying.save()

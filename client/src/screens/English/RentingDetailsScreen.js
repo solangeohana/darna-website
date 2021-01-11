@@ -48,8 +48,8 @@ const RentingDetailsScreen = ({ match }) => {
                 <h3>{renting.name}</h3>
               </ListGroup.Item>
               <ListGroup.Item></ListGroup.Item>
-              <ListGroup.Item>{renting.title}</ListGroup.Item>
-              <ListGroup.Item>{renting.description}</ListGroup.Item>
+              <ListGroup.Item>{renting.title_en}</ListGroup.Item>
+              <ListGroup.Item>{renting.description_en}</ListGroup.Item>
             </ListGroup>
           </Col>
         </Row>
