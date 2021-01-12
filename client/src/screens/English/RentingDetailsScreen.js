@@ -7,7 +7,7 @@ import Message from '../../components/Message'
 import { listRentingDetails } from '../../actions/rentingActions'
 
 const RentingDetailsScreen = ({ match }) => {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   const rentingDetails = useSelector((state) => state.rentingDetails)
   const { loading, error, renting } = rentingDetails
@@ -40,7 +40,9 @@ const RentingDetailsScreen = ({ match }) => {
             <h5>rencently rented out !</h5>
           )}
           <Col md={6}>
-            <Image src={renting.images[0]} alt={renting.name} fluid />
+            {renting.images.map((image, i) => (
+              <Image key={i} src={image} alt={renting.name} fluid />
+            ))}
           </Col>
           <Col md={3}>
             <ListGroup variant='flush'>

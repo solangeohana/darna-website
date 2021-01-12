@@ -1,5 +1,4 @@
 import express from 'express'
-const router = express.Router()
 import {
   getRentings,
   getRentingById,
@@ -10,12 +9,16 @@ import {
 
 import { protect, admin } from '../middleware/authMiddleware.js'
 
-router.route('/').get(getRentings).post(protect, admin, createRenting)
+const router = express.Router()
 
-router
-  .route('/:id')
-  .get(getRentingById)
-  .delete(protect, admin, deleteRenting)
-  .put(protect, admin, updateRenting)
+// public routes:
+router.get('/', getRentings)
+router.get('/:id', getRentingById)
+
+// protected routes:
+router.use(protect, admin)
+router.post('/', createRenting)
+router.delete('/:id', deleteRenting)
+router.put('/:id', updateRenting)
 
 export default router

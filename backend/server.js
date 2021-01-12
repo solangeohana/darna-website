@@ -13,14 +13,15 @@ import rentingRoutes from './routes/rentingRoutes.js'
 import commercialRoutes from './routes/commercialRoutes.js'
 import buyingRoutes from './routes/buyingRoutes.js'
 import uploadRoutes from './routes/uploadRoutes.js'
-
 dotenv.config()
+
+import { UPLOADS_DIRECTORY } from './config/constants.js'
 
 connectDB()
 
 const app = express()
 
-if (process.env.NODE_ENV === 'development') { 
+if (process.env.NODE_ENV === 'development') {
   app.use(morgan('dev'))
 }
 
@@ -30,16 +31,14 @@ app.get('/', (req, res) => {
   res.send('API is running...')
 })
 
-//Routes 
+//Routes
 app.use('/api/users', userRoutes)
 app.use('/api/rentings', rentingRoutes)
 app.use('/api/commercials', commercialRoutes)
 app.use('/api/buyings', buyingRoutes)
 app.use('/api/upload', uploadRoutes)
 
-
-const __dirname = path.resolve()
-app.use('/uploads', express.static(path.join(__dirname, '/uploads')))
+app.use('/uploads', express.static(UPLOADS_DIRECTORY))
 
 app.use(notFound)
 app.use(errorHandler)
