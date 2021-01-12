@@ -1,5 +1,5 @@
 import axios from 'axios'
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { Form, FormGroup, Input, Label, Button, CustomInput } from 'reactstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import Message from '../../components/Message'
@@ -12,7 +12,11 @@ import {
 } from '../../constants/rentingConstants'
 
 const RentingEditScreen = ({ match, history }) => {
+  console.log('Render of RentingEditScreen')
+
   const rentingId = match.params.id
+
+  const [imagesFileInputKey, setImagesFileInputKey] = useState(0)
 
   const [name, setName] = useState('')
   const [title_en, setTitle_en] = useState('')
@@ -38,6 +42,8 @@ const RentingEditScreen = ({ match, history }) => {
   const [uploading, setUploading] = useState(false)
 
   const dispatch = useDispatch()
+
+  const userInfo = useSelector((state) => state.userLogin.userInfo)
 
   const rentingDetails = useSelector((state) => state.rentingDetails)
   const { loading, error, renting } = rentingDetails
@@ -67,10 +73,10 @@ const RentingEditScreen = ({ match, history }) => {
         setFittedKitchen(renting.fittedKitchen)
         setBalcony(renting.balcony)
         setCellar(renting.cellar)
-        setAddress(renting.address)
-        setPostalCode(renting.postalCode)
-        setCity(renting.city)
-        setCountry(renting.country)
+        setAddress(renting.location.address)
+        setPostalCode(renting.location.postalCode)
+        setCity(renting.location.city)
+        setCountry(renting.location.country)
         setAvailable(renting.available)
         setDescription_en(renting.description_en)
         setDescription_de(renting.description_de)
@@ -78,7 +84,11 @@ const RentingEditScreen = ({ match, history }) => {
         setFeature2_en(renting.feature2_en)
         setFeature1_de(renting.feature1_de)
         setFeature2_de(renting.feature2_de)
-        setImages(renting.images)
+
+        if (renting.images) {
+          console.log({ renting })
+          setImages(renting.images || [])
+        }
       }
     }
   }, [dispatch, history, rentingId, renting, successUpdate])
@@ -93,6 +103,7 @@ const RentingEditScreen = ({ match, history }) => {
       const config = {
         headers: {
           'Content-Type': 'multipart/form-data', //to upload files, very important
+          Authorization: `Bearer ${userInfo.token}`,
         },
       }
 
@@ -102,7 +113,7 @@ const RentingEditScreen = ({ match, history }) => {
         config
       )
 
-      setCoverPhoto(data)
+      setCoverPhoto(data.uri)
       setUploading(false)
     } catch (error) {
       console.error(error)
@@ -114,21 +125,28 @@ const RentingEditScreen = ({ match, history }) => {
     const files = e.target.files
     const formData = new FormData()
     for (let i = 0; i < files.length; i++) {
-      formData.append(`images[${i}]`, files[i])
+      formData.append('images', files[i])
     }
+
+    formData.append('rentingId', rentingId)
+
     setUploading(true)
 
     try {
       const config = {
         headers: {
-          'Content-Type': 'multipart/form-data', 
+          'Content-Type': 'multipart/form-data',
+          Authorization: `Bearer ${userInfo.token}`,
         },
       }
 
       const { data } = await axios.post('/api/upload/images', formData, config)
 
-      setImages(data)
       setUploading(false)
+      setImagesFileInputKey(imagesFileInputKey + 1)
+
+        setImages([...images, ...data.images])
+       
     } catch (error) {
       console.error(error)
       setUploading(false)
@@ -160,9 +178,12 @@ const RentingEditScreen = ({ match, history }) => {
         feature2_en,
         feature1_de,
         feature2_de,
+        images,
       })
     )
   }
+
+  console.log({ images })
 
   return (
     <>
@@ -222,12 +243,12 @@ const RentingEditScreen = ({ match, history }) => {
               <Label for='coverPhoto' className='title'>
                 Cover Photo
               </Label>
-              <Input
+              {/* <Input
                 id='coverPhoto'
                 type='text'
                 placeholder='Enter image url'
                 value={coverPhoto}
-                onChange={(e) => setCoverPhoto(e.target.value)}></Input>
+                onChange={(e) => setCoverPhoto(e.target.value)}></Input> */}
               <CustomInput
                 id='image-file'
                 type='file'
@@ -350,7 +371,7 @@ const RentingEditScreen = ({ match, history }) => {
                 value={description_de || ''}
                 onChange={(e) => setDescription_de(e.target.value)}></Input>
             </FormGroup>
-            <br/>
+            <br />
             <FormGroup check>
               <Label check>
                 <Input
@@ -407,30 +428,31 @@ const RentingEditScreen = ({ match, history }) => {
               <Label for='images' className='title'>
                 Photos
               </Label>
-              <Input
-                id='images'
-                type='text'
-                placeholder='Enter image url'
-                value={images}
-                onChange={(e) => setImages(e.target.value)}></Input>
+              <ul>
+                {images.map((path, i) => {
+                  return (
+                    <li key={i}>
+                      {path}{' '}
+                      <button
+                        onClick={(e) => {
+                          e.preventDefault()
+                          setImages(images.filter((image) => image !== path))
+                        }}>
+                        remove
+                      </button>
+                    </li>
+                  )
+                })}
+              </ul>
+              
               <CustomInput
                 id='image-file'
-                type='file'
-                onChange={uploadImagesHandler}></CustomInput>
-              {uploading && <Loader />}
-            </FormGroup>
-
-            {/* <FormGroup>
-              <Label for='images' className='images'>
-                Photos
-              </Label>
-              <CustomInput
-                id='images'
+                key={imagesFileInputKey}
                 type='file'
                 multiple
                 onChange={uploadImagesHandler}></CustomInput>
               {uploading && <Loader />}
-            </FormGroup> */}
+            </FormGroup>
 
             <Button type='submit' className='btn-round btn-white' color='info'>
               Update
