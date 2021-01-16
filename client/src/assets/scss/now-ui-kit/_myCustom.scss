@@ -1,0 +1,41 @@
+.admintitle {
+  text-align: center;
+  padding: 80px;
+}
+
+.dashboard-items {
+  display:flex;
+  flex-direction: column;
+}
+
+.images-carousel{
+  max-height: 550px;
+}
+.dashboard-button {
+  align-self: center;
+}
+
+.listing-details-section{
+  padding: 2rem;
+}
+
+.dashboard-titles {
+  align-self: center;
+}
+
+.listing-description {
+  // white-space: pre-wrap;
+  white-space: pre-line;
+}
+
+.listing-features{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 2rem;
+}
+
+.share{
+  padding-top: 70px;
+}

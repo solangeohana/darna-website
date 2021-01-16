@@ -1,9 +1,10 @@
 import axios from 'axios'
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Form, FormGroup, Input, Label, Button, CustomInput } from 'reactstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import Message from '../../components/Message'
 import Loader from '../../components/Loader'
+
 import FormContainer from '../../components/FormContainer'
 import { listRentingDetails, updateRenting } from '../../actions/rentingActions'
 import {

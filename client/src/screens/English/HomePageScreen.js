@@ -101,8 +101,11 @@ const LandingPage = () => {
         </div>
         <div className='section section-team text-center'>
           <Container>
-            <h2 className='title'>Our Team</h2>
-            <img src='/images/group-photo.jpeg' alt='Team' height='500px' />
+            <h3 className='title'>DARNA’S FAMILY</h3>
+          
+            <img className='image-container' src='/images/team-photo.jpeg' alt='Team' height='auto' />
+
+            <h5>Sharif, Alex, Vaclav, Patrick, Cathrin & Madonna</h5>
           </Container>
         </div>
         <div className='section section-contact-us text-center'>

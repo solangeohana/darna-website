@@ -1,28 +1,48 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { Card } from 'react-bootstrap'
+import {
+  Card,
+  CardImg,
+  CardBody,
+  CardTitle,
+  CardText,
+  CardSubtitle,
+  Container,
+} from 'reactstrap'
 
-
-const RentingObject = ({renting}) => {
-    return (
-        <Card className='my-3 p-3 rounded'>
-            <Link to={`/en/rent/${renting._id}`}>
-                <Card.Img src={renting.coverPhoto} variant='top' />
-            </Link>
-            <Card.Body>
-                <Link to={`/en/rent/${renting._id}`}>
-                    <Card.Title as='div'>
-                        <strong>{renting.name}</strong>
-                        <br/>
-                        {renting.title_en}
-                    </Card.Title>
-                </Link>
-            </Card.Body>
-            <Card.Text as='div'>
-                {renting.nbRooms} Rooms | {renting.sqm} sqm | {renting.location.address}, {renting.location.postalCode} {renting.location.city}
-            </Card.Text>
-        </Card>
-    )
+const RentingObject = ({ renting }) => {
+  return (
+    <Container>
+      <Card outline className='text-center'>
+        <Link to={`/en/rent/${renting._id}`}>
+          <CardImg src={renting.coverPhoto} variant='top' />
+        </Link>
+        <CardBody>
+          <Link to={`/en/rent/${renting._id}`}>
+            <CardTitle tag='h5'>{renting.name}</CardTitle>
+            <CardSubtitle className='mb-2'>{renting.title_en} </CardSubtitle>
+          </Link>
+          <CardText className='description'>
+            <i className='now-ui-icons location_pin'></i>{' '}
+            {renting.location.address}, {renting.location.postalCode}{' '}
+            {renting.location.city}
+          </CardText>
+          <CardText>
+            {renting.nbRooms} rooms | {renting.sqm} sqm
+          </CardText>
+          <CardText>
+            {renting.feature1_en} {renting.feature2_en}  
+          </CardText>
+          {renting.available ? (
+            <CardText className='text-muted'>Available</CardText>
+          ) : (
+            <CardText className='text-muted'>Recently Rented Out !</CardText>
+          )}
+        </CardBody>
+      </Card>
+    </Container>
+  )
 }
 
 export default RentingObject
+//format features

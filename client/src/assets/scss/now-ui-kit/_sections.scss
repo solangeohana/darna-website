@@ -113,8 +113,13 @@
     }
 }
 .section-navbar-logo{
-    margin-left: -105px;
+    // margin-left: -105px;
+    margin: 0;
+    font-size: 0;
+    max-width: 100%;
 }
+    
+
 .section-story-overview{
     padding: 50px 0;
 

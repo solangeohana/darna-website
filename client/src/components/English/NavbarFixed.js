@@ -1,113 +1,138 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React from 'react'
+import {  useSelector } from 'react-redux'
+import { Link } from 'react-router-dom'
+
 // reactstrap components
 import {
-    Collapse,
-    DropdownToggle,
-    DropdownMenu,
-    DropdownItem,
-    UncontrolledDropdown,
-    NavbarBrand,
-    Navbar,
-    NavItem,
-    NavLink,
-    Nav,
-    Container
-} from "reactstrap";
+  Collapse,
+  DropdownToggle,
+  DropdownMenu,
+  DropdownItem,
+  UncontrolledDropdown,
+  NavbarBrand,
+  Navbar,
+  NavItem,
+  NavLink,
+  Nav,
+  Container,
+} from 'reactstrap'
 
-function NavbarFixed() {
-    
-    return (
-        <>
-           
-            <Navbar className={"fixed-top "} color="info" expand="lg">
-                <Container>
-                    <div className="navbar-translate">
-                        <NavbarBrand className="section-navbar-logo" to="/en" tag={Link} id="navbar-brand" >
-                            <img src="/images/png-logo.png" alt="logo darna" height="90px"></img>
-                        </NavbarBrand>
-                        
-                    </div>
-                    <Collapse
-                        className="justify-content-end"
-                        navbar
-                    >
-                        <Nav navbar>
-                            <NavItem className="active">
-                                <NavLink
-                                    to="/de" tag={Link}
-                                >
-                                <i className="now-ui-icons objects_globe"></i>
-                                <p>De</p>
-                                </NavLink>
-                            </NavItem>
+const NavbarFixed = () => {
+  
+  const [collapseOpen, setCollapseOpen] = React.useState(false)
 
-                            <NavItem>
-                            <NavLink>
-                            <UncontrolledDropdown>
-                                <DropdownToggle
-                                    caret
-                                    data-toggle="dropdown"
-                                    href="/real-estate"
-                                    id="navbarDropdown"
-                                    tag="a"
-                                    onClick={(e) => e.preventDefault()}>
-                                     Real Estate
 
-                                </DropdownToggle>
-                                <DropdownMenu aria-labelledby="navbarDropdown">
-                                    <DropdownItem href="/en/rent">
-                                        RENT
-                                    </DropdownItem>
-                                    <DropdownItem href="/en/buy">
-                                        BUY
-                                    </DropdownItem>
-                                    <DropdownItem href="/en/sell">
-                                        SELL
-                                    </DropdownItem>
-                                    <DropdownItem divider></DropdownItem>
-                                    <DropdownItem href="en/fee-structure" >
-                                        Fee structure
-                                    </DropdownItem>
-                                    <DropdownItem divider></DropdownItem>
-                                    <DropdownItem href="/relocation-tips" onClick={(e) => e.preventDefault()}>
-                                        Relocation Tips
-                                    </DropdownItem>
-                                    </DropdownMenu>
-                            </UncontrolledDropdown>
-                            </NavLink>
-                            </NavItem>
+  const userLogin = useSelector((state) => state.userLogin)
+  const { userInfo } = userLogin
 
-                            <NavItem>
-                                <NavLink href="/explore">
-                                    House Managements & Landlords
-                            </NavLink>
-                            </NavItem>
+  return (
+    <>
+      {collapseOpen ? (
+        <div
+          id='bodyClick'
+          onClick={() => {
+            document.documentElement.classList.toggle('nav-open')
+            setCollapseOpen(false)
+          }}
+        />
+      ) : null}
+      <Navbar className='fixed-top ' color='info' expand='lg'>
+        <Container>
+          <div className='navbar-translate'>
+            <NavbarBrand
+              className='section-navbar-logo'
+              to='/en'
+              tag={Link}
+              id='navbar-brand'>
+              <img
+                src='/images/navbar-logo-black.png'
+                alt='logo darna'
+                height='60px'></img>
+            </NavbarBrand>
+            <button
+              className='navbar-toggler navbar-toggler'
+              onClick={() => {
+                document.documentElement.classList.toggle('nav-open')
+                setCollapseOpen(!collapseOpen)
+              }}
+              aria-expanded={collapseOpen}
+              type='button'>
+              <span className='navbar-toggler-bar top-bar'></span>
+              <span className='navbar-toggler-bar middle-bar'></span>
+              <span className='navbar-toggler-bar bottom-bar'></span>
+            </button>
+          </div>
+          <Collapse
+            className='justify-content-end'
+            isOpen={collapseOpen}
+            navbar>
+            <Nav navbar>
+              {userInfo && userInfo.isAdmin && (
+                <NavItem>
+                  <NavLink to='/admin/dashboard' tag={Link}>
+                    <i className='fas fa-key'></i>{' '}
+                  </NavLink>
+                </NavItem>
+              )}
+              <NavItem className='active'>
+                <NavLink to='/de' tag={Link}>
+                  <i className='now-ui-icons objects_globe'></i>
+                  <p>De</p>
+                </NavLink>
+              </NavItem>
 
-                            <NavItem>
-                                <NavLink href="/tips">
-                                    Relocation Tips
-                            </NavLink>
-                            </NavItem>
+              <NavItem className='nav-link'>
+                <UncontrolledDropdown>
+                  <DropdownToggle
+                    caret
+                    data-toggle='dropdown'
+                    id='navbarDropdown'
+                    tag='a'
+                    onClick={(e) => e.preventDefault()}>
+                    Real Estate
+                  </DropdownToggle>
+                  <DropdownMenu aria-labelledby='navbarDropdown'>
+                    <DropdownItem href='/en/rent'>RENT</DropdownItem>
+                    <DropdownItem href='/en/buy'>BUY</DropdownItem>
+                    <DropdownItem href='/en/sell'>SELL</DropdownItem>
+                    <DropdownItem href='/en/commercial'>
+                      COMMERCIAL
+                    </DropdownItem>
+                    <DropdownItem divider></DropdownItem>
+                    <DropdownItem href='/en/fee-structure'>
+                      Fee structure
+                    </DropdownItem>
+                    <DropdownItem divider></DropdownItem>
+                    <DropdownItem
+                      href='/relocation-tips'
+                      onClick={(e) => e.preventDefault()}>
+                      Relocation Tips
+                    </DropdownItem>
+                  </DropdownMenu>
+                </UncontrolledDropdown>
+              </NavItem>
 
-                            <NavItem>
-                                <NavLink href="/about">
-                                    About Us
-                            </NavLink>
-                            </NavItem>
+              <NavItem>
+                <NavLink href='/explore'>House Managements & Landlords</NavLink>
+              </NavItem>
 
-                            <NavItem>
-                                <NavLink href="/contact">
-                                    Contact
-                            </NavLink>
-                            </NavItem>
+              <NavItem>
+                <NavLink href='/tips'>Relocation Tips</NavLink>
+              </NavItem>
 
-                        </Nav>
-                    </Collapse>
-                </Container>
-            </Navbar>
-        </>
-    );
+              <NavItem>
+                <NavLink href='/about'>About Us</NavLink>
+              </NavItem>
+
+              <NavItem>
+                <NavLink href='/contact'>Contact</NavLink>
+              </NavItem>
+            </Nav>
+          </Collapse>
+        </Container>
+      </Navbar>
+    </>
+  )
 }
 
-export default NavbarFixed;
+export default NavbarFixed

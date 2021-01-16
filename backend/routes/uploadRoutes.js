@@ -28,6 +28,14 @@ const storage = multer.diskStorage({
   },
 })
 
+// const storage = new CloudinaryStorage({
+//   cloudinary: cloudinary,
+//   params: {
+//       folder: 'images',
+//       public_id: (req, file) => file.originalname
+//   }
+// });
+
 function checkFileType(file, cb) {
   const filetypes = /jpg|jpeg|png/
   const extname = filetypes.test(

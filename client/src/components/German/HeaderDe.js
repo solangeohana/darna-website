@@ -1,57 +1,81 @@
-import React from "react";
+import React from 'react'
 
 // reactstrap components
-import { Button, Container } from "reactstrap";
-
+import { Button, Container } from 'reactstrap'
 
 // core components
 
 function HeaderDe() {
-  let pageHeader = React.createRef();
+  let pageHeader = React.createRef()
 
   React.useEffect(() => {
     if (window.innerWidth > 991) {
       const updateScroll = () => {
-        let windowScrollTop = window.pageYOffset / 3;
+        let windowScrollTop = window.pageYOffset / 3
         pageHeader.current.style.transform =
-          "translate3d(0," + windowScrollTop + "px,0)";
-      };
-      window.addEventListener("scroll", updateScroll);
+          'translate3d(0,' + windowScrollTop + 'px,0)'
+      }
+      window.addEventListener('scroll', updateScroll)
       return function cleanup() {
-        window.removeEventListener("scroll", updateScroll);
-      };
+        window.removeEventListener('scroll', updateScroll)
+      }
     }
-  });
+  })
   return (
     <>
-      <div className="page-header page-header-small">
+      <div className='page-header page-header-small'>
         <div
-          className="page-header-image"
+          className='page-header-image'
           style={{
-            backgroundImage: "url(" + require("assets/img/darna-12.png") + ")",
+            backgroundImage: 'url(' + require('assets/img/bg-home.jpeg') + ')',
           }}
-          ref={pageHeader}
-        ></div>
-        <div className="content-center">
+          ref={pageHeader}></div>
+        <div className='content-center'>
           <Container>
-            <h1 className="title">QUEERE IMMOBILIENAGENTUR</h1>
-            <div className="text-center">
-            <a href="/de/kaufen">
-              <Button className="btn-round" color="info" type="button" size="lg">
-                KAUFEN
-              </Button>
-            </a>
-            <Button className="btn-round" color="info" type="button" size="lg">
-                VERKAUFEN
-            </Button><Button className="btn-round" color="info" type="button" size="lg">
-                MIETEN
-            </Button>
+            <h2 className='title'>QUEERE IMMOBILIENAGENTUR</h2>
+            <div className='text-center'>
+              <a href='/de/kaufen'>
+                <Button
+                  className='btn-round'
+                  color='info'
+                  type='button'
+                  size='lg'>
+                  KAUFEN
+                </Button>
+              </a>
+              <a href='/de/verkaufen'>
+                <Button
+                  className='btn-round'
+                  color='info'
+                  type='button'
+                  size='lg'>
+                  VERKAUFEN
+                </Button>
+              </a>
+              <a href='/de/mieten'>
+                <Button
+                  className='btn-round'
+                  color='info'
+                  type='button'
+                  size='lg'>
+                  MIETEN
+                </Button>
+              </a>
+              <a href='/de/gewerbe'>
+                <Button
+                  className='btn-round'
+                  color='info'
+                  type='button'
+                  size='lg'>
+                  GEWERBE
+                </Button>
+              </a>
             </div>
           </Container>
         </div>
       </div>
     </>
-  );
+  )
 }
 
-export default HeaderDe;
+export default HeaderDe
