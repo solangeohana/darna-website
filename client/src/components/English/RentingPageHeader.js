@@ -13,18 +13,21 @@ function RentingPageHeader() {
       const updateScroll = () => {
         let windowScrollTop = window.pageYOffset / 3;
         pageHeader.current.style.transform =
-          "translate3d(0," + windowScrollTop + "px,0)";
+          ("translate3d(0," + windowScrollTop + "px,0)");
       };
       window.addEventListener("scroll", updateScroll);
       return function cleanup() {
         window.removeEventListener("scroll", updateScroll);
       };
     }
+    else{
+      return
+    }
   });
   return (
     <>
       <div
-        className="page-header clear-filter page-header-small"
+        className="page-header page-header-small"
       >
         <div
           className="page-header-image"
@@ -33,9 +36,11 @@ function RentingPageHeader() {
           }}
           ref={pageHeader}
         ></div>
+        <div className="content-center">
         <Container>
           <h2 className="title">RENT</h2>
         </Container>
+        </div>
       </div>
     </>
   );

@@ -28,13 +28,13 @@ function LandingPageHeader() {
         <div
           className="page-header-image"
           style={{
-            backgroundImage: "url(" + require("assets/img/darna-12.png") + ")",
+            backgroundImage: "url(" + require("assets/img/bg-home.jpeg") + ")",
           }}
           ref={pageHeader}
         ></div>
         <div className="content-center">
           <Container>
-            <h1 className="title">QUEER REAL ESTATE</h1>
+            <h4 className="title">THE QUEER REAL ESTATE AGENCY</h4>
             <div className="text-center">
             <a href="en/buy">
               <Button className="btn-round" color="info" type="button" size="lg">

@@ -1,5 +1,7 @@
 import React from 'react'
+import {  useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
+
 // reactstrap components
 import {
   Collapse,
@@ -15,9 +17,14 @@ import {
   Container,
 } from 'reactstrap'
 
-function MyNavbar() {
+const MyNavbar = () => {
   const [navbarColor, setNavbarColor] = React.useState('navbar-transparent')
   const [collapseOpen, setCollapseOpen] = React.useState(false)
+
+
+  const userLogin = useSelector((state) => state.userLogin)
+  const { userInfo } = userLogin
+
   React.useEffect(() => {
     const updateNavbarColor = () => {
       if (
@@ -37,6 +44,7 @@ function MyNavbar() {
       window.removeEventListener('scroll', updateNavbarColor)
     }
   })
+
   return (
     <>
       {collapseOpen ? (
@@ -59,7 +67,7 @@ function MyNavbar() {
               <img
                 src='/images/navbar-logo-black.png'
                 alt='logo darna'
-                height='90px'></img>
+                height='60px'></img>
             </NavbarBrand>
             <button
               className='navbar-toggler navbar-toggler'
@@ -79,6 +87,14 @@ function MyNavbar() {
             isOpen={collapseOpen}
             navbar>
             <Nav navbar>
+              {userInfo && userInfo.isAdmin && (
+                <NavItem>
+                  <NavLink to='/admin/dashboard' tag={Link}>
+                    {/* <i className='now-ui-icons users_single-02'></i> */}
+                    <i className='fas fa-key'></i>{' '}
+                  </NavLink>
+                </NavItem>
+              )}
               <NavItem className='active'>
                 <NavLink to='/de' tag={Link}>
                   <i className='now-ui-icons objects_globe'></i>
@@ -100,9 +116,11 @@ function MyNavbar() {
                     <DropdownItem href='/en/rent'>RENT</DropdownItem>
                     <DropdownItem href='/en/buy'>BUY</DropdownItem>
                     <DropdownItem href='/en/sell'>SELL</DropdownItem>
-                    <DropdownItem href='/en/commercial'>COMMERCIAL</DropdownItem>
+                    <DropdownItem href='/en/commercial'>
+                      COMMERCIAL
+                    </DropdownItem>
                     <DropdownItem divider></DropdownItem>
-                    <DropdownItem href='en/fee-structure'>
+                    <DropdownItem href='/en/fee-structure'>
                       Fee structure
                     </DropdownItem>
                     <DropdownItem divider></DropdownItem>

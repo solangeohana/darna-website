@@ -90,7 +90,7 @@ function LandingPageDe() {
         <div className="section section-team text-center">
           <Container>
             <h2 className="title">Unsere Team</h2>
-            <img src="/images/group-photo.jpeg" alt='Team' height="500px"/>
+            <img src="/images/team-photo.jpeg" alt='Team' height="500px"/>
 
           </Container>
         </div>
