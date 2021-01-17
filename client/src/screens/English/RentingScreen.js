@@ -6,13 +6,13 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Row, Col, Button, Container } from 'reactstrap'
 
 // core components
-import MyNavbar from '../../components/English/MyNavbar'
-import MyFooter from '../../components/English/MyFooter'
-import RentingPageHeader from '../../components/English/RentingPageHeader'
-import RentingObject from '../../components/English/RentingObject'
-import Message from '../../components/Message'
-import Loader from '../../components/Loader'
-import { listRentings } from '../../actions/rentingActions'
+import MyNavbar from 'components/English/MyNavbar'
+import MyFooter from 'components/English/MyFooter'
+import RentingPageHeader from 'components/English/RentingPageHeader'
+import RentingObject from 'components/English/RentingObject'
+import Message from 'components/Message'
+import Loader from 'components/Loader'
+import { listRentings } from 'actions/rentingActions'
 
 const RentingPage = () => {
   const dispatch = useDispatch()
@@ -38,8 +38,7 @@ const RentingPage = () => {
       <MyNavbar />
       <div className='wrapper'>
         <RentingPageHeader />
-        <div className='section'>
-          <Container>
+          <Container className='section'>
             <div className='button-container'>
               <a href='/en/contact'>
                 <Button
@@ -72,7 +71,7 @@ const RentingPage = () => {
               a new home.
             </p>
           </Container>
-        </div>
+        
         <div>
           <h3 className='title'>Latest Listings</h3>
           {loading ? (

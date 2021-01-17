@@ -17,9 +17,11 @@ import HomePageScreen from './screens/English/HomePageScreen'
 import BuyingScreen from './screens/English/BuyingScreen'
 import RentingDetailsScreen from './screens/English/RentingDetailsScreen'
 import RentingScreen from './screens/English/RentingScreen'
-
 import SellingScreen from './screens/English/SellingScreen'
 import FeeStructureScreen from './screens/English/FeeStructureScreen'
+import AboutUsScreen from './screens/English/AboutUsScreen'
+
+
 //German screens :
 import HomePageScreenDE from './screens/German/HomePageScreenDE'
 import BuyingScreenDE from './screens/German/BuyingScreenDE'
@@ -61,6 +63,11 @@ class App extends Component {
             exact
             path='/en/fee-structure'
             render={(props) => <FeeStructureScreen {...props} />}
+          />
+          <Route
+            exact
+            path='/en/about'
+            render={(props) => <AboutUsScreen {...props} />}
           />
           <Route
             exact

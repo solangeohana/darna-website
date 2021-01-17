@@ -134,19 +134,19 @@ const MyNavbar = () => {
               </NavItem>
 
               <NavItem>
-                <NavLink href='/explore'>House Managements & Landlords</NavLink>
+                <NavLink href='/en/house-management'>House Managements & Landlords</NavLink>
               </NavItem>
 
               <NavItem>
-                <NavLink href='/tips'>Relocation Tips</NavLink>
+                <NavLink href='/en/tips'>Relocation Tips</NavLink>
               </NavItem>
 
               <NavItem>
-                <NavLink href='/about'>About Us</NavLink>
+                <NavLink href='/en/about'>About Us</NavLink>
               </NavItem>
 
               <NavItem>
-                <NavLink href='/contact'>Contact</NavLink>
+                <NavLink href='/en/contact'>Contact</NavLink>
               </NavItem>
             </Nav>
           </Collapse>
