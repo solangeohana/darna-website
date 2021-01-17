@@ -1,9 +1,8 @@
-import React, { useEffect }from 'react'
+import React, { useEffect } from 'react'
 import { Container, Row, Col, Button } from 'reactstrap'
-import NavbarAdmin from '../../components/NavbarAdmin'
-
+import NavbarAdmin from 'components/NavbarAdmin'
+import MyFooter from 'components/English/MyFooter'
 const DashboardScreen = () => {
-
   useEffect(() => {
     document.body.classList.add('sidebar-collapse')
     document.documentElement.classList.remove('nav-open')
@@ -82,6 +81,7 @@ const DashboardScreen = () => {
           </Row>
         </Container>
       </div>
+      <MyFooter />
     </>
   )
 }

@@ -11,11 +11,12 @@ import {
   WhatsappShareButton,
   WhatsappIcon,
 } from 'react-share'
-import Loader from '../../components/Loader'
-import Message from '../../components/Message'
-import { listRentingDetails } from '../../actions/rentingActions'
-import ImagesCarousel from '../../components/ImagesCarousel'
-import NavbarFixed from '../../components/English/NavbarFixed'
+import Loader from 'components/Loader'
+import Message from 'components/Message'
+import { listRentingDetails } from 'actions/rentingActions'
+import ImagesCarousel from 'components/ImagesCarousel'
+import NavbarFixed from 'components/English/NavbarFixed'
+import MyFooter from 'components/English/MyFooter'
 
 const RentingDetailsScreen = ({ match }) => {
   const dispatch = useDispatch()
@@ -147,6 +148,7 @@ const RentingDetailsScreen = ({ match }) => {
           </EmailShareButton>
         </Container>
       </div>
+      <MyFooter/>
     </>
   )
 }
