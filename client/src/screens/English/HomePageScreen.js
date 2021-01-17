@@ -3,10 +3,6 @@ import React from 'react'
 // reactstrap components
 import {
   Button,
-  Input,
-  InputGroupAddon,
-  InputGroupText,
-  InputGroup,
   Container,
   Row,
   Col,
@@ -18,7 +14,6 @@ import MyHeader from '../../components/English/MyHeader'
 import MyFooter from '../../components/English/MyFooter'
 
 const LandingPage = () => {
-  const [lastFocus, setLastFocus] = React.useState(false)
   React.useEffect(() => {
     document.body.classList.add('landing-page')
     document.body.classList.add('sidebar-collapse')
@@ -36,115 +31,72 @@ const LandingPage = () => {
       <div className='wrapper'>
         <MyHeader />
         <div className='section section-about-us'>
-          <Container>
-            <Row>
-              <Col className='ml-auto mr-auto text-center' md='8'>
-                <h2 className='title'>Who we are?</h2>
-                <p className='content'>
-                  We are a community-driven LGBTQ+ focused organization that 
-                  takes all possible paths to empower our queer community!
-                  <br />
-                  Empowerment at DARNA has various faces. Whether it is
-                  supporting you with a safe home, where you can feel secure in
-                  being fully yourself, or providing you with a safe and loving
-                  workspace, where you are able to meet, connect and collaborate
-                  with many other talented queers and allies - we will find the
-                  perfect way to help you embrace yourself and grow the gem in
-                  you.
-                </p>
-              </Col>
-            </Row>
-            <div className='separator separator-primary'></div>
-            <div className='section-story-overview'>
-              <Row>
-                <Col md='6'>
-                  <div
-                    className='image-container image-left'
-                    style={{
-                      backgroundImage:
-                        'url(' + require('assets/img/landing-1.jpg') + ')',
-                    }}></div>
-                  <div
-                    className='image-container'
-                    style={{
-                      backgroundImage:
-                        'url(' + require('assets/img/darna-22.jpg') + ')',
-                    }}></div>
-                </Col>
-                <Col md='5'>
-                  <div
-                    className='image-container image-right'
-                    style={{
-                      backgroundImage:
-                        'url(' + require('assets/img/landing-2.jpg') + ')',
-                    }}></div>
-                  <br />
-                  <br />
-                  <h3>Our Mission</h3>
-                  <p className='content'>
-                    Established in 2019, DARNA started as the first Queer Real
-                    Estate Agency in Germany with emphasis on providing the
-                    queer community with safe accommodations and secure
-                    workspaces where no one would discriminate against you for
-                    being you.
-                  </p>
-                  <p>
-                    Today, DARNA has grown up and became The Professional Queer
-                    Hub of Germany. DARNA’s mission has expanded to nurture new
-                    start-ups and businesses, and help them develop personally
-                    and professionally under one safe and loving space.
-                  </p>
-                </Col>
-              </Row>
-            </div>
-          </Container>
-        </div>
-        <div className='section section-team text-center'>
-          <Container>
-            <h3 className='title'>DARNA’S FAMILY</h3>
-          
-            <img className='image-container' src='/images/team-photo.jpeg' alt='Team' height='auto' />
+          <Row>
+            <Col className='ml-auto mr-auto text-center' md='8'>
+              <Container>
+                <h3>DARNA’S FAMILY</h3>
+                <img
+                  className='image-container'
+                  src='/images/team-photo.jpeg'
+                  alt='Team'
+                  height='auto'
+                />
+                <h5>Sharif, Alex, Vaclav, Patrick, Cathrin & Madonna</h5>
+              </Container>
+            </Col>
+          </Row>
 
-            <h5>Sharif, Alex, Vaclav, Patrick, Cathrin & Madonna</h5>
-          </Container>
-        </div>
-        <div className='section section-contact-us text-center'>
-          <Container>
-            <h2 className='title'>Subscribe</h2>
-            <p className='content'>
-              Sign up with your email address to receive news and updates
-            </p>
-            <Row>
-              <Col className='text-center ml-auto mr-auto' lg='6' md='8'>
-                <InputGroup
-                  className={
-                    'input-lg' + (lastFocus ? ' input-group-focus' : '')
-                  }>
-                  <InputGroupAddon addonType='prepend'>
-                    <InputGroupText>
-                      <i className='now-ui-icons ui-1_email-85'></i>
-                    </InputGroupText>
-                  </InputGroupAddon>
-                  <Input
-                    placeholder='Email...'
-                    type='text'
-                    onFocus={() => setLastFocus(true)}
-                    onBlur={() => setLastFocus(false)}></Input>
-                </InputGroup>
-                <div className='send-button'>
+          <Row>
+            <Col className='ml-auto mr-auto text-center' md='8'>
+              <Container>
+                <br /> <br />
+                <br />
+                <h3>DARNA - THE QUEER REAL ESTATE AGENCY</h3>
+                <p className='content'>
+                  DARNA is about more than just finding you the perfect
+                  property, it’s about finding you a home.
+                  <br />
+                  Established in Germany in 2019, DARNA Immobilien is the first
+                  of its kind - a queer real estate agency that specializes in
+                  selling and renting out commercial and residential properties
+                  in Germany and within the EU.
+                  <br />
+                  We connect queer property-seekers with empathetic and
+                  understanding landlords. With DARNA you don’t have to worry
+                  about finding acceptance as gay, bisexual, transgender or
+                  however you identify yourself; anyone who works together with
+                  DARNA joins the zero tolerance attitude towards all kind of
+                  discrimination, especially discrimination at home.
+                  <br />
+                  Sensing a lack of connection within society, DARNA seeks to
+                  create dynamic communities of queer buyers, renters, and
+                  sellers. In a world in which same-sex marriage is being
+                  legalized at an ever increasing rate, we saw a need and
+                  opportunity to create spaces where queer and like-minded
+                  individuals could come together safely, without judgement, and
+                  find a home.
+                  <br />
+                  Although DARNA’s mission is centered around serving the queer
+                  community, we are also 100% hetero-friendly, and welcoming to
+                  people of all backgrounds and sexual orientations.
+                </p>
+              </Container>
+            </Col>
+          </Row>
+          <Row>
+            <Col className='ml-auto mr-auto text-center' md={2.5}>
+            <div className='send-button'>
                   <Button
                     block
                     className='btn-round'
                     color='info'
-                    href='#pablo'
-                    onClick={(e) => e.preventDefault()}
+                    href='/en/contact'
                     size='lg'>
-                    Send
+                    Get In Touch With Us !
                   </Button>
                 </div>
-              </Col>
-            </Row>
-          </Container>
+            </Col>
+          </Row>
         </div>
         <MyFooter />
       </div>
