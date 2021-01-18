@@ -19,6 +19,22 @@ import {
   rentingUpdateReducer,
 } from './reducers/rentingReducers'
 
+import {
+  buyingListReducer,
+  buyingDetailsReducer,
+  buyingDeleteReducer,
+  buyingCreateReducer,
+  buyingUpdateReducer,
+} from './reducers/buyingReducers'
+
+import {
+  commercialListReducer,
+  commercialDetailsReducer,
+  commercialDeleteReducer,
+  commercialCreateReducer,
+  commercialUpdateReducer,
+} from './reducers/commercialReducers'
+
 const reducer = combineReducers({
   userLogin: userLoginReducer,
   userRegister: userRegisterReducer,
@@ -31,6 +47,16 @@ const reducer = combineReducers({
   rentingDelete: rentingDeleteReducer,
   rentingCreate: rentingCreateReducer,
   rentingUpdate: rentingUpdateReducer,
+  buyingList: buyingListReducer,
+  buyingDetails: buyingDetailsReducer,
+  buyingDelete: buyingDeleteReducer,
+  buyingCreate: buyingCreateReducer,
+  buyingUpdate: buyingUpdateReducer,
+  commercialList: commercialListReducer,
+  commercialDetails: commercialDetailsReducer,
+  commercialDelete: commercialDeleteReducer,
+  commercialCreate: commercialCreateReducer,
+  commercialUpdate: commercialUpdateReducer,
 })
 
 const userInfoFromStorage = localStorage.getItem('userInfo')

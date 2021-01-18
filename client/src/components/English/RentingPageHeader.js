@@ -20,9 +20,7 @@ function RentingPageHeader() {
         window.removeEventListener("scroll", updateScroll);
       };
     }
-    else{
-      return
-    }
+    
   });
   return (
     <>

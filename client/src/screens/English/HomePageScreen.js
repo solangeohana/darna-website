@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
 // reactstrap components
 import { Button } from 'reactstrap'
@@ -9,7 +9,7 @@ import MyHeader from 'components/English/MyHeader'
 import MyFooter from 'components/English/MyFooter'
 
 const LandingPage = () => {
-  React.useEffect(() => {
+  useEffect(() => {
     document.body.classList.add('landing-page')
     document.body.classList.add('sidebar-collapse')
     document.documentElement.classList.remove('nav-open')

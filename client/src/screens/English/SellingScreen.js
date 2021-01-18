@@ -41,7 +41,8 @@ const SellingPage = () => {
                 </Button>
               </a>
             </div>
-            <h3 className='title'>Selling your property</h3>
+            <br/> <br/>
+            <h3 className='text-center'>SELLING YOUR PROPERTY</h3>
 
             <div className='separator separator-primary'></div>
             <div className='section-story-overview'>
@@ -77,7 +78,7 @@ const SellingPage = () => {
           </Container>
           <div className='section section-team text-center'>
             <Container>
-              <h4 className='title'>The 6 steps of selling your property :</h4>
+              <h4>THE 6 STEPS OF SELLING YOUR PROPERTY</h4>
               <div className='team'>
                 <Row>
                   <Col md='4'>

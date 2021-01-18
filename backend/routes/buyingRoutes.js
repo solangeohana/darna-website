@@ -1,5 +1,4 @@
 import express from 'express'
-const router = express.Router()
 import {
   getBuyings,
   getBuyingById,
@@ -10,13 +9,17 @@ import {
 
 import { protect, admin } from '../middleware/authMiddleware.js'
 
-router.route('/').get(getBuyings).post(protect, admin, createBuying)
+const router = express.Router()
 
-router
-  .route('/:id')
-  .get(getBuyingById)
-  .delete(protect, admin, deleteBuying)
-  .put(protect, admin, updateBuying)
+// public routes:
+router.get('/', getBuyings)
+router.get('/:id', getBuyingById)
+
+// protected routes:
+router.use(protect, admin)
+router.post('/', createBuying)
+router.delete('/:id', deleteBuying)
+router.put('/:id', updateBuying)
 
 export default router
 

@@ -6,16 +6,14 @@ import Message from 'components/Message'
 import Loader from 'components/Loader'
 
 import FormContainer from 'components/FormContainer'
-import { listRentingDetails, updateRenting } from 'actions/rentingActions'
+import { listCommercialDetails, updateCommercial } from 'actions/commercialActions'
 import {
-  RENTING_UPDATE_RESET,
-  RENTING_DETAILS_RESET,
-} from 'constants/rentingConstants'
+  COMMERCIAL_UPDATE_RESET,
+  COMMERCIAL_DETAILS_RESET,
+} from 'constants/commercialConstants'
 
-const RentingEditScreen = ({ match, history }) => {
-  console.log('Render of BuyingEditScreen')
-
-  const rentingId = match.params.id
+const CommercialEditScreen = ({ match, history }) => {
+  const commercialId = match.params.id
 
   const [imagesFileInputKey, setImagesFileInputKey] = useState(0)
 
@@ -25,9 +23,6 @@ const RentingEditScreen = ({ match, history }) => {
   const [coverPhoto, setCoverPhoto] = useState('')
   const [nbRooms, setNbRooms] = useState(0)
   const [sqm, setSqm] = useState(0)
-  const [fittedKitchen, setFittedKitchen] = useState(false)
-  const [balcony, setBalcony] = useState(false)
-  const [cellar, setCellar] = useState(false)
   const [address, setAddress] = useState('')
   const [postalCode, setPostalCode] = useState(0)
   const [city, setCity] = useState('')
@@ -37,8 +32,17 @@ const RentingEditScreen = ({ match, history }) => {
   const [description_de, setDescription_de] = useState('')
   const [feature1_en, setFeature1_en] = useState('')
   const [feature2_en, setFeature2_en] = useState('')
+  const [feature3_en, setFeature3_en] = useState('')
+  const [feature4_en, setFeature4_en] = useState('')
+  const [feature5_en, setFeature5_en] = useState('')
+  const [feature6_en, setFeature6_en] = useState('')
   const [feature1_de, setFeature1_de] = useState('')
   const [feature2_de, setFeature2_de] = useState('')
+  const [feature3_de, setFeature3_de] = useState('')
+  const [feature4_de, setFeature4_de] = useState('')
+  const [feature5_de, setFeature5_de] = useState('')
+  const [feature6_de, setFeature6_de] = useState('')
+
   const [images, setImages] = useState([])
   const [uploading, setUploading] = useState(false)
 
@@ -46,53 +50,58 @@ const RentingEditScreen = ({ match, history }) => {
 
   const userInfo = useSelector((state) => state.userLogin.userInfo)
 
-  const rentingDetails = useSelector((state) => state.rentingDetails)
-  const { loading, error, renting } = rentingDetails
+  const commercialDetails = useSelector((state) => state.commercialDetails)
+  const { loading, error, commercial } = commercialDetails
 
-  const rentingUpdate = useSelector((state) => state.rentingUpdate)
+  const commercialUpdate = useSelector((state) => state.commercialUpdate)
   const {
     loading: loadingUpdate,
     error: errorUpdate,
     success: successUpdate,
-  } = rentingUpdate
+  } = commercialUpdate
 
   useEffect(() => {
     if (successUpdate) {
-      dispatch({ type: RENTING_UPDATE_RESET })
-      dispatch({ type: RENTING_DETAILS_RESET })
-      history.push('/en/admin/rent')
+      dispatch({ type: COMMERCIAL_UPDATE_RESET })
+      dispatch({ type: COMMERCIAL_DETAILS_RESET })
+      history.push('/en/admin/commercial')
     } else {
-      if (!renting.name || renting._id !== rentingId) {
-        dispatch(listRentingDetails(rentingId))
+      if (!commercial.name || commercial._id !== commercialId) {
+        dispatch(listCommercialDetails(commercialId))
       } else {
-        setName(renting.name)
-        setTitle_en(renting.title_en)
-        setTitle_de(renting.title_de)
-        setCoverPhoto(renting.coverPhoto)
-        setNbRooms(renting.nbRooms)
-        setSqm(renting.sqm)
-        setFittedKitchen(renting.fittedKitchen)
-        setBalcony(renting.balcony)
-        setCellar(renting.cellar)
-        setAddress(renting.location.address)
-        setPostalCode(renting.location.postalCode)
-        setCity(renting.location.city)
-        setCountry(renting.location.country)
-        setAvailable(renting.available)
-        setDescription_en(renting.description_en)
-        setDescription_de(renting.description_de)
-        setFeature1_en(renting.feature1_en)
-        setFeature2_en(renting.feature2_en)
-        setFeature1_de(renting.feature1_de)
-        setFeature2_de(renting.feature2_de)
+        setName(commercial.name)
+        setTitle_en(commercial.title_en)
+        setTitle_de(commercial.title_de)
+        setCoverPhoto(commercial.coverPhoto)
+        setNbRooms(commercial.nbRooms)
+        setSqm(commercial.sqm)
+        setAddress(commercial.location.address)
+        setPostalCode(commercial.location.postalCode)
+        setCity(commercial.location.city)
+        setCountry(commercial.location.country)
+        setAvailable(commercial.available)
+        setDescription_en(commercial.description_en)
+        setDescription_de(commercial.description_de)
+        setFeature1_en(commercial.feature1_en)
+        setFeature2_en(commercial.feature2_en)
+        setFeature3_en(commercial.feature3_en)
+        setFeature4_en(commercial.feature4_en)
+        setFeature5_en(commercial.feature5_en)
+        setFeature6_en(commercial.feature6_en)
+        setFeature1_de(commercial.feature1_de)
+        setFeature2_de(commercial.feature2_de)
+        setFeature3_de(commercial.feature3_de)
+        setFeature4_de(commercial.feature4_de)
+        setFeature5_de(commercial.feature5_de)
+        setFeature6_de(commercial.feature6_de)
 
-        if (renting.images) {
-          console.log({ renting })
-          setImages(renting.images || [])
+        if (commercial.images) {
+          console.log({ commercial })
+          setImages(commercial.images || [])
         }
       }
     }
-  }, [dispatch, history, rentingId, renting, successUpdate])
+  }, [dispatch, history, commercialId, commercial, successUpdate])
 
   const uploadCoverPhotoHandler = async (e) => {
     const file = e.target.files[0]
@@ -129,7 +138,7 @@ const RentingEditScreen = ({ match, history }) => {
       formData.append('images', files[i])
     }
 
-    formData.append('rentingId', rentingId)
+    formData.append('commercialId', commercialId)
 
     setUploading(true)
 
@@ -142,7 +151,7 @@ const RentingEditScreen = ({ match, history }) => {
       }
 
       const { data } = await axios.post(
-        '/api/upload/rent-images',
+        '/api/upload/commercial-images',
         formData,
         config
       )
@@ -160,17 +169,14 @@ const RentingEditScreen = ({ match, history }) => {
   const submitHandler = (e) => {
     e.preventDefault()
     dispatch(
-      updateRenting({
-        _id: rentingId,
+      updateCommercial({
+        _id: commercialId,
         name,
         title_en,
         title_de,
         coverPhoto,
-        nbRooms,
         sqm,
-        fittedKitchen,
-        balcony,
-        cellar,
+        nbRooms,
         address,
         postalCode,
         city,
@@ -180,8 +186,16 @@ const RentingEditScreen = ({ match, history }) => {
         description_de,
         feature1_en,
         feature2_en,
+        feature3_en,
+        feature4_en,
+        feature5_en,
+        feature6_en,
         feature1_de,
         feature2_de,
+        feature3_de,
+        feature4_de,
+        feature5_de,
+        feature6_de,
         images,
       })
     )
@@ -191,7 +205,7 @@ const RentingEditScreen = ({ match, history }) => {
 
   return (
     <>
-      <a href='/en/admin/rent'>
+      <a href='/en/admin/commercial'>
         <Button
           className='btn-round btn-white'
           color='info'
@@ -314,42 +328,120 @@ const RentingEditScreen = ({ match, history }) => {
                 onChange={(e) => setSqm(e.target.value)}></Input>
             </FormGroup>
             <br />
-            <FormGroup check>
-              <Label check>
-                <Input
-                  id='fittedKitchen'
-                  type='checkbox'
-                  checked={fittedKitchen}
-                  onChange={(e) => setFittedKitchen(e.target.checked)}></Input>
-                <span className='form-check-sign'></span>
-                Fitted Kitchen
-              </Label>
+            <FormGroup>
+              <Label className='title'>Feature 1 ENGLISH:</Label>
+              <Input
+                id='feature1_en'
+                type='text'
+                placeholder='Enter feature 1 in english'
+                value={feature1_en || ''}
+                onChange={(e) => setFeature1_en(e.target.value)}></Input>
+            </FormGroup>
+            <FormGroup>
+              <Label className='title'>Feature 1 DEUTSCH</Label>
+              <Input
+                id='feature1_de'
+                type='text'
+                placeholder='Enter feature 1 in german'
+                value={feature1_de || ''}
+                onChange={(e) => setFeature1_de(e.target.value)}></Input>
             </FormGroup>
 
-            <FormGroup check>
-              <Label check>
-                <Input
-                  id='balcony'
-                  type='checkbox'
-                  checked={balcony}
-                  onChange={(e) => setBalcony(e.target.checked)}></Input>
-                <span className='form-check-sign'></span>
-                Balcony
-              </Label>
+            <FormGroup>
+              <Label className='title'>Feature 2 ENGLISH:</Label>
+              <Input
+                id='feature2_en'
+                type='text'
+                placeholder='Enter feature 2 in english'
+                value={feature2_en || ''}
+                onChange={(e) => setFeature2_en(e.target.value)}></Input>
+            </FormGroup>
+            <FormGroup>
+              <Label className='title'>Feature 2 DEUTSCH</Label>
+              <Input
+                id='feature2_de'
+                type='text'
+                placeholder='Enter feature 2 in german'
+                value={feature2_de || ''}
+                onChange={(e) => setFeature2_de(e.target.value)}></Input>
             </FormGroup>
 
-            <FormGroup check>
-              <Label check>
-                <Input
-                  id='cellar'
-                  type='checkbox'
-                  checked={cellar}
-                  onChange={(e) => setCellar(e.target.checked)}></Input>
-                <span className='form-check-sign'></span>
-                Cellar
-              </Label>
+            <FormGroup>
+              <Label className='title'>Feature 3 ENGLISH:</Label>
+              <Input
+                id='feature3_en'
+                type='text'
+                placeholder='Enter feature 3 in english'
+                value={feature3_en || ''}
+                onChange={(e) => setFeature3_en(e.target.value)}></Input>
             </FormGroup>
-            <br />
+            <FormGroup>
+              <Label className='title'>Feature 3 DEUTSCH</Label>
+              <Input
+                id='feature3_de'
+                type='text'
+                placeholder='Enter feature 3 in german'
+                value={feature3_de || ''}
+                onChange={(e) => setFeature3_de(e.target.value)}></Input>
+            </FormGroup>
+
+            <FormGroup>
+              <Label className='title'>Feature 4 ENGLISH:</Label>
+              <Input
+                id='feature4_en'
+                type='text'
+                placeholder='Enter feature 4 in english'
+                value={feature4_en || ''}
+                onChange={(e) => setFeature4_en(e.target.value)}></Input>
+            </FormGroup>
+            <FormGroup>
+              <Label className='title'>Feature 4 DEUTSCH</Label>
+              <Input
+                id='feature4_de'
+                type='text'
+                placeholder='Enter feature 4 in german'
+                value={feature4_de || ''}
+                onChange={(e) => setFeature4_de(e.target.value)}></Input>
+            </FormGroup>
+
+            <FormGroup>
+              <Label className='title'>Feature 5 ENGLISH:</Label>
+              <Input
+                id='feature5_en'
+                type='text'
+                placeholder='Enter feature 5 in english'
+                value={feature5_en || ''}
+                onChange={(e) => setFeature5_en(e.target.value)}></Input>
+            </FormGroup>
+            <FormGroup>
+              <Label className='title'>Feature 5 DEUTSCH</Label>
+              <Input
+                id='feature5_de'
+                type='text'
+                placeholder='Enter feature 5 in german'
+                value={feature5_de || ''}
+                onChange={(e) => setFeature5_de(e.target.value)}></Input>
+            </FormGroup>
+
+            <FormGroup>
+              <Label className='title'>Feature 6 ENGLISH:</Label>
+              <Input
+                id='feature6_en'
+                type='text'
+                placeholder='Enter feature 6 in english'
+                value={feature6_en || ''}
+                onChange={(e) => setFeature6_en(e.target.value)}></Input>
+            </FormGroup>
+            <FormGroup>
+              <Label className='title'>Feature 6 DEUTSCH</Label>
+              <Input
+                id='feature6_de'
+                type='text'
+                placeholder='Enter feature 6 in german'
+                value={feature6_de || ''}
+                onChange={(e) => setFeature6_de(e.target.value)}></Input>
+            </FormGroup>
+
             <FormGroup>
               <Label className='title'>Description ENGLISH</Label>
               <Input
@@ -382,46 +474,6 @@ const RentingEditScreen = ({ match, history }) => {
               </Label>
             </FormGroup>
             <br />
-            <FormGroup>
-              <Label className='title'>Feature 1 ENGLISH:</Label>
-              <Input
-                id='feature1_en'
-                type='text'
-                placeholder='Enter feature 1 in english'
-                value={feature1_en || ''}
-                onChange={(e) => setFeature1_en(e.target.value)}></Input>
-            </FormGroup>
-
-            <FormGroup>
-              <Label className='title'>Feature 2 ENGLISH:</Label>
-              <Input
-                id='feature2_en'
-                type='text'
-                placeholder='Enter feature 2 in english'
-                value={feature2_en || ''}
-                onChange={(e) => setFeature2_en(e.target.value)}></Input>
-            </FormGroup>
-
-            <FormGroup>
-              <Label className='title'>Feature 1 DEUTSCH</Label>
-              <Input
-                id='feature1_de'
-                type='text'
-                placeholder='Enter feature 1 in german'
-                value={feature1_de || ''}
-                onChange={(e) => setFeature1_de(e.target.value)}></Input>
-            </FormGroup>
-
-            <FormGroup>
-              <Label className='title'>Feature 2 DEUTSCH</Label>
-              <Input
-                id='feature2_de'
-                type='text'
-                placeholder='Enter feature 2 in german'
-                value={feature2_de || ''}
-                onChange={(e) => setFeature2_de(e.target.value)}></Input>
-            </FormGroup>
-
             <FormGroup>
               <Label for='images' className='title'>
                 Photos
@@ -462,4 +514,4 @@ const RentingEditScreen = ({ match, history }) => {
   )
 }
 
-export default RentingEditScreen
+export default CommercialEditScreen

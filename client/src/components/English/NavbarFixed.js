@@ -67,9 +67,9 @@ const NavbarFixed = () => {
             isOpen={collapseOpen}
             navbar>
             <Nav navbar>
-              {userInfo && userInfo.isAdmin && (
+              {(userInfo && userInfo.isAdmin) && (
                 <NavItem>
-                  <NavLink to='/admin/dashboard' tag={Link}>
+                  <NavLink to='/en/admin/dashboard' tag={Link}>
                     <i className='fas fa-key'></i>{' '}
                   </NavLink>
                 </NavItem>

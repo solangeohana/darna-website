@@ -2,6 +2,9 @@ import path from 'path'
 import express from 'express'
 import multer from 'multer'
 import Renting from '../models/rentingModel.js'
+import Buying from '../models/buyingModel.js'
+import Commercial from '../models/commercialModel.js'
+
 import { UPLOADS_DIRECTORY } from '../config/constants.js'
 
 import { protect, admin } from '../middleware/authMiddleware.js'
@@ -23,7 +26,7 @@ const storage = multer.diskStorage({
       // TODO: change data.now() to either cryptiles or uuid, as when uploading
       // multiple files this funcion could potentially be called multiple
       // times in the same millisecond.
-      `${file.fieldname}-${Date.now()}${path.extname(file.originalname)}`
+      `${file.fieldname}-${file.originalname}-${Date.now()}${path.extname(file.originalname)}`
     )
   },
 })
@@ -76,7 +79,7 @@ router.post('/coverPhoto', upload.single('coverPhoto'), (req, res) => {
   }
 })
 
-router.post('/images', upload.array('images', 20), async (req, res) => {
+router.post('/rent-images', upload.array('images', 20), async (req, res) => {
   const { files, body } = req
 
   // Check there were images:
@@ -102,6 +105,108 @@ router.post('/images', upload.array('images', 20), async (req, res) => {
     if (!listing) {
       res.status(404).send({
         error: `Could not find rent listing by ID ${body.rentingId}`,
+      })
+
+      return
+    }
+
+    // defensive coding for mongodb not having migrations of data:
+    if (!listing.images) {
+      listing.images = []
+    }
+
+    const newImages = files.map((file) => {
+      const imagePath = getPublicPath(file.path)
+      listing.images.push(imagePath)
+
+      return imagePath
+    })
+
+    await listing.save()
+
+    res.status(200).send({ images: newImages })
+  } catch (err) {
+    res.status(500).send({ error: err })
+  }
+})
+
+router.post('/buy-images', upload.array('images', 20), async (req, res) => {
+  const { files, body } = req
+
+  // Check there were images:
+  if (files.length === 0) {
+    res.status(400).send({
+      error: 'No images is selected.',
+    })
+
+    return
+  }
+
+  if (!body.buyingId) {
+    res.status(400).send({
+      error: 'Missing buyingId.',
+    })
+
+    return
+  }
+
+  try {
+    const listing = await Buying.findById(body.buyingId)
+
+    if (!listing) {
+      res.status(404).send({
+        error: `Could not find rent listing by ID ${body.buyingId}`,
+      })
+
+      return
+    }
+
+    // defensive coding for mongodb not having migrations of data:
+    if (!listing.images) {
+      listing.images = []
+    }
+
+    const newImages = files.map((file) => {
+      const imagePath = getPublicPath(file.path)
+      listing.images.push(imagePath)
+
+      return imagePath
+    })
+
+    await listing.save()
+
+    res.status(200).send({ images: newImages })
+  } catch (err) {
+    res.status(500).send({ error: err })
+  }
+})
+
+router.post('/commercial-images', upload.array('images', 20), async (req, res) => {
+  const { files, body } = req
+
+  // Check there were images:
+  if (files.length === 0) {
+    res.status(400).send({
+      error: 'No images is selected.',
+    })
+
+    return
+  }
+
+  if (!body.commercialId) {
+    res.status(400).send({
+      error: 'Missing commercialId.',
+    })
+
+    return
+  }
+
+  try {
+    const listing = await Commercial.findById(body.commercialId)
+
+    if (!listing) {
+      res.status(404).send({
+        error: `Could not find rent listing by ID ${body.commercialId}`,
       })
 
       return

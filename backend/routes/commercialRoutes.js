@@ -1,5 +1,4 @@
 import express from 'express'
-const router = express.Router()
 import {
   getCommercials,
   getCommercialById,
@@ -10,13 +9,16 @@ import {
 
 import { protect, admin } from '../middleware/authMiddleware.js'
 
-router.route('/').get(getCommercials).post(protect, admin, createCommercial)
+const router = express.Router()
 
-router
-  .route('/:id')
-  .get(getCommercialById)
-  .delete(protect, admin, deleteCommercial)
-  .put(protect, admin, updateCommercial)
+// public routes:
+router.get('/', getCommercials)
+router.get('/:id', getCommercialById)
+
+// protected routes:
+router.use(protect, admin)
+router.post('/', createCommercial)
+router.delete('/:id', deleteCommercial)
+router.put('/:id', updateCommercial)
 
 export default router
-

@@ -46,7 +46,7 @@ const NavbarAdmin = () => {
           <div className='navbar-translate'>
             <NavbarBrand
               className='section-navbar-logo'
-              to='/admin/dashboard'
+              to='/en/admin/dashboard'
               tag={Link}
               id='navbar-brand'>
               <img
@@ -92,10 +92,10 @@ const NavbarAdmin = () => {
                       Real Estate
                     </DropdownToggle>
                     <DropdownMenu aria-labelledby='navbarDropdown'>
-                      <DropdownItem href='/admin/rent'>RENT</DropdownItem>
-                      <DropdownItem href='/admin/buy'>BUY</DropdownItem>
-                      <DropdownItem href='/admin/sell'>SELL</DropdownItem>
-                      <DropdownItem href='/admin/commercial'>
+                      <DropdownItem href='/en/admin/rent'>RENT</DropdownItem>
+                      <DropdownItem href='/en/admin/buy'>BUY</DropdownItem>
+                      <DropdownItem href='/en/admin/sell'>SELL</DropdownItem>
+                      <DropdownItem href='/en/admin/commercial'>
                         COMMERCIAL
                       </DropdownItem>
                     </DropdownMenu>

@@ -6,66 +6,57 @@ import Message from 'components/Message'
 import Loader from 'components/Loader'
 import NavbarAdmin from 'components/NavbarAdmin'
 import MyFooter from 'components/English/MyFooter'
-import {
-  listRentings,
-  deleteRenting,
-  createRenting,
-} from 'actions/rentingActions'
-import { RENTING_CREATE_RESET } from 'constants/rentingConstants'
+import NumberFormat from 'react-number-format'
 
-const RentingListScreen = ({ history, match }) => {
+import { listBuyings, deleteBuying, createBuying } from 'actions/buyingActions'
+import { BUYING_CREATE_RESET } from 'constants/buyingConstants'
+
+const BuyingListScreen = ({ history, match }) => {
   const dispatch = useDispatch()
 
-  const rentingList = useSelector((state) => state.rentingList)
-  const { loading, error, rentings } = rentingList
+  const buyingList = useSelector((state) => state.buyingList)
+  const { loading, error, buyings } = buyingList
 
-  const rentingDelete = useSelector((state) => state.rentingDelete)
+  const buyingDelete = useSelector((state) => state.buyingDelete)
   const {
     loading: loadingDelete,
     error: errorDelete,
     success: successDelete,
-  } = rentingDelete
+  } = buyingDelete
 
-  const rentingCreate = useSelector((state) => state.rentingCreate)
+  const buyingCreate = useSelector((state) => state.buyingCreate)
   const {
     loading: loadingCreate,
     error: errorCreate,
     success: successCreate,
-    renting: createdRenting,
-  } = rentingCreate
+    buying: createdBuying,
+  } = buyingCreate
 
   const userLogin = useSelector((state) => state.userLogin)
   const { userInfo } = userLogin
 
   useEffect(() => {
-    dispatch({ type: RENTING_CREATE_RESET })
+    dispatch({ type: BUYING_CREATE_RESET })
 
     if (!userInfo || !userInfo.isAdmin) {
       history.push('/en/admin/login')
     }
 
     if (successCreate) {
-      history.push(`/en/admin/rent/${createdRenting._id}/edit`)
+      history.push(`/en/admin/buy/${createdBuying._id}/edit`)
     } else {
-      dispatch(listRentings(''))
+      dispatch(listBuyings(''))
     }
-  }, [
-    dispatch,
-    history,
-    userInfo,
-    successDelete,
-    successCreate,
-    createdRenting,
-  ])
+  }, [dispatch, history, userInfo, successDelete, successCreate, createdBuying])
 
   const deleteHandler = (id) => {
     if (window.confirm('Are you sure ?')) {
-      dispatch(deleteRenting(id))
+      dispatch(deleteBuying(id))
     }
   }
 
-  const createRentingHandler = () => {
-    dispatch(createRenting())
+  const createBuyingHandler = () => {
+    dispatch(createBuying())
   }
 
   return (
@@ -82,14 +73,14 @@ const RentingListScreen = ({ history, match }) => {
         <Container className='admintitles'>
           <Row>
             <Col>
-              <h2>Renting Objects</h2>
+              <h2>Buying Objects</h2>
             </Col>
             <Col className='text-right'>
               <Button
                 className='my-3'
                 color='primary'
-                onClick={createRentingHandler}>
-                <i className='fas fa-plus'></i> Create Renting Object
+                onClick={createBuyingHandler}>
+                <i className='fas fa-plus'></i> Create Buying Object
               </Button>
             </Col>
           </Row>
@@ -112,21 +103,28 @@ const RentingListScreen = ({ history, match }) => {
                     <th>ADDRESS</th>
                     <th>ZIP</th>
                     <th>SQM</th>
-                    <th>ROOMS</th>
+                    <th>PRICE</th>
                     <th>AVAILABLE</th>
                     <th></th>
                   </tr>
                 </thead>
                 <tbody>
-                  {rentings.map((renting) => (
-                    <tr key={renting._id}>
-                      <td className='title'>{renting.name}</td>
-                      <td className='title'>{renting.location.address}</td>
-                      <td className='title'>{renting.location.postalCode}</td>
-                      <td className='title'>{renting.sqm} sqm</td>
-                      <td className='title'>{renting.nbRooms}</td>
+                  {buyings.map((buying) => (
+                    <tr key={buying._id}>
+                      <td className='title'>{buying.name}</td>
+                      <td className='title'>{buying.location.address}</td>
+                      <td className='title'>{buying.location.postalCode}</td>
+                      <td className='title'>{buying.sqm} sqm</td>
+                      <td className='title'>
+                        <NumberFormat
+                          value={buying.price}
+                          displayType={'text'}
+                          thousandSeparator={true}
+                          prefix={'€ '}
+                        />
+                      </td>
                       <td>
-                        {renting.available ? (
+                        {buying.available ? (
                           <i
                             className='fas fa-check'
                             style={{ color: 'green' }}></i>
@@ -137,7 +135,7 @@ const RentingListScreen = ({ history, match }) => {
                         )}
                       </td>
                       <td>
-                        <LinkContainer to={`/en/admin/rent/${renting._id}/edit`}>
+                        <LinkContainer to={`/en/admin/buy/${buying._id}/edit`}>
                           <Button color='primary' className='btn-sm'>
                             <i className='fas fa-edit'></i>
                           </Button>
@@ -145,7 +143,7 @@ const RentingListScreen = ({ history, match }) => {
                         <Button
                           color='danger'
                           className='btn-sm'
-                          onClick={() => deleteHandler(renting._id)}>
+                          onClick={() => deleteHandler(buying._id)}>
                           <i className='fas fa-trash'></i>
                         </Button>
                       </td>
@@ -162,4 +160,4 @@ const RentingListScreen = ({ history, match }) => {
   )
 }
 
-export default RentingListScreen
+export default BuyingListScreen

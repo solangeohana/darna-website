@@ -6,66 +6,56 @@ import Message from 'components/Message'
 import Loader from 'components/Loader'
 import NavbarAdmin from 'components/NavbarAdmin'
 import MyFooter from 'components/English/MyFooter'
-import {
-  listRentings,
-  deleteRenting,
-  createRenting,
-} from 'actions/rentingActions'
-import { RENTING_CREATE_RESET } from 'constants/rentingConstants'
 
-const RentingListScreen = ({ history, match }) => {
+import { listCommercials, deleteCommercial, createCommercial } from 'actions/commercialActions'
+import { COMMERCIAL_CREATE_RESET } from 'constants/commercialConstants'
+
+const CommercialListScreen = ({ history, match }) => {
   const dispatch = useDispatch()
 
-  const rentingList = useSelector((state) => state.rentingList)
-  const { loading, error, rentings } = rentingList
+  const commercialList = useSelector((state) => state.commercialList)
+  const { loading, error, commercials } = commercialList
 
-  const rentingDelete = useSelector((state) => state.rentingDelete)
+  const commercialDelete = useSelector((state) => state.commercialDelete)
   const {
     loading: loadingDelete,
     error: errorDelete,
     success: successDelete,
-  } = rentingDelete
+  } = commercialDelete
 
-  const rentingCreate = useSelector((state) => state.rentingCreate)
+  const commercialCreate = useSelector((state) => state.commercialCreate)
   const {
     loading: loadingCreate,
     error: errorCreate,
     success: successCreate,
-    renting: createdRenting,
-  } = rentingCreate
+    commercial: createdCommercial,
+  } = commercialCreate
 
   const userLogin = useSelector((state) => state.userLogin)
   const { userInfo } = userLogin
 
   useEffect(() => {
-    dispatch({ type: RENTING_CREATE_RESET })
+    dispatch({ type: COMMERCIAL_CREATE_RESET })
 
     if (!userInfo || !userInfo.isAdmin) {
       history.push('/en/admin/login')
     }
 
     if (successCreate) {
-      history.push(`/en/admin/rent/${createdRenting._id}/edit`)
+      history.push(`/en/admin/commercial/${createdCommercial._id}/edit`)
     } else {
-      dispatch(listRentings(''))
+      dispatch(listCommercials(''))
     }
-  }, [
-    dispatch,
-    history,
-    userInfo,
-    successDelete,
-    successCreate,
-    createdRenting,
-  ])
+  }, [dispatch, history, userInfo, successDelete, successCreate, createdCommercial])
 
   const deleteHandler = (id) => {
     if (window.confirm('Are you sure ?')) {
-      dispatch(deleteRenting(id))
+      dispatch(deleteCommercial(id))
     }
   }
 
-  const createRentingHandler = () => {
-    dispatch(createRenting())
+  const createCommercialHandler = () => {
+    dispatch(createCommercial())
   }
 
   return (
@@ -82,14 +72,14 @@ const RentingListScreen = ({ history, match }) => {
         <Container className='admintitles'>
           <Row>
             <Col>
-              <h2>Renting Objects</h2>
+              <h2>Commercial Objects</h2>
             </Col>
             <Col className='text-right'>
               <Button
                 className='my-3'
                 color='primary'
-                onClick={createRentingHandler}>
-                <i className='fas fa-plus'></i> Create Renting Object
+                onClick={createCommercialHandler}>
+                <i className='fas fa-plus'></i> Create Commercial Object
               </Button>
             </Col>
           </Row>
@@ -118,15 +108,15 @@ const RentingListScreen = ({ history, match }) => {
                   </tr>
                 </thead>
                 <tbody>
-                  {rentings.map((renting) => (
-                    <tr key={renting._id}>
-                      <td className='title'>{renting.name}</td>
-                      <td className='title'>{renting.location.address}</td>
-                      <td className='title'>{renting.location.postalCode}</td>
-                      <td className='title'>{renting.sqm} sqm</td>
-                      <td className='title'>{renting.nbRooms}</td>
+                  {commercials.map((commercial) => (
+                    <tr key={commercial._id}>
+                      <td className='title'>{commercial.name}</td>
+                      <td className='title'>{commercial.location.address}</td>
+                      <td className='title'>{commercial.location.postalCode}</td>
+                      <td className='title'>{commercial.sqm} sqm</td>
+                      <td className='title'>{commercial.nbRooms}</td>
                       <td>
-                        {renting.available ? (
+                        {commercial.available ? (
                           <i
                             className='fas fa-check'
                             style={{ color: 'green' }}></i>
@@ -137,7 +127,7 @@ const RentingListScreen = ({ history, match }) => {
                         )}
                       </td>
                       <td>
-                        <LinkContainer to={`/en/admin/rent/${renting._id}/edit`}>
+                        <LinkContainer to={`/en/admin/commercial/${commercial._id}/edit`}>
                           <Button color='primary' className='btn-sm'>
                             <i className='fas fa-edit'></i>
                           </Button>
@@ -145,7 +135,7 @@ const RentingListScreen = ({ history, match }) => {
                         <Button
                           color='danger'
                           className='btn-sm'
-                          onClick={() => deleteHandler(renting._id)}>
+                          onClick={() => deleteHandler(commercial._id)}>
                           <i className='fas fa-trash'></i>
                         </Button>
                       </td>
@@ -162,4 +152,4 @@ const RentingListScreen = ({ history, match }) => {
   )
 }
 
-export default RentingListScreen
+export default CommercialListScreen
