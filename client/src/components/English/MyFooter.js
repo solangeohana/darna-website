@@ -81,10 +81,14 @@ const MyFooter = () => {
           </div>
 
           <div className='text-center elements'>
-            © {new Date().getFullYear()} DARNA Immobilien GmbH -- Coded by{' '}
-            <a href='https://www.linkedin.com/in/solange-ohana' target='_blank'>
+            © {new Date().getFullYear()} DARNA Immobilien GmbH 
+          </div>
+          <div className='text-center elements text-muted'>
+         <small> Coded by{' '}
+            <a className = 'text-muted' href='https://www.linkedin.com/in/solange-ohana' target='_blank'>
               Solange Ohana
             </a>
+            </small>
           </div>
         </Container>
       </footer>
@@ -93,3 +97,4 @@ const MyFooter = () => {
 }
 
 export default MyFooter
+

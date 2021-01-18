@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
 import { Container, Row, Col } from 'reactstrap'
 
@@ -6,12 +6,19 @@ import MyFooter from '../../components/English/MyFooter'
 import NavbarFixed from '../../components/English/NavbarFixed'
 
 const FeeStructure = () => {
+  useEffect(() => {
+    document.body.classList.add('sidebar-collapse')
+    document.documentElement.classList.remove('nav-open')
+    window.scrollTo(0, 0)
+    document.body.scrollTop = 0
+    return function cleanup() {
+      document.body.classList.remove('sidebar-collapse')
+    }
+  }, [])
   return (
     <>
       <NavbarFixed />
-      <div className='wrapper'>
-        <div className='section'>
-          <div className='section section-team text-center'>
+          <div className='section section-signup text-center'>
             <Container>
               <h4 className='title'>FEE STRUCTURE</h4>
               <Container>
@@ -53,9 +60,7 @@ const FeeStructure = () => {
               </div>
             </Container>
           </div>
-        </div>
         <MyFooter />
-      </div>
     </>
   )
 }
