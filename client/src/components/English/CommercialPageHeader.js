@@ -5,7 +5,7 @@ import { Container } from "reactstrap";
 
 // core components
 
-const BuyingPageHeader = () => {
+const CommercialPageHeader = () => {
   let pageHeader = createRef();
 
   useEffect(() => {
@@ -29,16 +29,16 @@ const BuyingPageHeader = () => {
         <div
           className="page-header-image"
           style={{
-            backgroundImage: "url(" + require("assets/img/buying-header.jpg") + ")",
+            backgroundImage: "url(" + require("assets/img/commercial.jpg") + ")",
           }}
           ref={pageHeader}
         ></div>
         <Container>
-          <h2 className="title">BUY</h2>
+          <h2 className="title">COMMERCIAL OBJECTS</h2>
         </Container>
       </div>
     </>
   );
 }
 
-export default BuyingPageHeader;
+export default CommercialPageHeader;

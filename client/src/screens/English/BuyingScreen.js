@@ -1,20 +1,26 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 
-// reactstrap components
+import { Row, Col, Button, Container } from 'reactstrap'
 
-import {
-  Button,
-  Container,
-} from 'reactstrap'
 
 // core components
-import MyNavbar from '../../components/English/MyNavbar'
-import MyFooter from '../../components/English/MyFooter'
-import BuyingPageHeader from '../../components/English/BuyingPageHeader'
+import MyNavbar from 'components/English/MyNavbar'
+import MyFooter from 'components/English/MyFooter'
+import BuyingPageHeader from 'components/English/BuyingPageHeader'
+import BuyingObject from 'components/English/BuyingObject'
+import Message from 'components/Message'
+import Loader from 'components/Loader'
+import { listBuyings } from 'actions/buyingActions'
 
-function BuyingPage() {
-  // const [pills, setPills] = React.useState('2')
-  React.useEffect(() => {
+const BuyingPage = () => {
+  const dispatch = useDispatch()
+
+  const buyingList = useSelector((state) => state.buyingList)
+  const { loading, error, buyings } = buyingList
+
+  useEffect(() => {
+    dispatch(listBuyings())
     document.body.classList.add('profile-page')
     document.body.classList.add('sidebar-collapse')
     document.documentElement.classList.remove('nav-open')
@@ -24,14 +30,14 @@ function BuyingPage() {
       document.body.classList.remove('profile-page')
       document.body.classList.remove('sidebar-collapse')
     }
-  }, [])
+  }, [dispatch])
+
   return (
     <>
       <MyNavbar />
       <div className='wrapper'>
         <BuyingPageHeader />
-        <div className='section'>
-          <Container>
+        <div className='section container'>
             <div className='button-container'>
               <a href='/en/contact'>
                 <Button
@@ -43,7 +49,7 @@ function BuyingPage() {
                 </Button>
               </a>
             </div>
-            <h5 className='description'>
+            <p className='content text-justify'>
               It’s always a good time to buy real estate…
               <br />
               <br />
@@ -59,11 +65,28 @@ function BuyingPage() {
               our extensive working relationship with many local real estate
               agents and house management companies, we always have our hands on
               listings even before they are put online.
-            </h5>
-            <h4 className='content'>
-              Get in <a href='/en/contact'>touch</a> for our newest listings!
-            </h4>
-          </Container>
+            </p>
+            <p className='content text-justify'>
+            Get in <a href='/en/contact'>touch</a> for the latest listings !
+          </p>
+        </div>
+        <div>
+          <h3 className='title'>Latest Listings</h3>
+          {loading ? (
+            <Loader />
+          ) : error ? (
+            <Message color='danger'>{error}</Message>
+          ) : (
+            <Container>
+            <Row>
+              {buyings.map((buying) => (
+                <Col key={buying._id} md={4}>
+                <BuyingObject buying={buying} />
+                </Col>
+              ))}
+              </Row>
+            </Container>
+          )}
         </div>
         <MyFooter />
       </div>

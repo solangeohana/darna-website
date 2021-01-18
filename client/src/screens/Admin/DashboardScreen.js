@@ -23,7 +23,7 @@ const DashboardScreen = () => {
           backgroundImage: 'url(' + require('assets/img/clouds.jpg') + ')',
           backgroundSize: 'cover',
           backgroundPosition: 'top center',
-          minHeight: '700px',
+          minHeight: '900px',
         }}>
         <Container>
           <div className='admintitle'>
@@ -40,7 +40,7 @@ const DashboardScreen = () => {
                     className='btn-round'
                     color='primary'
                     size='lg'
-                    href='/admin/rent'>
+                    href='/en/admin/rent'>
                     RENT
                   </Button>
                 </div>
@@ -56,7 +56,7 @@ const DashboardScreen = () => {
                     className='btn-round'
                     color='primary'
                     size='lg'
-                    href='/admin/buy'>
+                    href='/en/admin/buy'>
                     BUY
                   </Button>
                 </div>
@@ -72,7 +72,7 @@ const DashboardScreen = () => {
                     className='btn-round'
                     color='primary'
                     size='lg'
-                    href='/admin/commercial'>
+                    href='/en/admin/commercial'>
                     COMMERCIAL
                   </Button>
                 </div>

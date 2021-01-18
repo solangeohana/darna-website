@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import Message from '../../components/Message'
-import Loader from '../../components/Loader'
-import { login } from '../../actions/userActions'
+import Message from 'components/Message'
+import Loader from 'components/Loader'
+import { login } from 'actions/userActions'
 
 // reactstrap components
 import {
@@ -24,7 +24,7 @@ import {
 
 // core components
 
-const LoginScreen = ({ location, history }) => {
+const LoginScreen = ({ history }) => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
@@ -34,10 +34,10 @@ const LoginScreen = ({ location, history }) => {
 
   const { loading, error, userInfo } = userLogin
 
-  const redirect = location.search ? location.search.split('=')[1] : '/admin/dashboard'
+  const redirect = '/en/admin/dashboard'
 
   useEffect(() => {
-    if (userInfo) {
+    if (userInfo && userInfo.isAdmin) {
       history.push(redirect)
     }
   }, [history, userInfo, redirect])
@@ -111,7 +111,7 @@ const LoginScreen = ({ location, history }) => {
             <Button
               className='btn-round btn-white'
               color='info'
-              to={redirect ? `/register?redirect=${redirect}` : '/register'}
+              to={redirect}
               outline
               size='lg'
               tag={Link}>

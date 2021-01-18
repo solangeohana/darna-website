@@ -1,27 +1,25 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
-// reactstrap components
-
 import { Row, Col, Button, Container } from 'reactstrap'
 
 // core components
 import MyNavbar from 'components/English/MyNavbar'
 import MyFooter from 'components/English/MyFooter'
-import RentingPageHeader from 'components/English/RentingPageHeader'
-import RentingObject from 'components/English/RentingObject'
+import CommercialPageHeader from 'components/English/CommercialPageHeader'
+import CommercialObject from 'components/English/CommercialObject'
 import Message from 'components/Message'
 import Loader from 'components/Loader'
-import { listRentings } from 'actions/rentingActions'
+import { listCommercials } from 'actions/commercialActions'
 
-const RentingPage = () => {
+const CommercialPage = () => {
   const dispatch = useDispatch()
 
-  const rentingList = useSelector((state) => state.rentingList)
-  const { loading, error, rentings } = rentingList
+  const commercialList = useSelector((state) => state.commercialList)
+  const { loading, error, commercials } = commercialList
 
   useEffect(() => {
-    dispatch(listRentings())
+    dispatch(listCommercials())
     document.body.classList.add('profile-page')
     document.body.classList.add('sidebar-collapse')
     document.documentElement.classList.remove('nav-open')
@@ -37,8 +35,8 @@ const RentingPage = () => {
     <>
       <MyNavbar />
       <div className='wrapper'>
-        <RentingPageHeader />
-        <div className='section container text-center'>
+        <CommercialPageHeader />
+        <div className='section container'>
           <div className='button-container'>
             <a href='/en/contact'>
               <Button
@@ -50,39 +48,28 @@ const RentingPage = () => {
               </Button>
             </a>
           </div>
-          <p className='content'>
-            Looking for an apartment or a house to rent?
-            <br />
-            Don’t have enough time and energy to apply for those properties and
-            go through all the documentation approval process, viewings, etc..?
-            <br />
-            <br />
-            Let us take all this hustle away and do that for you! Our team of
-            real estate agents will do all that work happily for you and support
-            you with your desired property in no time!
-          </p>
-          <p className='content'>
-            Get in <a href='/en/contact'>touch</a> with us so we can find you a
-            new home.
+          <br /> <br /> <br />
+          <p className='content text-center'>
+            Looking for a commercial object to rent? Check our our latest
+            listings!
           </p>
         </div>
         <div>
-          <h3 className='title'>Latest Listings</h3>
+          <h3 className='title'>Latest Listings</h3> <br/> <br/>
           {loading ? (
             <Loader />
           ) : error ? (
             <Message color='danger'>{error}</Message>
           ) : (
             <Container>
-            <Row>
-              {rentings.map((renting) => (
-                <Col key={renting._id} md={4}>
-                <RentingObject renting={renting} />
-                </Col>
-              ))}
+              <Row>
+                {commercials.map((commercial) => (
+                  <Col key={commercial._id} md={4}>
+                    <CommercialObject commercial={commercial} />
+                  </Col>
+                ))}
               </Row>
             </Container>
-            
           )}
         </div>
         <MyFooter />
@@ -91,4 +78,4 @@ const RentingPage = () => {
   )
 }
 
-export default RentingPage
+export default CommercialPage

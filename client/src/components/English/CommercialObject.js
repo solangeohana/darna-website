@@ -9,30 +9,30 @@ import {
   CardSubtitle,
 } from 'reactstrap'
 
-const RentingObject = ({ renting }) => {
+const CommercialObject = ({ commercial }) => {
   return (
     <Card outline className='text-center'>
-      <Link to={`/en/rent/${renting._id}`}>
+      <Link to={`/en/commercial/${commercial._id}`}>
         <CardImg
           className='coverPhoto-card'
-          src={renting.coverPhoto}
+          src={commercial.coverPhoto}
           variant='top'
         />
       </Link>
       <CardBody>
-        <Link to={`/en/rent/${renting._id}`}>
-          <CardTitle tag='h5'>{renting.name}</CardTitle>
-          <CardSubtitle className='mb-2'>{renting.title_en} </CardSubtitle>
+        <Link to={`/en/commercial/${commercial._id}`}>
+          <CardTitle tag='h5'>{commercial.name}</CardTitle>
+          <CardSubtitle className='mb-2'>{commercial.title_en} </CardSubtitle>
         </Link>
         <CardText className='description'>
           <i className='now-ui-icons location_pin'></i>{' '}
-          {renting.location.address}, {renting.location.postalCode}{' '}
-          {renting.location.city}
+          {commercial.location.address}, {commercial.location.postalCode}{' '}
+          {commercial.location.city}
         </CardText>
         <CardText>
-          {renting.nbRooms} rooms | {renting.sqm} sqm
+          {commercial.nbRooms} rooms | {commercial.sqm} sqm
         </CardText>
-        {renting.available ? (
+        {commercial.available ? (
           <CardText className='text-muted'>Available</CardText>
         ) : (
           <CardText className='text-muted'>Recently Rented Out !</CardText>
@@ -42,5 +42,4 @@ const RentingObject = ({ renting }) => {
   )
 }
 
-export default RentingObject
-//format features
+export default CommercialObject
