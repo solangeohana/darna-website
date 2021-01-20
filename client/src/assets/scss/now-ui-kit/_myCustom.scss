@@ -1,22 +1,21 @@
-
 .admintitle {
   text-align: center;
   padding: 80px;
 }
 
 .dashboard-items {
-  display:flex;
+  display: flex;
   flex-direction: column;
 }
 
-.images-carousel{
+.images-carousel {
   max-height: 550px;
 }
 .dashboard-button {
   align-self: center;
 }
 
-.listing-details-section{
+.listing-details-section {
   padding: 2rem;
 }
 
@@ -29,7 +28,7 @@
   white-space: pre-line;
 }
 
-.listing-features{
+.listing-features {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -37,11 +36,11 @@
   padding: 2rem;
 }
 
-.share{
+.share {
   padding-top: 70px;
 }
 
-.coverPhoto-card{
+.coverPhoto-card {
   max-height: 300px;
   width: auto;
 }
