@@ -124,7 +124,7 @@ const MyNavbar = () => {
                     </DropdownItem>
                     <DropdownItem divider></DropdownItem>
                     <DropdownItem
-                      href='/relocation-tips'
+                      href='/en/relocation-tips'
                       onClick={(e) => e.preventDefault()}>
                       Relocation Tips
                     </DropdownItem>
@@ -137,7 +137,7 @@ const MyNavbar = () => {
               </NavItem>
 
               <NavItem>
-                <NavLink href='/en/tips'>Relocation Tips</NavLink>
+                <NavLink href='/en/relocation-tips'>Relocation Tips</NavLink>
               </NavItem>
 
               <NavItem>

@@ -1,5 +1,5 @@
 import React from 'react'
-import {  useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 
 // reactstrap components
@@ -18,9 +18,7 @@ import {
 } from 'reactstrap'
 
 const NavbarFixed = () => {
-  
   const [collapseOpen, setCollapseOpen] = React.useState(false)
-
 
   const userLogin = useSelector((state) => state.userLogin)
   const { userInfo } = userLogin
@@ -67,7 +65,7 @@ const NavbarFixed = () => {
             isOpen={collapseOpen}
             navbar>
             <Nav navbar>
-              {(userInfo && userInfo.isAdmin) && (
+              {userInfo && userInfo.isAdmin && (
                 <NavItem>
                   <NavLink to='/en/admin/dashboard' tag={Link}>
                     <i className='fas fa-key'></i>{' '}
@@ -104,7 +102,7 @@ const NavbarFixed = () => {
                     </DropdownItem>
                     <DropdownItem divider></DropdownItem>
                     <DropdownItem
-                      href='/relocation-tips'
+                      href='/en/relocation-tips'
                       onClick={(e) => e.preventDefault()}>
                       Relocation Tips
                     </DropdownItem>
@@ -117,15 +115,15 @@ const NavbarFixed = () => {
               </NavItem>
 
               <NavItem>
-                <NavLink href='/tips'>Relocation Tips</NavLink>
+                <NavLink href='/en/relocation-tips'>Relocation Tips</NavLink>
               </NavItem>
 
               <NavItem>
-                <NavLink href='/about'>About Us</NavLink>
+                <NavLink href='/en/about'>About Us</NavLink>
               </NavItem>
 
               <NavItem>
-                <NavLink href='/contact'>Contact</NavLink>
+                <NavLink href='/en/contact'>Contact</NavLink>
               </NavItem>
             </Nav>
           </Collapse>

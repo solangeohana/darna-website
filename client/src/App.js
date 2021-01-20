@@ -22,6 +22,8 @@ import CommercialDetailsScreen from './screens/English/CommercialDetailsScreen'
 
 import FeeStructureScreen from './screens/English/FeeStructureScreen'
 import AboutUsScreen from './screens/English/AboutUsScreen'
+import RelocationTipsScreen from './screens/English/RelocationTipsScreen'
+
 
 //German screens :
 import HomePageScreenDE from './screens/German/HomePageScreenDE'
@@ -89,6 +91,11 @@ class App extends Component {
           exact
           path='/en/about'
           render={(props) => <AboutUsScreen {...props} />}
+        />
+        <Route
+          exact
+          path='/en/relocation-tips'
+          render={(props) => <RelocationTipsScreen {...props} />}
         />
         <Route
           exact
