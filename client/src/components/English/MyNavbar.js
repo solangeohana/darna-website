@@ -1,5 +1,5 @@
 import React from 'react'
-import {  useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 
 // reactstrap components
@@ -20,7 +20,6 @@ import {
 const MyNavbar = () => {
   const [navbarColor, setNavbarColor] = React.useState('navbar-transparent')
   const [collapseOpen, setCollapseOpen] = React.useState(false)
-
 
   const userLogin = useSelector((state) => state.userLogin)
   const { userInfo } = userLogin
@@ -87,7 +86,7 @@ const MyNavbar = () => {
             isOpen={collapseOpen}
             navbar>
             <Nav navbar>
-              {(userInfo && userInfo.isAdmin) && (
+              {userInfo && userInfo.isAdmin && (
                 <NavItem>
                   <NavLink to='/en/admin/dashboard' tag={Link}>
                     <i className='fas fa-key'></i>{' '}
@@ -123,9 +122,7 @@ const MyNavbar = () => {
                       Fee structure
                     </DropdownItem>
                     <DropdownItem divider></DropdownItem>
-                    <DropdownItem
-                      href='/en/relocation-tips'
-                      onClick={(e) => e.preventDefault()}>
+                    <DropdownItem href='/en/relocation-tips'>
                       Relocation Tips
                     </DropdownItem>
                   </DropdownMenu>
@@ -133,7 +130,9 @@ const MyNavbar = () => {
               </NavItem>
 
               <NavItem>
-                <NavLink href='/en/house-management'>House Managements & Landlords</NavLink>
+                <NavLink href='/en/house-management'>
+                  House Managements & Landlords
+                </NavLink>
               </NavItem>
 
               <NavItem>

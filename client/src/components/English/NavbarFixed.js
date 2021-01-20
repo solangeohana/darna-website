@@ -101,9 +101,7 @@ const NavbarFixed = () => {
                       Fee structure
                     </DropdownItem>
                     <DropdownItem divider></DropdownItem>
-                    <DropdownItem
-                      href='/en/relocation-tips'
-                      onClick={(e) => e.preventDefault()}>
+                    <DropdownItem href='/en/relocation-tips'>
                       Relocation Tips
                     </DropdownItem>
                   </DropdownMenu>
