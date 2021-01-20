@@ -11,7 +11,6 @@ import SellingPageHeader from 'components/English/SellingPageHeader'
 import PhotoshootCarousel from 'components/English/PhotoshootCarousel'
 
 const SellingPage = () => {
-    
   useEffect(() => {
     document.body.classList.add('profile-page')
     document.body.classList.add('sidebar-collapse')
@@ -31,19 +30,17 @@ const SellingPage = () => {
         <div className='section'>
           <Container>
             <div className='button-container'>
-              <a href='/en/contact'>
-                <Button
-                  className='btn-round'
-                  color='info'
-                  type='button'
-                  size='lg'>
-                  Contact Us
-                </Button>
-              </a>
+              <Button
+                className='btn-round'
+                href='/en/contact'
+                color='info'
+                type='button'
+                size='lg'>
+                Contact Us
+              </Button>
             </div>
-            <br/> <br/>
+            <br /> <br />
             <h3 className='text-center'>SELLING YOUR PROPERTY</h3>
-
             <div className='separator separator-primary'></div>
             <div className='section-story-overview'>
               <Row>
@@ -160,6 +157,35 @@ const SellingPage = () => {
               <PhotoshootCarousel />
             </Container>
           </div>
+          <Container className='offset-md-3'>
+            <h4>BENEFITS OF USING OUR SERVICES</h4>
+            <p>- Individual property evaluation with market analysis</p>
+            <p>
+              - We create a convincing and professional Exposé with a
+              photographer
+            </p>
+            <p>
+              - We create advertisements on different real estate portals and
+              our website
+            </p>
+            <p>- Fast and transparent communication between all parties </p>
+            <p>- Credit Check of potential buyers</p>
+            <p>- Consulting after Selling</p>
+            <p>- Private Viewings only</p>
+            <p>- Preparation and coordination of Notarization</p>
+            <br /> <br />
+            <h6>
+              You like the way we work? Then let’s sell your property together!
+            </h6>
+            <Button
+              className='btn-round'
+              href='/en/contact'
+              color='info'
+              type='button'
+              size='lg'>
+              Contact Us
+            </Button>
+          </Container>
         </div>
         <MyFooter />
       </div>
