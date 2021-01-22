@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
-import { BrowserRouter as Router,
-   Route, 
+import {
+  BrowserRouter as Router,
+  Route,
   //  Redirect
-  } from 'react-router-dom'
+} from 'react-router-dom'
 
 // styles for this kit
 import 'assets/css/bootstrap.min.css'
@@ -25,6 +26,22 @@ import AboutUsScreen from './screens/English/AboutUsScreen'
 import RelocationTipsScreen from './screens/English/RelocationTipsScreen'
 import ContactScreen from './screens/English/ContactScreen'
 
+//Blog
+import BlogScreen from './screens/English/Blog/BlogScreen'
+import SellingProperty from './screens/English/Blog/SellingProperty'
+import PropertyValue from './screens/English/Blog/PropertyValue'
+import LGBTRessources from './screens/English/Blog/LGBTRessources'
+import ImportantTerms from './screens/English/Blog/ImportantTerms'
+import Anmeldung from './screens/English/Blog/Anmeldung'
+import Schufa from './screens/English/Blog/Schufa'
+import Documents from './screens/English/Blog/Documents'
+import Costs from './screens/English/Blog/Costs'
+import QueerInBerlin from './screens/English/Blog/QueerInBerlin'
+import SeeAndFeel from './screens/English/Blog/SeeAndFeel'
+import SevenThings from './screens/English/Blog/SevenThings'
+import GayAreas from './screens/English/Blog/GayAreas'
+
+
 //German screens :
 import HomePageScreenDE from './screens/German/HomePageScreenDE'
 import BuyingScreenDE from './screens/German/BuyingScreenDE'
@@ -37,7 +54,6 @@ import BuyingListScreen from './screens/Admin/BuyingListScreen'
 import BuyingEditScreen from './screens/Admin/BuyingEditScreen'
 import CommercialListScreen from './screens/Admin/CommercialListScreen'
 import CommercialEditScreen from './screens/Admin/CommercialEditScreen'
-
 
 class App extends Component {
   render() {
@@ -97,10 +113,75 @@ class App extends Component {
           path='/en/relocation-tips'
           render={(props) => <RelocationTipsScreen {...props} />}
         />
-         <Route
+        <Route
           exact
           path='/en/contact'
           render={(props) => <ContactScreen {...props} />}
+        />
+        <Route
+          exact
+          path='/en/blog'
+          render={(props) => <BlogScreen {...props} />}
+        />
+        <Route
+          exact
+          path='/en/blog/selling-your-property-common-questions'
+          render={(props) => <SellingProperty {...props} />}
+        />
+        <Route
+          exact
+          path='/en/blog/7-ways-to-improve-your-property-value'
+          render={(props) => <PropertyValue {...props} />}
+        />
+        <Route
+          exact
+          path='/en/blog/important-resources'
+          render={(props) => <LGBTRessources {...props} />}
+        />
+        <Route
+          exact
+          path='/en/blog/important-terms-to-know'
+          render={(props) => <ImportantTerms {...props} />}
+        />
+        <Route
+          exact
+          path='/en/blog/how-to-get-your-anmeldung'
+          render={(props) => <Anmeldung {...props} />}
+        />
+        <Route
+          exact
+          path='/en/blog/what-is-a-schufa'
+          render={(props) => <Schufa {...props} />}
+        />
+        <Route
+          exact
+          path='/en/blog/documents-needed-to-rent'
+          render={(props) => <Documents {...props} />}
+        />
+        <Route
+          exact
+          path='/en/blog/cost-of-renting-berlin'
+          render={(props) => <Costs {...props} />}
+        />
+        <Route
+          exact
+          path='/en/blog/queer-in-berlin'
+          render={(props) => <QueerInBerlin {...props} />}
+        />
+        <Route
+          exact
+          path='/en/blog/things-you-can-only-see-and-feel-in-berlin'
+          render={(props) => <SeeAndFeel {...props} />}
+        />
+        <Route
+          exact
+          path='/en/blog/7-things-you-should-know-before-moving-to-berlin'
+          render={(props) => <SevenThings {...props} />}
+        />
+        <Route
+          exact
+          path='/en/blog/the-best-gay-residential-areas-in-berlin'
+          render={(props) => <GayAreas {...props} />}
         />
         <Route
           exact
