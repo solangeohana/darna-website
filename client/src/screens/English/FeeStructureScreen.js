@@ -2,8 +2,8 @@ import React, { useEffect } from 'react'
 
 import { Container, Row, Col } from 'reactstrap'
 
-import MyFooter from '../../components/English/MyFooter'
-import NavbarFixed from '../../components/English/NavbarFixed'
+import MyFooter from 'components/English/MyFooter'
+import NavbarFixed from 'components/English/NavbarFixed'
 
 const FeeStructure = () => {
   useEffect(() => {

@@ -20,11 +20,15 @@ import BuyingScreen from './screens/English/BuyingScreen'
 import BuyingDetailsScreen from './screens/English/BuyingDetailsScreen'
 import CommercialScreen from './screens/English/CommercialScreen'
 import CommercialDetailsScreen from './screens/English/CommercialDetailsScreen'
-
 import FeeStructureScreen from './screens/English/FeeStructureScreen'
 import AboutUsScreen from './screens/English/AboutUsScreen'
 import RelocationTipsScreen from './screens/English/RelocationTipsScreen'
 import ContactScreen from './screens/English/ContactScreen'
+
+//German screens :
+import HomePageScreenDE from './screens/German/HomePageScreenDE'
+import BuyingScreenDE from './screens/German/BuyingScreenDE'
+import UberUnsScreen from './screens/German/UberUnsScreen'
 
 //Blog
 import BlogScreen from './screens/English/Blog/BlogScreen'
@@ -41,11 +45,10 @@ import SeeAndFeel from './screens/English/Blog/SeeAndFeel'
 import SevenThings from './screens/English/Blog/SevenThings'
 import GayAreas from './screens/English/Blog/GayAreas'
 
-//German screens :
-import HomePageScreenDE from './screens/German/HomePageScreenDE'
-import BuyingScreenDE from './screens/German/BuyingScreenDE'
-import UberUnsScreen from './screens/German/UberUnsScreen'
-
+//Legal
+import Impressum from './screens/German/legal/Impressum'
+import Datenschutz from './screens/German/legal/Datenschutz'
+import Vertrags from './screens/German/legal/Vertrags'
 
 //ADMIN
 import LoginScreen from './screens/Admin/LoginScreen'
@@ -195,9 +198,26 @@ class App extends Component {
           render={(props) => <BuyingScreenDE {...props} />}
         />
         <Route
+          exact
           path='/de/uber-uns'
           render={(props) => <UberUnsScreen {...props} />}
         />
+        <Route
+          exact
+          path='/de/impressum'
+          render={(props) => <Impressum {...props} />}
+        />
+         <Route
+          exact
+          path='/de/datenschutz'
+          render={(props) => <Datenschutz {...props} />}
+        />
+        <Route
+          exact
+          path='/de/vertrag'
+          render={(props) => <Vertrags {...props} />}
+        />
+        
         <Route
           path='/en/admin/login'
           render={(props) => <LoginScreen {...props} />}
