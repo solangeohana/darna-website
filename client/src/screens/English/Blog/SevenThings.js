@@ -67,7 +67,7 @@ const SevenThings = () => {
             Check out this{' '}
             <a
               href='https://www.studying-in-germany.org/learn-german/language-schools/learn-german-berlin/'
-              className='btn-link btn btn-warning'>
+              className='btn-link btn-warning'>
               list of German schools
             </a>{' '}
             in Berlin if you’re really keen to master the Muttersprache.

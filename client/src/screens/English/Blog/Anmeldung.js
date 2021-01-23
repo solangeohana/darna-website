@@ -87,7 +87,7 @@ const Anmeldung = () => {
             Bürgeramt, or which you can download{' '}
             <a
               href='http://www.berlin.de/formularserver/formular.php?402608'
-              className='btn-link btn btn-warning'>
+              className='btn-link btn-warning'>
               here
             </a>
             .
@@ -110,7 +110,7 @@ const Anmeldung = () => {
             process. Simply follow{' '}
             <a
               href='https://service.berlin.de/dienstleistung/120686/'
-              className='btn-link btn btn-warning'>
+              className='btn-link btn-warning'>
               this link
             </a>{' '}
             and scroll down the page until you find your kiez. Find the
@@ -167,7 +167,7 @@ const Anmeldung = () => {
             Simply download the form by following{' '}
             <a
               href='http://www.berlin.de/formularserver/formular.php?402609'
-              className='btn-link btn btn-warning'>
+              className='btn-link btn-warning'>
               this link
             </a>
             , include a copy of your passport, head to your nearest post office

@@ -45,7 +45,7 @@ const Schufa = () => {
               What exactly is a{' '}
               <a
                 href='https://partnerprogramm.immowelt.de/go.cgi?pid=160&wmid=80&cpid=1&prid=1&subid=&target=schufa_page'
-                className='btn-link btn btn-warning'>
+                className='btn-link btn-warning'>
                 SCHUFA
               </a>
               ?
@@ -93,7 +93,7 @@ const Schufa = () => {
             instantly{' '}
             <a
               href='https://partnerprogramm.immowelt.de/go.cgi?cpid=1&pid=160&prid=1&subid=&target=schufa_page&wmid=80'
-              className='btn-link btn btn-warning'>
+              className='btn-link btn-warning'>
               here
             </a>
             . This is generally the easiest method, and the most official,
@@ -103,13 +103,13 @@ const Schufa = () => {
             - You can apply via the German real estate companies such as{' '}
             <a
               href='https://bonitaetscheck.immobilienscout24.de/'
-              className='btn-link btn btn-warning'>
+              className='btn-link btn-warning'>
               ImmobilienScout24
             </a>{' '}
             and{' '}
             <a
               href='https://schufa.immowelt.de/'
-              className='btn-link btn btn-warning'>
+              className='btn-link btn-warning'>
               Immowelt
             </a>
             .
@@ -125,7 +125,7 @@ const Schufa = () => {
             may accept it. You can apply for it by following{' '}
             <a
               href='https://partnerprogramm.immowelt.de/go.cgi?cpid=1&pid=160&prid=1&subid=&target=schufa_page&wmid=80'
-              className='btn-link btn btn-warning'>
+              className='btn-link btn-warning'>
               this link
             </a>
             .

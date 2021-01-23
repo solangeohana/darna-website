@@ -119,13 +119,13 @@ const QueerInBerlin = () => {
             services such as the{' '}
             <a
               href='https://berlin.lsvd.de/'
-              className='btn-link btn btn-warning'>
+              className='btn-link btn-warning'>
               LSVD (Lesbian and Gay Association for Berlin and Brandenburg)
             </a>{' '}
             which offers a wealth of advice and different services, or the
             <a
               href='http://lesbenberatung-berlin.de/Willkommen.html'
-              className='btn-link btn btn-warning'>
+              className='btn-link btn-warning'>
               Lesbenberatung
             </a>{' '}
             which offer one-on-one advice and counseling sessions for lesbian,
@@ -188,7 +188,7 @@ const QueerInBerlin = () => {
             International’s MonGay program every Monday night. The{' '}
             <a
               href='https://www.schwulesmuseum.de/ausstellungen/?lang=en'
-              className='btn-link btn btn-warning'>
+              className='btn-link btn-warning'>
               Schwules Museum{' '}
             </a>
             (or Gay Museum) has both permanent and rotating exhibitions that

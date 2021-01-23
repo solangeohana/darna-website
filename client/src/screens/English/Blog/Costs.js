@@ -79,7 +79,7 @@ const Costs = () => {
             Berlin,{' '}
             <a
               href='https://www.expatistan.com/price/utilities/berlin'
-              className='btn-link btn btn-warning'>
+              className='btn-link btn-warning'>
               according to Expatistan
             </a>
             , is €177 per month.
@@ -93,13 +93,13 @@ const Costs = () => {
             to get in touch with a gas and electricity provider such as
             <a
               href='https://www.vattenfall.de/'
-              className='btn-link btn btn-warning'>
+              className='btn-link btn-warning'>
               Vattenfall
             </a>{' '}
             or{' '}
             <a
               href='https://www.entega.de/'
-              className='btn-link btn btn-warning'>
+              className='btn-link btn-warning'>
               Entega
             </a>{' '}
             and set up your own account with them. When you first move in you’ll
@@ -108,7 +108,7 @@ const Costs = () => {
             money in the long run by comparing prices between providers.{' '}
             <a
               href='https://www.check24.net/strom-vergleich/?c24pp_zipcode=10117&c24pp_totalconsumption=2000&c24_calculate=vergleichen+%C2%BB'
-              className='btn-link btn btn-warning'>
+              className='btn-link btn-warning'>
               Check24
             </a>{' '}
             is a great resource for doing exactly this.
@@ -168,7 +168,7 @@ const Costs = () => {
             For a full list of areas, see Guthmann’s website{' '}
             <a
               href='https://guthmann.estate/en/market-report/'
-              className='btn-link btn btn-warning'>
+              className='btn-link btn-warning'>
               here
             </a>
             .
@@ -177,7 +177,7 @@ const Costs = () => {
             For a different perspective, check out{' '}
             <a
               href='https://www.immobilienscout24.de/content/dam/is24/ibw/dokumente/mietmap-berlin-2017.jpg'
-              className='btn-link btn btn-warning'>
+              className='btn-link btn-warning'>
               this map
             </a>{' '}
             which shows you the average price of flats based on their proximity
