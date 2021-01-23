@@ -1,14 +1,14 @@
-import React from 'react'
+import React, { useEffect, createRef } from 'react'
 
 // reactstrap components
 import { Button, Container } from 'reactstrap'
 
 // core components
 
-function HeaderDe() {
-  let pageHeader = React.createRef()
+const HeaderDe = () => {
+  let pageHeader = createRef()
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (window.innerWidth > 991) {
       const updateScroll = () => {
         let windowScrollTop = window.pageYOffset / 3
@@ -32,7 +32,7 @@ function HeaderDe() {
           ref={pageHeader}></div>
         <div className='content-center'>
           <Container>
-            <h2 className='title'>QUEERE IMMOBILIENAGENTUR</h2>
+            <h4 className='title'>DIE QUEERE IMMOBILIENAGENTUR</h4>
             <div className='text-center'>
               <a href='/de/kaufen'>
                 <Button
