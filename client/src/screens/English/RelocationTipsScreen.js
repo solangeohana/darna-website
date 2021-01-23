@@ -175,6 +175,11 @@ const RelocationTipsScreen = () => {
               </Button>
             </ListGroupItem>
           </ListGroup>
+          <br/><br/><br/>
+          <h4>Head over to our blog for in depth tips !</h4>
+          <Button color='warning' href='/en/blog'>
+            BLOG
+          </Button>
         </Container>
       </div>
       <MyFooter />

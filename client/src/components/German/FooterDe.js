@@ -1,56 +1,89 @@
 /*eslint-disable*/
-import React from "react";
+import React from 'react'
 
-// reactstrap components
-import { Container } from "reactstrap";
+import {
+  Button,
+  DropdownToggle,
+  DropdownMenu,
+  DropdownItem,
+  Container,
+  UncontrolledButtonDropdown,
+} from 'reactstrap'
 
-function FooterDe() {
+const FooterDe = () => {
   return (
-    <footer className="footer" data-background-color="black">
-      <Container>
-        <nav>
-          <ul>
-            <li>
-              <a
-                href="/blog"
-                target="_blank"
-                onClick={(e) => e.preventDefault()}
-              >
-                Blog
-              </a>
-            </li>
-            <li>
-              <a
-                href="/legal"
-                target="_blank"
-                onClick={(e) => e.preventDefault()}
-              >
-                Legal
-              </a>
-            </li>
-            <li>
-              <a
-                href="/career"
-                target="_blank"
-                onClick={(e) => e.preventDefault()}
-              >
-                Karriere
-              </a>
-            </li>
-          </ul>
-        </nav>
-        <div className="copyright" id="copyright">
-          © {new Date().getFullYear()}, Codiert von{" "}
-          <a
-            href="https://www.linkedin.com/in/solange-ohana"
-            target="_blank"
-          >
-            Solange Ohana
-          </a>
-        </div>
-      </Container>
-    </footer>
-  );
+    <>
+      <footer className='footer footer-default' data-background-color='black'>
+        <Container>
+          <div className='text-center elements'>
+            <Button className='btn-round' color='info' outline href='/en/blog'>
+              BLOG
+            </Button>
+            <Button
+              className='btn-round'
+              color='info'
+              outline
+              href='/de/freunde'>
+              FREUNDE
+            </Button>
+            <UncontrolledButtonDropdown>
+              <DropdownToggle caret>LEGAL</DropdownToggle>
+              <DropdownMenu>
+                <DropdownItem href='/de/impressum'>Impressum</DropdownItem>
+                <DropdownItem href='/de/datenschutz'>Datenschutz</DropdownItem>
+                <DropdownItem href='/de/vertrag'>
+                  Allgemeine Vertrag und Nutzungsbedigungen
+                </DropdownItem>
+              </DropdownMenu>
+            </UncontrolledButtonDropdown>
+          </div>
+
+          <div className='text-center elements' style={{ marginLeft: '2rem' }}>
+            <div>DARNA Immobilien GmbH </div>
+            <div>
+              <i className='now-ui-icons location_pin'></i> Motzstraße 9, 10777
+              Berlin Deutschland
+            </div>
+            <div>
+              <i className='fas fa-phone'></i> +49 30 28664417
+            </div>
+          </div>
+
+          <div className='text-center elements'>
+            <Button
+              className='btn-icon btn-round'
+              color='info'
+              href='https://www.facebook.com/TheQueerRealEstateAgency/'>
+              <i className='fab fa-facebook-square'></i>
+            </Button>
+            <Button
+              className='btn-icon btn-round'
+              color='info'
+              href='https://www.instagram.com/darnaimmobilien/'>
+              <i className='fab fa-instagram'></i>
+            </Button>
+            <Button
+              className='btn-icon btn-round'
+              color='info'
+              href='mailto:contact@darna-immobilien.com'>
+              <i className='now-ui-icons ui-1_email-85'></i>
+            </Button>
+            <Button
+              className='btn-icon btn-round'
+              color='info'
+              href='https://www.paypal.me/darnaimmobilien'>
+              <i className='fab fa-paypal'></i>
+            </Button>
+          </div>
+
+          <div className='text-center elements'>
+            © {new Date().getFullYear()} DARNA Immobilien GmbH 
+          </div>
+        </Container>
+      </footer>
+    </>
+  )
 }
 
-export default FooterDe;
+export default FooterDe
+

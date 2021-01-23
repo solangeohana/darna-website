@@ -1,142 +1,84 @@
-import React from "react";
+import React, { useEffect } from 'react'
 
 // reactstrap components
-import {
-  Button,
-  Input,
-  InputGroupAddon,
-  InputGroupText,
-  InputGroup,
-  Container,
-  Row,
-  Col,
-} from "reactstrap";
+import { Button } from 'reactstrap'
 
 // core components
-import NavbarDe from "../../components/German/NavbarDe";
-import HeaderDe from "../../components/German/HeaderDe";
-import FooterDe from "../../components/German/FooterDe";
+import FooterDe from 'components/German/FooterDe'
+import HeaderDe from 'components/German/HeaderDe'
+import NavbarDe from 'components/German/NavbarDe'
 
-function LandingPageDe() {
-  const [lastFocus, setLastFocus] = React.useState(false);
-  React.useEffect(() => {
-    document.body.classList.add("landing-page");
-    document.body.classList.add("sidebar-collapse");
-    document.documentElement.classList.remove("nav-open");
-    window.scrollTo(0, 0);
-    document.body.scrollTop = 0;
+const LandingPageDE = () => {
+  useEffect(() => {
+    document.body.classList.add('landing-page')
+    document.body.classList.add('sidebar-collapse')
+    document.documentElement.classList.remove('nav-open')
+    window.scrollTo(0, 0)
+    document.body.scrollTop = 0
     return function cleanup() {
-      document.body.classList.remove("landing-page");
-      document.body.classList.remove("sidebar-collapse");
-    };
-  }, []);
+      document.body.classList.remove('landing-page')
+      document.body.classList.remove('sidebar-collapse')
+    }
+  }, [])
   return (
     <>
-      <NavbarDe/>
-      <div className="wrapper">
-        <HeaderDe/>
-        <div className="section section-about-us">
-          <Container>
-            <Row>
-              <Col className="ml-auto mr-auto text-center" md="8">
-                <h2 className="title">Wer Sind Wir ? </h2>
-                <p className="content">
-                Wir sind eine Community- und LGBTIQ+ orientierte Organisation, die auf allen erdenklichen Wegen unsere Queer Community unterstützt!                <br/>
-                Die Unterstützung durch DARNA ist vielfältig. Ob wir euch ein sicheres Zuhause vermitteln, wo ihr unbehelligt ihr selbst sein könnt, oder einen sichere und liebevolle Arbeitsatmosphäre sucht, wo ihr viele andere talentierte queere Menschen kennenlernt, euch vernetzt und miteinander arbeitet. Wir finden gemeinsam den Weg, der euch dahin führt, euch selbst zu akzeptieren, wie ihr seid, und das Beste aus euch herauszuholen.                
-                </p>
-              </Col>
-            </Row>
-            <div className="separator separator-primary"></div>
-            <div className="section-story-overview">
-              <Row>
-                <Col md="6">
-                  <div
-                    className="image-container image-left"
-                    style={{
-                      backgroundImage:
-                        "url(" + require("assets/img/landing-1.jpg") + ")",
-                    }}
-                  >
-                  </div>
-                  <div
-                    className="image-container"
-                    style={{
-                      backgroundImage:
-                        "url(" + require("assets/img/darna-22.jpg") + ")",
-                    }}
-                  ></div>
-                </Col>
-                <Col md="5">
-                  <div
-                    className="image-container image-right"
-                    style={{
-                      backgroundImage:
-                        "url(" + require("assets/img/landing-2.jpg") + ")",
-                    }}
-                  ></div>
-                  <br/><br/>
-                  <h3>
-                    Unsere Mission 
-                  </h3>
-                  <p className="content">
-                  DARNA wurde 2019 als erste queere Immobilienagentur in Deutschland gegründet und begann zunächst schwerpunktmäßig, der Queer Community Unterkünfte und sichere Arbeitsräume zu vermitteln, wo niemand um seiner selbst willen diskriminiert wird.                  </p>
-                  <p>
-                  Heute ist DARNA gewachsen und zu dem Professional Queer Hub Deutschlands geworden. Wir fördern inzwischen auch neue Start-Ups und Unternehmen und helfen ihnen dabei, sich in einer sicheren und liebevollen Umgebung zu entwickeln.                  </p>
-                </Col>
-              </Row>
-            </div>
-          </Container>
-        </div>
-        <div className="section section-team text-center">
-          <Container>
-            <h2 className="title">Unsere Team</h2>
-            <img src="/images/team-photo.jpeg" alt='Team' height="500px"/>
-
-          </Container>
-        </div>
-        <div className="section section-contact-us text-center">
-          <Container>
-            <h2 className="title">Abonnieren</h2>
-            <p className="content">Melden Sie sich mit Ihrer E-Mail-Adresse an, um Neuigkeiten und Updates zu erhalten</p>
-            <Row>
-              <Col className="text-center ml-auto mr-auto" lg="6" md="8">
-                <InputGroup
-                  className={
-                    "input-lg" + (lastFocus ? " input-group-focus" : "")
-                  }
-                >
-                  <InputGroupAddon addonType="prepend">
-                    <InputGroupText>
-                      <i className="now-ui-icons ui-1_email-85"></i>
-                    </InputGroupText>
-                  </InputGroupAddon>
-                  <Input
-                    placeholder="Email..."
-                    type="text"
-                    onFocus={() => setLastFocus(true)}
-                    onBlur={() => setLastFocus(false)}
-                  ></Input>
-                </InputGroup>
-                <div className="send-button">
-                  <Button
-                    block
-                    className="btn-round"
-                    color="info"
-                    href="#pablo"
-                    onClick={(e) => e.preventDefault()}
-                    size="lg"
-                  >
-                    Absenden 
-                  </Button>
-                </div>
-              </Col>
-            </Row>
-          </Container>
+      <NavbarDe />
+      <div className='wrapper'>
+        <HeaderDe />
+        <div className=' section container text-center'>
+          <h3 className=''>DARNA’S FAMILIE</h3>
+          <img
+            className='image-container'
+            src='/images/team-photo.jpeg'
+            alt='Team'
+            height='auto'
+          />
+          <h5>Sharif, Alex, Vaclav, Patrick, Cathrin & Madonna</h5>
+          <br /> <br />
+          <h3>DARNA - DIE QUEERE IMMOBILIENAGENTUR</h3>
+          <p className='content'>
+            Bei DARNA geht es nicht nur darum, für euch die perfekte Immobilie
+            zu finden, sondern ein Zuhause.
+            <br />
+            2019 gegründet war DARNA die erste Firma ihrer Art - Eine Queere
+            Immobilienagentur, spezialisiert auf den Verkauf und die Vermietung
+            gewerblicher und privater Immobilien in Deutschland und der EU.
+            <br /> <br />
+            Wir stellen den Kontakt zwischen queeren Immobilien-Interessenten
+            und empathischen und verständnisvollen Eigentümern her. Bei DARNA
+            müsst ihr euch keine Sorgen um eure Akzeptanz machen. Ob ihr schwul,
+            lesbisch, bisexuell, transgender seid oder wie auch immer ihr euch
+            selbst zu identifizieren wünscht; Jeder, der mit DARNA
+            zusammenarbeitet, hat eine Null-Toleranz-Haltung gegenüber jeglicher
+            Art von Diskriminierung, insbesondere der Diskriminierung zu Hause.
+            <br /> <br />
+            Wir haben den Mangel an Vernetzung in unserer heutigen Gesellschaft
+            festgestellt. Daher versucht DARNA eine dynamische Gemeinschaft aus
+            queeren Käufern und Verkäufern, Mietern und Vermietern zu schaffen.
+            In einer Welt, in der zunehmend die gleichgeschlechtliche Ehen
+            legalisiert wird, sahen wir den Bedarf und die Chance, Räume zu
+            schaffen, wo queere und gleichgesinnte Menschen sicher und
+            unbefangen zusammenkommen und ein Zuhause finden können.
+            <br /> <br />
+            Obwohl sich der Auftrag von DARNA um den Dienst für die Queer
+            Community dreht, sind wir natürlich 100% hetero-freundlich und
+            heißen alle Menschen jeder Schichten und jeglicher sexueller
+            Orientierung herzlich willkommen!
+          </p>
+          <div className='send-button'>
+            <Button
+              className='btn-round'
+              color='info'
+              href='/en/contact'
+              size='lg'>
+              KONTAKTIERE UNS
+            </Button>
+          </div>
         </div>
         <FooterDe />
       </div>
     </>
-  );
+  )
 }
 
-export default LandingPageDe;
+export default LandingPageDE

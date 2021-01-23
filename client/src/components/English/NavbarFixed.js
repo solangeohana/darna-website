@@ -1,5 +1,4 @@
-import React from 'react'
-import { useSelector } from 'react-redux'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 
 // reactstrap components
@@ -18,10 +17,7 @@ import {
 } from 'reactstrap'
 
 const NavbarFixed = () => {
-  const [collapseOpen, setCollapseOpen] = React.useState(false)
-
-  const userLogin = useSelector((state) => state.userLogin)
-  const { userInfo } = userLogin
+  const [collapseOpen, setCollapseOpen] = useState(false)
 
   return (
     <>
@@ -65,13 +61,6 @@ const NavbarFixed = () => {
             isOpen={collapseOpen}
             navbar>
             <Nav navbar>
-              {userInfo && userInfo.isAdmin && (
-                <NavItem>
-                  <NavLink to='/en/admin/dashboard' tag={Link}>
-                    <i className='fas fa-key'></i>{' '}
-                  </NavLink>
-                </NavItem>
-              )}
               <NavItem className='active'>
                 <NavLink to='/de' tag={Link}>
                   <i className='now-ui-icons objects_globe'></i>
@@ -101,8 +90,8 @@ const NavbarFixed = () => {
                       Fee structure
                     </DropdownItem>
                     <DropdownItem divider></DropdownItem>
-                    <DropdownItem href='/en/relocation-tips'>
-                      Relocation Tips
+                    <DropdownItem href='/de/immobilie-bewerten'>
+                      Property Evaluation(german)
                     </DropdownItem>
                   </DropdownMenu>
                 </UncontrolledDropdown>

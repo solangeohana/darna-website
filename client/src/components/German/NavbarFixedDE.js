@@ -1,5 +1,4 @@
-import React, {useEffect, useState} from 'react'
-import { useSelector } from 'react-redux'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 
 // reactstrap components
@@ -17,32 +16,8 @@ import {
   Container,
 } from 'reactstrap'
 
-const MyNavbar = () => {
-  const [navbarColor, setNavbarColor] = useState('navbar-transparent')
+const NavbarFixedDE = () => {
   const [collapseOpen, setCollapseOpen] = useState(false)
-
-  const userLogin = useSelector((state) => state.userLogin)
-  const { userInfo } = userLogin
-
-  useEffect(() => {
-    const updateNavbarColor = () => {
-      if (
-        document.documentElement.scrollTop > 399 ||
-        document.body.scrollTop > 399
-      ) {
-        setNavbarColor('')
-      } else if (
-        document.documentElement.scrollTop < 400 ||
-        document.body.scrollTop < 400
-      ) {
-        setNavbarColor('navbar-transparent')
-      }
-    }
-    window.addEventListener('scroll', updateNavbarColor)
-    return function cleanup() {
-      window.removeEventListener('scroll', updateNavbarColor)
-    }
-  })
 
   return (
     <>
@@ -55,12 +30,12 @@ const MyNavbar = () => {
           }}
         />
       ) : null}
-      <Navbar className={'fixed-top ' + navbarColor} color='info' expand='md'>
+      <Navbar className='fixed-top ' color='info' expand='lg'>
         <Container>
           <div className='navbar-translate'>
             <NavbarBrand
               className='section-navbar-logo'
-              to='/en'
+              to='/de'
               tag={Link}
               id='navbar-brand'>
               <img
@@ -86,17 +61,10 @@ const MyNavbar = () => {
             isOpen={collapseOpen}
             navbar>
             <Nav navbar>
-              {userInfo && userInfo.isAdmin && (
-                <NavItem>
-                  <NavLink to='/en/admin/dashboard' tag={Link}>
-                    <i className='fas fa-key'></i>{' '}
-                  </NavLink>
-                </NavItem>
-              )}
               <NavItem className='active'>
-                <NavLink to='/de' tag={Link}>
+                <NavLink to='/en' tag={Link}>
                   <i className='now-ui-icons objects_globe'></i>
-                  <p>De</p>
+                  <p>En</p>
                 </NavLink>
               </NavItem>
 
@@ -108,43 +76,41 @@ const MyNavbar = () => {
                     id='navbarDropdown'
                     tag='a'
                     onClick={(e) => e.preventDefault()}>
-                    Real Estate
+                    Immobilien
                   </DropdownToggle>
                   <DropdownMenu aria-labelledby='navbarDropdown'>
-                    <DropdownItem href='/en/rent'>RENT</DropdownItem>
-                    <DropdownItem href='/en/buy'>BUY</DropdownItem>
-                    <DropdownItem href='/en/sell'>SELL</DropdownItem>
-                    <DropdownItem href='/en/commercial'>
-                      COMMERCIAL
-                    </DropdownItem>
+                    <DropdownItem href='/de/mieten'>MIETEN</DropdownItem>
+                    <DropdownItem href='/de/kaufen'>KAUFEN</DropdownItem>
+                    <DropdownItem href='/de/verkaufen'>VERKAUFEN</DropdownItem>
+                    <DropdownItem href='/de/gewerbe'>GEWERBE</DropdownItem>
                     <DropdownItem divider></DropdownItem>
-                    <DropdownItem href='/en/fee-structure'>
-                      Fee structure
+                    <DropdownItem href='/de/preisliste'>
+                      PREISLISTE
                     </DropdownItem>
                     <DropdownItem divider></DropdownItem>
                     <DropdownItem href='/de/immobilie-bewerten'>
-                      Property Evaluation(german)
+                      Immobilie Bewerten
                     </DropdownItem>
                   </DropdownMenu>
                 </UncontrolledDropdown>
               </NavItem>
 
               <NavItem>
-                <NavLink href='/en/house-management'>
-                  House Managements & Landlords
+                <NavLink href='/de/hausvervaltungen'>
+                  Hausvervaltungen & Eigentümer
                 </NavLink>
               </NavItem>
 
               <NavItem>
-                <NavLink href='/en/relocation-tips'>Relocation Tips</NavLink>
+                <NavLink href='/de/umzugstipps'>Umzugstipps</NavLink>
               </NavItem>
 
               <NavItem>
-                <NavLink href='/en/about'>About Us</NavLink>
+                <NavLink href='/de/uber-uns'>Uber Uns</NavLink>
               </NavItem>
 
               <NavItem>
-                <NavLink href='/en/contact'>Contact</NavLink>
+                <NavLink href='/de/kontakt'>Kontakt</NavLink>
               </NavItem>
             </Nav>
           </Collapse>
@@ -154,4 +120,4 @@ const MyNavbar = () => {
   )
 }
 
-export default MyNavbar
+export default NavbarFixedDE

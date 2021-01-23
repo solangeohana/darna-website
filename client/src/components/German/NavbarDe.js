@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 // reactstrap components
 import {
@@ -16,9 +16,9 @@ import {
 } from 'reactstrap'
 
 const NavbarDe = () => {
-  const [navbarColor, setNavbarColor] = React.useState('navbar-transparent')
-  const [collapseOpen, setCollapseOpen] = React.useState(false)
-  React.useEffect(() => {
+  const [navbarColor, setNavbarColor] = useState('navbar-transparent')
+  const [collapseOpen, setCollapseOpen] = useState(false)
+  useEffect(() => {
     const updateNavbarColor = () => {
       if (
         document.documentElement.scrollTop > 399 ||
@@ -87,62 +87,48 @@ const NavbarDe = () => {
               </NavItem>
 
               <NavItem className='nav-link'>
-                  <UncontrolledDropdown>
-                    <DropdownToggle
-                      caret
-                      data-toggle='dropdown'
-                      href='/real-estate'
-                      id='navbarDropdown'
-                      tag='a'
-                      onClick={(e) => e.preventDefault()}>
-                      Immobilien
-                    </DropdownToggle>
-                    <DropdownMenu aria-labelledby='navbarDropdown'>
-                      <DropdownItem
-                        href='de/mieten'
-                        onClick={(e) => e.preventDefault()}>
-                        Mieten
-                      </DropdownItem>
-                      <DropdownItem
-                        href='/de/kaufen'
-                        onClick={(e) => e.preventDefault()}>
-                        kaufen
-                      </DropdownItem>
-                      <DropdownItem
-                        href='/de/verkaufen'
-                        onClick={(e) => e.preventDefault()}>
-                        verkaufen
-                      </DropdownItem>
-                      <DropdownItem divider></DropdownItem>
-                      <DropdownItem
-                        href='/de/preisliste'
-                        onClick={(e) => e.preventDefault()}>
-                        Preisliste
-                      </DropdownItem>
-                      <DropdownItem divider></DropdownItem>
-                      <DropdownItem
-                        href='/de/umzugstipps'
-                        onClick={(e) => e.preventDefault()}>
-                        Umzugstipps
-                      </DropdownItem>
-                    </DropdownMenu>
-                  </UncontrolledDropdown>
+                <UncontrolledDropdown>
+                  <DropdownToggle
+                    caret
+                    data-toggle='dropdown'
+                    id='navbarDropdown'
+                    tag='a'
+                    onClick={(e) => e.preventDefault()}>
+                    Immobilien
+                  </DropdownToggle>
+                  <DropdownMenu aria-labelledby='navbarDropdown'>
+                    <DropdownItem href='/de/mieten'>MIETEN</DropdownItem>
+                    <DropdownItem href='/de/kaufen'>KAUFEN</DropdownItem>
+                    <DropdownItem href='/de/verkaufen'>VERKAUFEN</DropdownItem>
+                    <DropdownItem href='/de/gewerbe'>GEWERBE</DropdownItem>
+                    <DropdownItem divider></DropdownItem>
+                    <DropdownItem href='/de/preisliste'>
+                      Preisliste
+                    </DropdownItem>
+                    <DropdownItem divider></DropdownItem>
+                    <DropdownItem href='/de/immobilie-bewerten'>
+                      Immobilie Bewerten
+                    </DropdownItem>
+                  </DropdownMenu>
+                </UncontrolledDropdown>
               </NavItem>
 
               <NavItem>
-                <NavLink href='/de/tips'>Hausvervaltungen & Eigentümer</NavLink>
+                <NavLink href='/de/hausvervaltungen'>
+                  Hausvervaltungen & Eigentümer
+                </NavLink>
               </NavItem>
 
               <NavItem>
-                <NavLink href='/de/tips'>Umzugstipps</NavLink>
+                <NavLink href='/de/umzugstipps'>Umzugstipps</NavLink>
               </NavItem>
 
               <NavItem>
-                <NavLink href='de/uber-uns'>Uber Uns</NavLink>
+                <NavLink href='/de/uber-uns'>Uber Uns</NavLink>
               </NavItem>
 
               <NavItem>
-                <NavLink href='de/kontakt'>Kontakt</NavLink>
+                <NavLink href='/de/kontakt'>Kontakt</NavLink>
               </NavItem>
             </Nav>
           </Collapse>

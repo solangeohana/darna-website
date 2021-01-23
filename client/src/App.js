@@ -41,10 +41,12 @@ import SeeAndFeel from './screens/English/Blog/SeeAndFeel'
 import SevenThings from './screens/English/Blog/SevenThings'
 import GayAreas from './screens/English/Blog/GayAreas'
 
-
 //German screens :
 import HomePageScreenDE from './screens/German/HomePageScreenDE'
 import BuyingScreenDE from './screens/German/BuyingScreenDE'
+import UberUnsScreen from './screens/German/UberUnsScreen'
+
+
 //ADMIN
 import LoginScreen from './screens/Admin/LoginScreen'
 import DashboardScreen from './screens/Admin/DashboardScreen'
@@ -191,6 +193,10 @@ class App extends Component {
         <Route
           path='/de/kaufen'
           render={(props) => <BuyingScreenDE {...props} />}
+        />
+        <Route
+          path='/de/uber-uns'
+          render={(props) => <UberUnsScreen {...props} />}
         />
         <Route
           path='/en/admin/login'

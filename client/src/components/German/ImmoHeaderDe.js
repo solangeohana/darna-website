@@ -5,7 +5,7 @@ import { Container } from 'reactstrap'
 
 // core components
 
-const BlogHeader = ({ title, imageUrl }) => {
+const ImmoHeaderDe = ({ title, imageUrl }) => {
   let pageHeader = createRef()
 
   useEffect(() => {
@@ -23,11 +23,11 @@ const BlogHeader = ({ title, imageUrl }) => {
   })
   return (
     <>
-      <div className='page-header page-header-small'>
+      <div className='page-header clear-filter page-header-small'>
         <div
           className='page-header-image'
           style={{
-            backgroundImage: imageUrl,
+            backgroundImage: imageUrl
           }}
           ref={pageHeader}></div>
         <div className='content-center'>
@@ -40,4 +40,4 @@ const BlogHeader = ({ title, imageUrl }) => {
   )
 }
 
-export default BlogHeader
+export default ImmoHeaderDe
