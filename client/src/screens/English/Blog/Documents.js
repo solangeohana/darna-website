@@ -105,7 +105,7 @@ const Documents = () => {
             You can download a blank template{' '}
             <a
               href='http://www.mietschuldenfreiheitsbescheinigung.com/'
-              className='btn-link btn btn-warning'>
+              className='btn-link btn-warning'>
               here
             </a>
             .
