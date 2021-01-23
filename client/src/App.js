@@ -24,6 +24,7 @@ import FeeStructureScreen from './screens/English/FeeStructureScreen'
 import AboutUsScreen from './screens/English/AboutUsScreen'
 import RelocationTipsScreen from './screens/English/RelocationTipsScreen'
 import ContactScreen from './screens/English/ContactScreen'
+import Friends from './screens/English/Friends'
 
 //German screens :
 import HomePageScreenDE from './screens/German/HomePageScreenDE'
@@ -122,6 +123,11 @@ class App extends Component {
           exact
           path='/en/contact'
           render={(props) => <ContactScreen {...props} />}
+        />
+        <Route
+          exact
+          path='/en/friends'
+          render={(props) => <Friends {...props} />}
         />
         <Route
           exact
