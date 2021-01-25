@@ -21,7 +21,7 @@ const BuyingObjectDE = ({ buying }) => {
         />
       </Link>
       <CardBody>
-        <Link to={`/en/buy/${buying._id}`}>
+        <Link to={`/de/kaufen/${buying._id}`}>
           <CardTitle tag='h5'>{buying.name}</CardTitle>
           <CardSubtitle className='mb-2'>{buying.title_de} </CardSubtitle>
         </Link>
@@ -31,7 +31,7 @@ const BuyingObjectDE = ({ buying }) => {
           {buying.location.city}
         </CardText>
         <CardText>
-          {buying.sqm} sqm | <NumberFormat
+          {buying.sqm} qm | <NumberFormat
                     value={buying.price}
                     displayType={'text'}
                     thousandSeparator={true}
@@ -39,9 +39,9 @@ const BuyingObjectDE = ({ buying }) => {
                   />
         </CardText>
         {buying.available ? (
-          <CardText className='text-muted'>Verfügbar</CardText>
+          <CardText className='text-muted'>Derzeit Verfügbar</CardText>
         ) : (
-          <CardText className='text-muted'>Kürzlich verkauft !</CardText>
+          <CardText className='text-muted'>Vor Kurzem Verkauft !</CardText>
         )}
       </CardBody>
     </Card>

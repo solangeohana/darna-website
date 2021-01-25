@@ -11,22 +11,22 @@ import {
 } from 'react-share'
 import Loader from 'components/Loader'
 import Message from 'components/Message'
-import { listCommercialDetails } from 'actions/commercialActions'
+import { listRentingDetails } from 'actions/rentingActions'
 import ImagesCarousel from 'components/ImagesCarousel'
-import NavbarFixed from 'components/English/NavbarFixed'
-import MyFooter from 'components/English/MyFooter'
+import NavbarFixedDE from 'components/German/NavbarFixedDE'
+import FooterDe from 'components/German/FooterDe'
 
-const CommercialDetailsScreen = ({ match }) => {
+const RentingDetailsScreenDE = ({ match }) => {
   const dispatch = useDispatch()
 
-  const commercialDetails = useSelector((state) => state.commercialDetails)
-  const { loading, error, commercial } = commercialDetails
+  const rentingDetails = useSelector((state) => state.rentingDetails)
+  const { loading, error, renting } = rentingDetails
 
   const shareUrl = match.url
-  const title = commercial.title_en
+  const title = renting.title_de
 
   useEffect(() => {
-    dispatch(listCommercialDetails(match.params.id))
+    dispatch(listRentingDetails(match.params.id))
     document.body.classList.add('sidebar-collapse')
     document.documentElement.classList.remove('nav-open')
     window.scrollTo(0, 0)
@@ -38,15 +38,15 @@ const CommercialDetailsScreen = ({ match }) => {
 
   return (
     <>
-      <NavbarFixed />
+      <NavbarFixedDE />
       <div className='wrapper'>
         <Container className='listing-details-section'>
           <br />
           <br />
           <br />
-          <a href='/en/commercial'>
+          <a href='/de/mieten'>
             <Button className='btn-round' color='default'>
-              Go Back
+              Zürück
             </Button>
           </a>
           {loading ? (
@@ -57,85 +57,78 @@ const CommercialDetailsScreen = ({ match }) => {
             <Row>
               <Col md={2}></Col>
               <Col>
-                <h3 className='title'>{commercial.name}</h3>
-                <h4> {commercial.title_en}</h4>
-                {commercial.available ? (
-                  <h6>Available !</h6>
+                <h3 className='title'>{renting.name}</h3>
+                <h4> {renting.title_de}</h4>
+                {renting.available ? (
+                  <h6>Derzeit Verfügbar !</h6>
                 ) : (
-                  <h5>Recently Rented Out !</h5>
+                  <h5>Vor Kurzem Vermietet !</h5>
                 )}
                 <div>
                   <p>
                     <i className='now-ui-icons location_pin'></i>
-                    {commercial.location.address}, {commercial.location.postalCode}{' '}
-                    {commercial.location.city}
+                    {renting.location.address}, {renting.location.postalCode}{' '}
+                    {renting.location.city}
                   </p>
                 </div>
               </Col>
             </Row>
           )}
-          <ImagesCarousel items={commercial.images} />
+          <ImagesCarousel items={renting.images} />
 
           <Container>
             <div className='listing-features'>
               <div className='dashboard-button'>
                 <Button className='btn-round' color='default' outline>
-                {commercial.nbRooms} Rooms
+                  {renting.nbRooms} Zimmer
                 </Button>
               </div>
               <div className='dashboard-button'>
                 <Button className='btn-round' color='default' outline>
-                  {commercial.sqm} sqm
+                  {renting.sqm} qm
                 </Button>
               </div>
-              {commercial.feature1_en && (
+              {renting.fittedKitchen && (
                 <div className='dashboard-button'>
                   <Button className='btn-round' color='default' outline>
-                    {commercial.feature1_en}
+                    Einbauküche
                   </Button>
                 </div>
               )}
-              {commercial.feature2_en && (
+              {renting.balcony && (
                 <div className='dashboard-button'>
                   <Button className='btn-round' color='default' outline>
-                    {commercial.feature2_en}
+                    Balkon
                   </Button>
                 </div>
               )}
-              {commercial.feature3_en && (
+              {renting.cellar && (
                 <div className='dashboard-button'>
                   <Button className='btn-round' color='default' outline>
-                    {commercial.feature3_en}
+                    Keller
                   </Button>
                 </div>
               )}
-              {commercial.feature4_en && (
+              {renting.feature1_de && (
                 <div className='dashboard-button'>
                   <Button className='btn-round' color='default' outline>
-                    {commercial.feature4_en}
+                    {renting.feature1_de}
                   </Button>
                 </div>
               )}
-              {commercial.feature5_en && (
+              {renting.feature2_de && (
                 <div className='dashboard-button'>
                   <Button className='btn-round' color='default' outline>
-                    {commercial.feature5_en}
-                  </Button>
-                </div>
-              )}
-              {commercial.feature6_en && (
-                <div className='dashboard-button'>
-                  <Button className='btn-round' color='default' outline>
-                    {commercial.feature6_en}
+                    {renting.feature2_de}
                   </Button>
                 </div>
               )}
             </div>
           </Container>
-          <p className='listing-description'>{commercial.description_en}</p>
+          <p className='listing-description'>{renting.description_de}</p>
           <div className='share'>
             <h6>
-              Share <i className='fas fa-share-alt'></i>{' '}
+              Teilen <i className='fas fa-share-alt'></i>{' '}
             </h6>
           </div>
 
@@ -150,9 +143,9 @@ const CommercialDetailsScreen = ({ match }) => {
           </WhatsappShareButton>
         </Container>
       </div>
-      <MyFooter />
+      <FooterDe/>
     </>
   )
 }
 
-export default CommercialDetailsScreen
+export default RentingDetailsScreenDE

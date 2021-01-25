@@ -154,7 +154,7 @@ const SellingPage = () => {
               </div>
             </Container>
             <Container>
-              <PhotoshootCarousel />
+              <PhotoshootCarousel title='Example of a Professional Photoshoot'/>
             </Container>
           </div>
           <Container className='offset-md-3'>

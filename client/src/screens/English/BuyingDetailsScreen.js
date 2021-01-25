@@ -3,8 +3,6 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Row, Col, Container, Button } from 'reactstrap'
 import NumberFormat from 'react-number-format'
 import {
-  EmailShareButton,
-  EmailIcon,
   FacebookShareButton,
   FacebookIcon,
   TwitterShareButton,
@@ -156,9 +154,6 @@ const BuyingDetailsScreen = ({ match }) => {
           <WhatsappShareButton url={shareUrl} title={title} separator=':: '>
             <WhatsappIcon size={32} round />
           </WhatsappShareButton>
-          <EmailShareButton url={shareUrl} subject={title} body='body'>
-            <EmailIcon size={32} round />
-          </EmailShareButton>
         </Container>
       </div>
       <MyFooter />

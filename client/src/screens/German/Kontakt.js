@@ -9,11 +9,11 @@ import {
   Label,
   Row,
 } from 'reactstrap'
-import NavbarFixed from 'components/English/NavbarFixed'
-import MyFooter from 'components/English/MyFooter'
+import NavbarFixedDE from 'components/German/NavbarFixedDE'
+import FooterDe from 'components/German/FooterDe'
 import Message from 'components/Message'
 
-const ContactScreen = () => {
+const Kontakt = ({ history }) => {
   const [state, setState] = useState({
     interest: '',
     firstName: '',
@@ -45,11 +45,11 @@ const ContactScreen = () => {
           interest: '',
           firstName: '',
           lastName: '',
-          pronouns: '',
           email: '',
           phoneNumber: '',
           message: '',
         })
+        
       })
       .catch(() => {
         setResult({
@@ -57,6 +57,7 @@ const ContactScreen = () => {
           message: 'Something went wrong, try again later',
         })
       })
+      history.push('/de')
   }
 
   const onInputChange = (event) => {
@@ -70,62 +71,50 @@ const ContactScreen = () => {
 
   return (
     <>
-      <NavbarFixed />
+      <NavbarFixedDE />
       <div className='wrapper'>
         <Container className='section container col-4'>
           <h4 className='section'>
-            <strong>Are you interested in DARNA? </strong>Get in touch with us
-            and we'll be right there with you !
+            <strong>Interessieren Sie sich für DARNA?</strong> Nehmen Sie
+            Kontakt mit uns auf und wir sind gleich bei Ihnen!
           </h4>
           <img
-                src='/images/contact.png'
-                alt='contact'
-                height='250px'
-                width='auto'></img>
+            src='/images/contact.png'
+            alt='contact'
+            height='250px'
+            width='auto'></img>
           <Form onSubmit={sendEmail}>
             <FormGroup>
-              <Label className='h6'>Interest</Label>
+              <Label className='h6'>Interessiert an :</Label>
               <Input
                 id='interest'
                 type='text'
                 name='interest'
                 value={state.interest}
-                placeholder='Rent, Buy, Sell, Commercial'
+                placeholder='Mieten, Kaufen, Verkaufen, Gewerbe'
                 onChange={onInputChange}
               />
             </FormGroup>
-            <FormGroup>
-              <Label className='h6'>Pronouns</Label>
-              <Input
-                id='pronouns'
-                type='text'
-                name='pronouns'
-                value={state.pronouns}
-                placeholder='He/him, She/her, They/them'
-                onChange={onInputChange}
-              />
-            </FormGroup>
-
             <Row>
               <FormGroup className='col'>
-                <Label className='h6'>First Name</Label>
+                <Label className='h6'>Vorname</Label>
                 <Input
                   id='firstName'
                   type='text'
                   name='firstName'
                   value={state.firstName}
-                  placeholder='Enter your first name'
+                  placeholder='Vorname'
                   onChange={onInputChange}
                 />
               </FormGroup>
               <FormGroup className='col'>
-                <Label className='h6'>Last Name</Label>
+                <Label className='h6'>Nachname</Label>
                 <Input
                   id='lastName'
                   type='text'
                   name='lastName'
                   value={state.lastName}
-                  placeholder='Enter your last name'
+                  placeholder='Nachname'
                   onChange={onInputChange}
                 />
               </FormGroup>
@@ -137,44 +126,44 @@ const ContactScreen = () => {
                 type='text'
                 name='email'
                 value={state.email}
-                placeholder='Enter your email'
+                placeholder='Email'
                 onChange={onInputChange}
               />
             </FormGroup>
             <FormGroup>
-              <Label className='h6'>Phone Number</Label>
+              <Label className='h6'>Telefonnummer</Label>
               <Input
                 id='phoneNumber'
                 type='text'
                 name='phoneNumber'
                 value={state.phoneNumber}
-                placeholder='Enter your phone number'
+                placeholder='Telefonnummer'
                 onChange={onInputChange}
               />
             </FormGroup>
             <FormGroup>
-              <Label className='h6'>Message</Label>
+              <Label className='h6'>Nachricht</Label>
               <Input
                 id='subject'
                 type='textarea'
                 name='message'
                 value={state.message}
                 rows='3'
-                placeholder='Enter your message'
+                placeholder='Nachricht'
                 onChange={onInputChange}
               />
             </FormGroup>
             {result && <Message>{result.message}</Message>}
             <Button color='primary' type='submit'>
-              Submit
+              Senden
             </Button>
           </Form>
         </Container>
 
-        <MyFooter />
+        <FooterDe />
       </div>
     </>
   )
 }
 
-export default ContactScreen
+export default Kontakt

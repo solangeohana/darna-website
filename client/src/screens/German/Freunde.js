@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
-import NavbarFixed from 'components/English/NavbarFixed'
-import MyFooter from 'components/English/MyFooter'
+import FooterDe from 'components/German/FooterDe'
+import NavbarFixedDE from 'components/German/NavbarFixedDE'
 import {
   ListGroup,
   ListGroupItem,
@@ -9,7 +9,7 @@ import {
   ListGroupItemText,
 } from 'reactstrap'
 
-const Friends = () => {
+const Freunde = () => {
   useEffect(() => {
     document.body.classList.add('sidebar-collapse')
     document.documentElement.classList.remove('nav-open')
@@ -21,14 +21,14 @@ const Friends = () => {
   }, [])
   return (
     <>
-      <NavbarFixed />
+      <NavbarFixedDE />
       <div
         className='section text-left'
         style={{
           minHeight: '900px',
         }}>
         <Container>
-          <h1 className='section'>DARNA's Friends</h1>
+          <h1 className='section'>DARNAs Freunde</h1>
           <ListGroup>
             <ListGroupItem>
               <ListGroupItemHeading>
@@ -36,21 +36,23 @@ const Friends = () => {
                   <a
                     href='https://www.linkedin.com/in/solange-ohana/'
                     className='btn-link btn-warning'>
-                    Solange Ohana, Web Development
+                    Solange Ohana, Web Entwicklung
                   </a>
                 </p>
               </ListGroupItemHeading>
               <ListGroupItemText>
-                <br /> Do you like our website ? <br />
-                Want a beautiful platform to represent your business ? Fully
-                customizable, no templates. Your imagination is the limit !{' '}
-                <br /> You can find Solange on{' '}
+                <br /> Gefällt Ihnen unsere Website? <br />
+                Möchten Sie eine schöne Plattform um Ihr Unternehmen zu
+                repräsentieren? Voll personalisiert und anpassbar, keine Vorlagen.
+                Ihrer Fantasie
+                sind keine Grenzen gesetzt! <br />
+                Sie finden Solange auf{' '}
                 <a
                   href='https://www.linkedin.com/in/solange-ohana/'
                   className='btn-link btn-warning'>
                   LinkedIn
                 </a>{' '}
-                or email her at{' '}
+                oder schreiben ihr eine Mail an{' '}
                 <a
                   href='mailto:solangeohana@gmail.com'
                   className='btn-link btn-warning'>
@@ -69,15 +71,16 @@ const Friends = () => {
                   width='auto'></img>
               </ListGroupItemHeading>
               <ListGroupItemText>
-                You wonder where do the beautiful pictures of DARNA come from?
-                It’s the fascinating work of our dear friend, the great
+                Sie fragen sich, woher die schönen Bilder von DARNA kommen? Es
+                ist die faszinierende Arbeit unserer lieben Freundin, der
+                großartigen
                 <a
                   href='https://www.andreaferrophoto.com/'
                   className='btn-link btn-warning'>
-                  Photographer Andrea Ferro,
+                  Fotografin Andrea Ferro,
                 </a>{' '}
-                who is passionate about everything that has to do with
-                architecture, design and story telling moments.
+                die sich für alles begeistert, was mit Architektur, Design und
+                Momenten des Geschichtenerzählens zu tun hat.
               </ListGroupItemText>
             </ListGroupItem>
           </ListGroup>
@@ -97,9 +100,9 @@ const Friends = () => {
                   className='btn-link btn-warning'>
                   IMMS
                 </a>{' '}
-                are DARNA’s Real Estate Partners and together we rent out and
-                sell the most beautiful objects in Germany. A solid corporation
-                that has the customer’s comfort on top of anything.
+                ist DARNAs Immobilienpartner und zusammen vermieten und
+                verkaufen wir die schönsten Objekte in Deutschland. Ein solides
+                Unternehmen, welches den Komfort des Kunden an erste Stelle setzt.
               </ListGroupItemText>
             </ListGroupItem>
           </ListGroup>
@@ -120,10 +123,11 @@ const Friends = () => {
                   Sandra - Approach Your Coach
                 </a>
                 <br />
-                Let’s talk about our self development and see where do you
-                currently stand and where can you improve. Talk to our life
-                coach Sandra and set your goals together with a professional who
-                is happy to help you shape your success story!
+                Lassen Sie uns über unsere eigene Entwicklung sprechen und
+                sehen, wo Sie derzeit stehen und wo Sie sich verbessern können.
+                Sprechen Sie mit unserem life coach Sandra und setzen Sie
+                Ihre Ziele gemeinsam mit einem Fachmann um, der Ihnen gerne bei der
+                Gestaltung Ihrer Erfolgsgeschichte hilft!
               </ListGroupItemText>
             </ListGroupItem>
           </ListGroup>
@@ -139,23 +143,24 @@ const Friends = () => {
               </ListGroupItemHeading>
 
               <ListGroupItemText>
-                Together with{' '}
+                Zusammen mit{' '}
                 <a
                   href='https://www.careship.de/willkommen2'
                   className='btn-link btn-warning'>
                   Careship
                 </a>{' '}
-                you’re less alone! Careship aims to help elderly people by
-                improving their quality of life. They offer individual packages
-                to combine all the services you really need without overpaying.
+                bist du weniger allein! Careship soll älteren Menschen helfen,
+                indem es ihre Lebensqualität verbessert. Sie bieten individuelle
+                Pakete an, um alle Dienstleistungen zu kombinieren, die Sie
+                wirklich benötigen, ohne zu viel zu bezahlen.
               </ListGroupItemText>
             </ListGroupItem>
           </ListGroup>
         </Container>
       </div>
-      <MyFooter />
+      <FooterDe />
     </>
   )
 }
 
-export default Friends
+export default Freunde

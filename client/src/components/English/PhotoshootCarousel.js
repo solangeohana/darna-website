@@ -43,7 +43,7 @@ const items = [
   }
 ];
 
-function PhotoshootCarousel() {
+function PhotoshootCarousel({ title }) {
   const [activeIndex, setActiveIndex] = React.useState(0);
   const [animating, setAnimating] = React.useState(false);
   const onExiting = () => {
@@ -71,7 +71,7 @@ function PhotoshootCarousel() {
       <div className="section" id="carousel">
         <Container>
           <div className="title">
-            <h4>Example of a Professional Photoshoot:</h4>
+            <h4>{title}</h4>
           </div>
           <Row className="justify-content-center">
             <Col lg="8" md="12">

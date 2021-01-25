@@ -29,7 +29,18 @@ import Friends from './screens/English/Friends'
 //German screens :
 import HomePageScreenDE from './screens/German/HomePageScreenDE'
 import BuyingScreenDE from './screens/German/BuyingScreenDE'
+import BuyingDetailsScreenDE from './screens/German/BuyingDetailsScreenDE'
+import RentingScreenDE from './screens/German/RentingScreenDE'
+import RentingDetailsScreenDE from './screens/German/RentingDetailsScreenDE'
+import CommercialScreenDE from './screens/German/CommercialScreenDE'
+import CommercialDetailsScreenDE from './screens/German/CommercialDetailsScreenDE'
+import SellingScreenDE from './screens/German/SellingScreenDE'
+import ImmobilieBewerten from './screens/German/ImmobilieBewerten'
 import UberUnsScreen from './screens/German/UberUnsScreen'
+import FeeStructureScreenDE from './screens/German/FeeStructureScreenDE'
+import RelocationTipsScreenDE from './screens/German/RelocationTipsScreenDE'
+import Freunde from './screens/German/Freunde'
+import Kontakt from './screens/German/Kontakt'
 
 //Blog
 import BlogScreen from './screens/English/Blog/BlogScreen'
@@ -199,9 +210,62 @@ class App extends Component {
           path='/de'
           render={(props) => <HomePageScreenDE {...props} />}
         />
+         <Route
+          exact
+          path='/de/immobilie-bewerten'
+          render={(props) => <ImmobilieBewerten {...props} />}
+        />
         <Route
+          exact
+          path='/de/preisliste'
+          render={(props) => <FeeStructureScreenDE {...props} />}
+        />
+        <Route
+          exact
+          path='/de/umzugstipps'
+          render={(props) => <RelocationTipsScreenDE {...props} />}
+        />
+        <Route
+          exact
+          path='/de/freunde'
+          render={(props) => <Freunde {...props} />}
+        />
+        <Route
+          exact
+          path='/de/kontakt'
+          render={(props) => <Kontakt {...props} />}
+        />
+        <Route
+          exact
+          path='/de/verkaufen'
+          render={(props) => <SellingScreenDE {...props} />}
+        />
+        <Route
+          exact
           path='/de/kaufen'
           render={(props) => <BuyingScreenDE {...props} />}
+        />
+        <Route
+          path='/de/kaufen/:id'
+          render={(props) => <BuyingDetailsScreenDE {...props} />}
+        />
+        <Route
+          exact
+          path='/de/mieten'
+          render={(props) => <RentingScreenDE {...props} />}
+        />
+        <Route
+          path='/de/mieten/:id'
+          render={(props) => <RentingDetailsScreenDE {...props} />}
+        />
+        <Route
+          exact
+          path='/de/gewerbe'
+          render={(props) => <CommercialScreenDE {...props} />}
+        />
+        <Route
+          path='/de/gewerbe/:id'
+          render={(props) => <CommercialDetailsScreenDE {...props} />}
         />
         <Route
           exact
@@ -213,7 +277,7 @@ class App extends Component {
           path='/de/impressum'
           render={(props) => <Impressum {...props} />}
         />
-         <Route
+        <Route
           exact
           path='/de/datenschutz'
           render={(props) => <Datenschutz {...props} />}
@@ -223,7 +287,7 @@ class App extends Component {
           path='/de/vertrag'
           render={(props) => <Vertrags {...props} />}
         />
-        
+
         <Route
           path='/en/admin/login'
           render={(props) => <LoginScreen {...props} />}

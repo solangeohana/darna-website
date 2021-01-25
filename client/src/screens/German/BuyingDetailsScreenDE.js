@@ -1,7 +1,10 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Row, Col, Container, Button } from 'reactstrap'
+import NumberFormat from 'react-number-format'
 import {
+  EmailShareButton,
+  EmailIcon,
   FacebookShareButton,
   FacebookIcon,
   TwitterShareButton,
@@ -11,22 +14,22 @@ import {
 } from 'react-share'
 import Loader from 'components/Loader'
 import Message from 'components/Message'
-import { listCommercialDetails } from 'actions/commercialActions'
+import { listBuyingDetails } from 'actions/buyingActions'
 import ImagesCarousel from 'components/ImagesCarousel'
-import NavbarFixed from 'components/English/NavbarFixed'
-import MyFooter from 'components/English/MyFooter'
+import NavbarFixedDE from 'components/German/NavbarFixedDE'
+import FooterDe from 'components/German/FooterDe'
 
-const CommercialDetailsScreen = ({ match }) => {
+const BuyingDetailsScreenDE = ({ match }) => {
   const dispatch = useDispatch()
 
-  const commercialDetails = useSelector((state) => state.commercialDetails)
-  const { loading, error, commercial } = commercialDetails
+  const buyingDetails = useSelector((state) => state.buyingDetails)
+  const { loading, error, buying } = buyingDetails
 
   const shareUrl = match.url
-  const title = commercial.title_en
+  const title = buying.title_de
 
   useEffect(() => {
-    dispatch(listCommercialDetails(match.params.id))
+    dispatch(listBuyingDetails(match.params.id))
     document.body.classList.add('sidebar-collapse')
     document.documentElement.classList.remove('nav-open')
     window.scrollTo(0, 0)
@@ -38,15 +41,15 @@ const CommercialDetailsScreen = ({ match }) => {
 
   return (
     <>
-      <NavbarFixed />
+      <NavbarFixedDE />
       <div className='wrapper'>
         <Container className='listing-details-section'>
           <br />
           <br />
           <br />
-          <a href='/en/commercial'>
+          <a href='/de/kaufen'>
             <Button className='btn-round' color='default'>
-              Go Back
+              Zürück
             </Button>
           </a>
           {loading ? (
@@ -57,85 +60,90 @@ const CommercialDetailsScreen = ({ match }) => {
             <Row>
               <Col md={2}></Col>
               <Col>
-                <h3 className='title'>{commercial.name}</h3>
-                <h4> {commercial.title_en}</h4>
-                {commercial.available ? (
-                  <h6>Available !</h6>
+                <h3 className='title'>{buying.name}</h3>
+                <h4> {buying.title_de}</h4>
+                {buying.available ? (
+                  <h6> Derzeit Verfügbar !</h6>
                 ) : (
-                  <h5>Recently Rented Out !</h5>
+                  <h5>Vor Kurzem Verkauft !</h5>
                 )}
                 <div>
                   <p>
                     <i className='now-ui-icons location_pin'></i>
-                    {commercial.location.address}, {commercial.location.postalCode}{' '}
-                    {commercial.location.city}
+                    {buying.location.address}, {buying.location.postalCode}{' '}
+                    {buying.location.city}
                   </p>
                 </div>
               </Col>
             </Row>
           )}
-          <ImagesCarousel items={commercial.images} />
+          <ImagesCarousel items={buying.images} />
 
           <Container>
             <div className='listing-features'>
               <div className='dashboard-button'>
                 <Button className='btn-round' color='default' outline>
-                {commercial.nbRooms} Rooms
+                  <NumberFormat
+                    value={buying.price}
+                    displayType={'text'}
+                    thousandSeparator={true}
+                    prefix={'€ '}
+                  />
                 </Button>
               </div>
               <div className='dashboard-button'>
                 <Button className='btn-round' color='default' outline>
-                  {commercial.sqm} sqm
+                  {buying.sqm} qm
                 </Button>
               </div>
-              {commercial.feature1_en && (
+              {buying.feature1_de && (
                 <div className='dashboard-button'>
                   <Button className='btn-round' color='default' outline>
-                    {commercial.feature1_en}
+                    {buying.feature1_de}
                   </Button>
                 </div>
               )}
-              {commercial.feature2_en && (
+              {buying.feature2_de && (
                 <div className='dashboard-button'>
                   <Button className='btn-round' color='default' outline>
-                    {commercial.feature2_en}
+                    {buying.feature2_de}
                   </Button>
                 </div>
               )}
-              {commercial.feature3_en && (
+              {buying.feature3_de && (
                 <div className='dashboard-button'>
                   <Button className='btn-round' color='default' outline>
-                    {commercial.feature3_en}
+                    {buying.feature3_de}
                   </Button>
                 </div>
               )}
-              {commercial.feature4_en && (
+              {buying.feature4_de && (
                 <div className='dashboard-button'>
                   <Button className='btn-round' color='default' outline>
-                    {commercial.feature4_en}
+                    {buying.feature4_de}
                   </Button>
                 </div>
               )}
-              {commercial.feature5_en && (
+              {buying.feature5_de && (
                 <div className='dashboard-button'>
                   <Button className='btn-round' color='default' outline>
-                    {commercial.feature5_en}
+                    {buying.feature5_de}
                   </Button>
                 </div>
               )}
-              {commercial.feature6_en && (
+              {buying.feature6_de && (
                 <div className='dashboard-button'>
                   <Button className='btn-round' color='default' outline>
-                    {commercial.feature6_en}
+                    {buying.feature6_de}
                   </Button>
                 </div>
               )}
             </div>
           </Container>
-          <p className='listing-description'>{commercial.description_en}</p>
+          <p className='listing-description'>{buying.description_de}</p>
           <div className='share'>
             <h6>
-              Share <i className='fas fa-share-alt'></i>{' '}
+              Teilen <i className='fas fa-share-alt'></i>{' '}
             </h6>
           </div>
 
@@ -148,11 +156,14 @@ const CommercialDetailsScreen = ({ match }) => {
           <WhatsappShareButton url={shareUrl} title={title} separator=':: '>
             <WhatsappIcon size={32} round />
           </WhatsappShareButton>
+          <EmailShareButton url={shareUrl} subject={title} body='body'>
+            <EmailIcon size={32} round />
+          </EmailShareButton>
         </Container>
       </div>
-      <MyFooter />
+      <FooterDe />
     </>
   )
 }
 
-export default CommercialDetailsScreen
+export default BuyingDetailsScreenDE

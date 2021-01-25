@@ -2,10 +2,10 @@ import React, { useEffect } from 'react'
 
 import { Container, Row, Col } from 'reactstrap'
 
-import MyFooter from 'components/English/MyFooter'
-import NavbarFixed from 'components/English/NavbarFixed'
+import NavbarFixedDE from 'components/German/NavbarFixedDE'
+import FooterDe from 'components/German/FooterDe'
 
-const FeeStructure = () => {
+const FeeStructureScreenDE = () => {
   useEffect(() => {
     document.body.classList.add('sidebar-collapse')
     document.documentElement.classList.remove('nav-open')
@@ -17,10 +17,10 @@ const FeeStructure = () => {
   }, [])
   return (
     <>
-      <NavbarFixed />
+      <NavbarFixedDE />
       <div className='section text-center'>
         <Container>
-          <h4 className='title'>FEE STRUCTURE</h4>
+          <h4 className='title'>PREISLISTE</h4>
           <Container>
             <img src='/images/fee.jpg' alt='Piggy Bank' height='250px' />
           </Container>
@@ -28,37 +28,37 @@ const FeeStructure = () => {
             <Row>
               <Col md='4'>
                 <div className='team-player'>
-                  <h4 className='title'>Sales Service</h4>
+                  <h4 className='title'>Kauf Service</h4>
                   <img src='/images/fee.png' alt='rainbow' height='25px'></img>
                   <p className='content'>
                     <br />
-                    2,94 % of Sales Price plus 19% VAT
+                    2,94 % vom Verkaufspreis zzgl. 19% MwSt.
                     <br />
-                    (3,5 % incl. VAT)
+                    (3,5 % inkl. MwSt.) für jeweils Käufer und Verkäufer
                   </p>
                 </div>
               </Col>
               <Col md='4'>
                 <div className='team-player'>
-                  <h4 className='title'>Residential Rental Service</h4>
+                  <h4 className='title'>Wohnungs-Vermietung</h4>
                   <img src='/images/fee.png' alt='rainbow' height='25px'></img>
                   <p className='content'>
                     <br />
-                    2 x Net Cold Rent plus 19% VAT
+                    2 x Nettokaltmiete zzgl. 19% MwSt.
                     <br />
-                    (2,38 x Net Cold Rent incl. VAT)
+                    (2,38 x Nettokaltmiete)
                   </p>
                 </div>
               </Col>
               <Col md='4'>
                 <div className='team-player'>
-                  <h4 className='title'>Commercial Rental Service</h4>
+                  <h4 className='title'>Gewerbe-Vermietung</h4>
                   <img src='/images/fee.png' alt='rainbow' height='25px'></img>
                   <p className='content'>
                     <br />
-                    3 x Net Cold Rent plus 19% VAT
+                    3 x Nettokaltmiete zzgl. 19% MwSt.
                     <br />
-                    (3,57 x Net Cold Rent incl VAT)
+                    (3,57 x Nettokaltmiete)
                   </p>
                 </div>
               </Col>
@@ -66,9 +66,9 @@ const FeeStructure = () => {
           </div>
         </Container>
       </div>
-      <MyFooter />
+      <FooterDe />
     </>
   )
 }
 
-export default FeeStructure
+export default FeeStructureScreenDE
