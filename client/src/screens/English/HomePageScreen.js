@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react'
+import CookieConsent from 'react-cookie-consent'
 
 // reactstrap components
 import { Button } from 'reactstrap'
@@ -23,7 +24,7 @@ const LandingPage = () => {
   return (
     <>
       <MyNavbar />
-      <div className='wrapper'> 
+      <div className='wrapper'>
         <MyHeader />
         <div className=' section container text-center'>
           <h3 className=''>DARNA’S FAMILY</h3>
@@ -73,7 +74,11 @@ const LandingPage = () => {
             </Button>
           </div>
         </div>
-        <MyFooter/>
+        <CookieConsent>
+          This website uses cookies to enhance the user experience.
+        </CookieConsent>
+
+        <MyFooter />
       </div>
     </>
   )

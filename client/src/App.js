@@ -1,9 +1,5 @@
 import React, { Component } from 'react'
-import {
-  BrowserRouter as Router,
-  Route,
-  //  Redirect
-} from 'react-router-dom'
+import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
 
 // styles for this kit
 import 'assets/css/bootstrap.min.css'
@@ -64,6 +60,7 @@ import Vertrags from './screens/German/legal/Vertrags'
 
 //ADMIN
 import LoginScreen from './screens/Admin/LoginScreen'
+import RegisterScreen from './screens/Admin/RegisterScreen'
 import DashboardScreen from './screens/Admin/DashboardScreen'
 import RentingListScreen from './screens/Admin/RentingListScreen'
 import RentingEditScreen from './screens/Admin/RentingEditScreen'
@@ -71,13 +68,16 @@ import BuyingListScreen from './screens/Admin/BuyingListScreen'
 import BuyingEditScreen from './screens/Admin/BuyingEditScreen'
 import CommercialListScreen from './screens/Admin/CommercialListScreen'
 import CommercialEditScreen from './screens/Admin/CommercialEditScreen'
+import UserListScreen from './screens/Admin/UserListScreen'
+import UserEditScreen from 'screens/Admin/UserEditScreen'
 
 class App extends Component {
   render() {
     return (
       <Router>
-        {/* <Redirect from='/' to='/en' /> */}
-
+        <Route exact path='/'>
+          <Redirect to='/en' /> : <HomePageScreen />
+        </Route>
         <Route
           exact
           path='/en'
@@ -210,7 +210,7 @@ class App extends Component {
           path='/de'
           render={(props) => <HomePageScreenDE {...props} />}
         />
-         <Route
+        <Route
           exact
           path='/de/immobilie-bewerten'
           render={(props) => <ImmobilieBewerten {...props} />}
@@ -293,8 +293,20 @@ class App extends Component {
           render={(props) => <LoginScreen {...props} />}
         />
         <Route
+          path='/en/admin/register'
+          render={(props) => <RegisterScreen {...props} />}
+        />
+        <Route
           path='/en/admin/dashboard'
           render={(props) => <DashboardScreen {...props} />}
+        />
+        <Route
+          path='/en/admin/userlist'
+          render={(props) => <UserListScreen {...props} />}
+        />
+        <Route
+          path='/en/admin/user/:id/edit'
+          render={(props) => <UserEditScreen {...props} />}
         />
         <Route
           exact

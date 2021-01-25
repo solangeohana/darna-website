@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react'
+import CookieConsent from 'react-cookie-consent'
 
 // reactstrap components
 import { Button } from 'reactstrap'
@@ -75,6 +76,9 @@ const LandingPageDE = () => {
             </Button>
           </div>
         </div>
+        <CookieConsent buttonText='Ich verstehe'>
+        Diese Website verwendet Cookies, um die Benutzererfahrung zu verbessern.
+        </CookieConsent>
         <FooterDe />
       </div>
     </>

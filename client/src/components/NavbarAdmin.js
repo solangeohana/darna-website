@@ -103,7 +103,7 @@ const NavbarAdmin = () => {
                 </NavItem>
 
                 <NavItem>
-                  <NavLink href='/admin/users'>
+                  <NavLink href='/en/admin/userlist'>
                     <i className='now-ui-icons users_single-02'></i>
                     Users
                   </NavLink>

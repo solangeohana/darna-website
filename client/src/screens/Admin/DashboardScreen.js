@@ -1,9 +1,16 @@
 import React, { useEffect } from 'react'
+import { useSelector } from 'react-redux'
 import { Container, Row, Col, Button } from 'reactstrap'
 import NavbarAdmin from 'components/NavbarAdmin'
 import MyFooter from 'components/English/MyFooter'
-const DashboardScreen = () => {
+
+const DashboardScreen = ({ history }) => {
+
+  const userInfo = useSelector((state) => state.userLogin.userInfo)
   useEffect(() => {
+    if (!userInfo || !userInfo.isAdmin) {
+      history.push('/en/admin/login')
+    }
     document.body.classList.add('sidebar-collapse')
     document.documentElement.classList.remove('nav-open')
     window.scrollTo(0, 0)
@@ -11,7 +18,7 @@ const DashboardScreen = () => {
     return function cleanup() {
       document.body.classList.remove('sidebar-collapse')
     }
-  }, [])
+  }, [history, userInfo])
 
   return (
     <>

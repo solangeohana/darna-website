@@ -111,7 +111,7 @@ const LoginScreen = ({ history }) => {
             <Button
               className='btn-round btn-white'
               color='info'
-              to={redirect}
+              to='/en/admin/register'
               outline
               size='lg'
               tag={Link}>

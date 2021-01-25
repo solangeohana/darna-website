@@ -21,6 +21,7 @@ const ImmoHeaderDe = ({ title, imageUrl }) => {
       }
     }
   })
+
   return (
     <>
       <div className='page-header clear-filter page-header-small'>

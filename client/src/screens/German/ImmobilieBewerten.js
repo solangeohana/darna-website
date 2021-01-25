@@ -5,9 +5,10 @@ import FooterDe from 'components/German/FooterDe'
 const ImmobilieBewerten = () => {
   useEffect(() => {
     const addScript = () => {
+
       const script = document.createElement('script')
       script.type = 'text/javascript'
-      script.src = `'https://slider.maklaro.com/src.latest.js'`
+      script.src = 'https://slider.maklaro.com/src.latest.js'
       document.body.appendChild(script)
     }
     addScript()
@@ -24,7 +25,7 @@ const ImmobilieBewerten = () => {
       <NavbarFixedDE />
       <div className='wrapper'>
         <div className='section container'>
-          <div className='container'>
+          <div className='container section'>
             <div
               id='maklaro-slider-widget'
               data-partner-id='DARNAImmobilien'
