@@ -46,7 +46,7 @@ const CommercialDetailsScreenDE = ({ match }) => {
           <br />
           <a href='/de/gewerbe'>
             <Button className='btn-round' color='default'>
-              Zürück
+              Zurück
             </Button>
           </a>
           {loading ? (

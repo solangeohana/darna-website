@@ -157,6 +157,9 @@ const Kontakt = ({ history }) => {
             <Button color='primary' type='submit'>
               Senden
             </Button>
+            <Button href='/de' color='warning'>
+              Zurück
+            </Button>
           </Form>
         </Container>
 

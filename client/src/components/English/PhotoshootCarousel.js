@@ -71,7 +71,7 @@ function PhotoshootCarousel({ title }) {
       <div className="section" id="carousel">
         <Container>
           <div className="title">
-            <h4>{title}</h4>
+            <h4 className='text-center'>{title}</h4>
           </div>
           <Row className="justify-content-center">
             <Col lg="8" md="12">

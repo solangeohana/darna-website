@@ -168,6 +168,9 @@ const ContactScreen = () => {
             <Button color='primary' type='submit'>
               Submit
             </Button>
+            <Button href='/en' color='warning'>
+              Go Back
+            </Button>
           </Form>
         </Container>
 

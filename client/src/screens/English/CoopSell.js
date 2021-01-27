@@ -1,16 +1,12 @@
 import React, { useEffect } from 'react'
-
-// reactstrap components
-
-import { Button, Container} from 'reactstrap'
+import { Button, Container } from 'reactstrap'
 
 // core components
-import MyNavbar from 'components/English/MyNavbar'
+import NavbarFixed from 'components/English/NavbarFixed'
 import MyFooter from 'components/English/MyFooter'
-import SellingPageHeader from 'components/English/SellingPageHeader'
 import PhotoshootCarousel from 'components/English/PhotoshootCarousel'
 
-const SellingPage = () => {
+const CoopSell = () => {
   useEffect(() => {
     const addScript = () => {
       const script = document.createElement('script')
@@ -19,36 +15,20 @@ const SellingPage = () => {
       document.body.appendChild(script)
     }
     addScript()
-    document.body.classList.add('profile-page')
     document.body.classList.add('sidebar-collapse')
     document.documentElement.classList.remove('nav-open')
     window.scrollTo(0, 0)
     document.body.scrollTop = 0
     return function cleanup() {
-      document.body.classList.remove('profile-page')
       document.body.classList.remove('sidebar-collapse')
     }
   }, [])
   return (
     <>
-      <MyNavbar />
-      <div className='wrapper'>
-        <SellingPageHeader />
+      <NavbarFixed />
+      <div className='wrapper section'>
         <div className='section'>
-          <Container>
-            <div className='button-container'>
-              <Button
-                className='btn-round'
-                href='/en/contact'
-                color='info'
-                type='button'
-                size='lg'>
-                Contact Us
-              </Button>
-            </div>
-            <br /> <br />
-            <h3 className='text-center'>SELLING YOUR PROPERTY</h3>
-            <Container className='col-md-6 '>
+          <Container className='col-md-6 '>
             <h3 className='title'>How you profit from DARNA’s Services</h3>
             <img src='/images/buy.png' className='coverPhoto-card' alt='buying'></img>
             <p>- Professional Evaluation of your property</p>
@@ -100,12 +80,12 @@ const SellingPage = () => {
               {' '}
             </div>
           </Container>
-          </Container>
         </div>
+
         <MyFooter />
       </div>
     </>
   )
 }
 
-export default SellingPage
+export default CoopSell

@@ -114,8 +114,8 @@ const NavbarDe = () => {
               </NavItem>
 
               <NavItem>
-                <NavLink href='/de/hausvervaltungen'>
-                  Hausvervaltungen & Eigentümer
+                <NavLink href='/de/hausverwaltungen'>
+                  Hausverwaltungen & Eigentümer
                 </NavLink>
               </NavItem>
 

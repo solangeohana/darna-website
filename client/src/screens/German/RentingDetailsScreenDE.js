@@ -46,7 +46,7 @@ const RentingDetailsScreenDE = ({ match }) => {
           <br />
           <a href='/de/mieten'>
             <Button className='btn-round' color='default'>
-              Zürück
+              Zurück
             </Button>
           </a>
           {loading ? (

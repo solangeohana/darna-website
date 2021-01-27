@@ -49,7 +49,7 @@ const BuyingDetailsScreenDE = ({ match }) => {
           <br />
           <a href='/de/kaufen'>
             <Button className='btn-round' color='default'>
-              Zürück
+              Zurück
             </Button>
           </a>
           {loading ? (

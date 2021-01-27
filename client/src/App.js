@@ -21,6 +21,9 @@ import AboutUsScreen from './screens/English/AboutUsScreen'
 import RelocationTipsScreen from './screens/English/RelocationTipsScreen'
 import ContactScreen from './screens/English/ContactScreen'
 import Friends from './screens/English/Friends'
+import Housemanagement from './screens/English/Housemanagement'
+import CoopRent from './screens/English/CoopRent'
+import CoopSell from './screens/English/CoopSell'
 
 //German screens :
 import HomePageScreenDE from './screens/German/HomePageScreenDE'
@@ -37,6 +40,10 @@ import FeeStructureScreenDE from './screens/German/FeeStructureScreenDE'
 import RelocationTipsScreenDE from './screens/German/RelocationTipsScreenDE'
 import Freunde from './screens/German/Freunde'
 import Kontakt from './screens/German/Kontakt'
+import Hausverwaltung from './screens/German/Hausverwaltung'
+import CoopRentDE from './screens/German/CoopRentDE'
+import CoopSellDE from './screens/German/CoopSellDE'
+
 
 //Blog
 import BlogScreen from './screens/English/Blog/BlogScreen'
@@ -134,6 +141,21 @@ class App extends Component {
           exact
           path='/en/contact'
           render={(props) => <ContactScreen {...props} />}
+        />
+        <Route
+          exact
+          path='/en/house-management'
+          render={(props) => <Housemanagement {...props} />}
+        />
+        <Route
+          exact
+          path='/en/house-management/renting'
+          render={(props) => <CoopRent {...props} />}
+        />
+        <Route
+          exact
+          path='/en/house-management/selling'
+          render={(props) => <CoopSell {...props} />}
         />
         <Route
           exact
@@ -271,6 +293,21 @@ class App extends Component {
           exact
           path='/de/uber-uns'
           render={(props) => <UberUnsScreen {...props} />}
+        />
+        <Route
+          exact
+          path='/de/hausverwaltungen'
+          render={(props) => <Hausverwaltung {...props} />}
+        />
+         <Route
+          exact
+          path='/de/hausverwaltungen/verkauf'
+          render={(props) => <CoopSellDE {...props} />}
+        />
+         <Route
+          exact
+          path='/de/hausverwaltungen/vermietung'
+          render={(props) => <CoopRentDE {...props} />}
         />
         <Route
           exact
