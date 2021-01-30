@@ -39,9 +39,9 @@ const BuyingObject = ({ buying }) => {
                   />
         </CardText>
         {buying.available ? (
-          <CardText className='text-muted'>Available</CardText>
+          <CardText className='h6'>Available</CardText>
         ) : (
-          <CardText className='text-muted'>Recently Sold !</CardText>
+          <CardText className='h6'>Recently Sold !</CardText>
         )}
       </CardBody>
     </Card>

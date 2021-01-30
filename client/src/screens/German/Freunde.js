@@ -43,9 +43,8 @@ const Freunde = () => {
               <ListGroupItemText>
                 <br /> Gefällt Ihnen unsere Website? <br />
                 Möchten Sie eine schöne Plattform um Ihr Unternehmen zu
-                repräsentieren? Voll personalisiert und anpassbar, keine Vorlagen.
-                Ihrer Fantasie
-                sind keine Grenzen gesetzt! <br />
+                repräsentieren? Voll personalisiert und anpassbar, keine
+                Vorlagen. Ihrer Fantasie sind keine Grenzen gesetzt! <br />
                 Sie finden Solange auf{' '}
                 <a
                   href='https://www.linkedin.com/in/solange-ohana/'
@@ -71,21 +70,21 @@ const Freunde = () => {
                   width='auto'></img>
               </ListGroupItemHeading>
               <ListGroupItemText>
-                Sie fragen sich, woher die schönen Bilder von DARNA kommen? Es
-                ist die faszinierende Arbeit unserer lieben Freundin, der
+                Sie fragen sich, woher die schönen Bilder von DARNA kommen? Das
+                ist die faszinierende Arbeit unseres lieben Freundes, dem
                 großartigen
                 <a
                   href='https://www.andreaferrophoto.com/'
                   className='btn-link btn-warning'>
-                  Fotografin Andrea Ferro,
+                  Fotograf Andrea Ferro,
                 </a>{' '}
-                die sich für alles begeistert, was mit Architektur, Design und
-                Momenten des Geschichtenerzählens zu tun hat.
+                der sich für alles begeistert, was mit Architektur, Design und
+                Momenten, die eine Geschichten erzählen, zu tun hat.
               </ListGroupItemText>
             </ListGroupItem>
           </ListGroup>
 
-          <ListGroup className='section'>
+          <ListGroup>
             <ListGroupItem>
               <ListGroupItemHeading>
                 <img
@@ -95,19 +94,20 @@ const Freunde = () => {
                   width='auto'></img>
               </ListGroupItemHeading>
               <ListGroupItemText>
+                Zusammen mit{' '}
                 <a
                   href='https://imms-immobilien.de/'
                   className='btn-link btn-warning'>
                   IMMS
                 </a>{' '}
-                ist DARNAs Immobilienpartner und zusammen vermieten und
-                verkaufen wir die schönsten Objekte in Deutschland. Ein solides
-                Unternehmen, welches den Komfort des Kunden an erste Stelle setzt.
+                vermieten und verkaufen wir die schönsten Objekte in
+                Deutschland. Eine tolle Kooperation mit dem Wohlbefinden des
+                Mieters und Vermieters als oberste Priorität.
               </ListGroupItemText>
             </ListGroupItem>
           </ListGroup>
 
-          <ListGroup>
+          <ListGroup className='section'>
             <ListGroupItem>
               <ListGroupItemHeading>
                 <img
@@ -125,8 +125,8 @@ const Freunde = () => {
                 <br />
                 Lassen Sie uns über unsere eigene Entwicklung sprechen und
                 sehen, wo Sie derzeit stehen und wo Sie sich verbessern können.
-                Sprechen Sie mit unserem life coach Sandra und setzen Sie
-                Ihre Ziele gemeinsam mit einem Fachmann um, der Ihnen gerne bei der
+                Sprechen Sie mit unserem Life-Coach Sandra und setzen Sie Ihre
+                Ziele gemeinsam mit einem Fachmann um, der Ihnen gerne bei der
                 Gestaltung Ihrer Erfolgsgeschichte hilft!
               </ListGroupItemText>
             </ListGroupItem>
@@ -151,8 +151,8 @@ const Freunde = () => {
                 </a>{' '}
                 bist du weniger allein! Careship soll älteren Menschen helfen,
                 indem es ihre Lebensqualität verbessert. Sie bieten individuelle
-                Pakete an, um alle Dienstleistungen zu kombinieren, die Sie
-                wirklich benötigen, ohne zu viel zu bezahlen.
+                Pakete an, um nur die Dienstleistungen zu kombinieren, die Sie
+                auch wirklich benötigen, ohne zu viel zu bezahlen.
               </ListGroupItemText>
             </ListGroupItem>
           </ListGroup>

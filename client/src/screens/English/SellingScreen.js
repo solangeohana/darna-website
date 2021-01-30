@@ -2,13 +2,12 @@ import React, { useEffect } from 'react'
 
 // reactstrap components
 
-import { Button, Container} from 'reactstrap'
+import { Button, Container, ListGroupItem, ListGroup } from 'reactstrap'
 
 // core components
 import MyNavbar from 'components/English/MyNavbar'
 import MyFooter from 'components/English/MyFooter'
 import SellingPageHeader from 'components/English/SellingPageHeader'
-import PhotoshootCarousel from 'components/English/PhotoshootCarousel'
 
 const SellingPage = () => {
   useEffect(() => {
@@ -51,6 +50,7 @@ const SellingPage = () => {
             <Container className='col-md-6 '>
             <h3 className='title'>How you profit from DARNA’s Services</h3>
             <img src='/images/buy.png' className='coverPhoto-card' alt='buying'></img>
+            <div className='dashboard-items'>
             <p>- Professional Evaluation of your property</p>
             <p>- Checking on all your documents</p>
             <p>
@@ -76,14 +76,15 @@ const SellingPage = () => {
             </p>
             <Button
               href='/en/contact'
-              className='btn-round'
+              className='btn-round dashboard-button'
               color='info'
               size='lg'>
               Contact Us
             </Button>
-            <br />
-            <PhotoshootCarousel title='Example of a professional photoshoot' />
-            
+            <br/> <br/>
+            </div>
+            <ListGroup>
+            <ListGroupItem>
             <h4 className='text-center'>
               CHECK THE VALUE OF YOUR PROPERTY YOURSELF:
             </h4>
@@ -99,6 +100,8 @@ const SellingPage = () => {
               data-hide-fullscreen-on-start='1'>
               {' '}
             </div>
+            </ListGroupItem>
+            </ListGroup>
           </Container>
           </Container>
         </div>

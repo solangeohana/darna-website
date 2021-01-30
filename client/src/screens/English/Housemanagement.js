@@ -56,7 +56,7 @@ const Housemanagement = () => {
             </Col>
             <Col md={6}>
               <Card outline className='text-center'>
-                <Link to={`/en/house-management/selling`}>
+                <Link to={`/en/house-management/renting`}>
                   <CardTitle className='title'>
                     RENTING OUT Cooperation
                   </CardTitle>

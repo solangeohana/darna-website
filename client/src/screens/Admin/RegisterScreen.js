@@ -60,36 +60,40 @@ const RegisterScreen = ({ location, history }) => {
           {error && <Message color='danger'>{error}</Message>}
           {loading && <Loader />}
           <Form onSubmit={submitHandler}>
-            <FormGroup controlId='name'>
+            <FormGroup>
               <Label>Name</Label>
               <Input
+                id='name'
                 type='name'
                 placeholder='Enter name'
                 value={name}
                 onChange={(e) => setName(e.target.value)}></Input>
             </FormGroup>
 
-            <FormGroup controlId='email'>
+            <FormGroup>
               <Label>Email Address</Label>
               <Input
+                id='email'
                 type='email'
                 placeholder='Enter email'
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}></Input>
             </FormGroup>
 
-            <FormGroup controlId='password'>
+            <FormGroup>
               <Label>Password</Label>
               <Input
+                id='password'
                 type='password'
                 placeholder='Enter password'
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}></Input>
             </FormGroup>
 
-            <FormGroup controlId='confirmPassword'>
+            <FormGroup>
               <Label>Confirm Password</Label>
               <Input
+                id='confirmPassword'
                 type='password'
                 placeholder='Confirm password'
                 value={confirmPassword}

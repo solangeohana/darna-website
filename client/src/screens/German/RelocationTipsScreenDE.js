@@ -60,7 +60,7 @@ const RelocationTipsScreenDE = () => {
 
           <ListGroup>
             <ListGroupItem>
-              <h5 className='title'>WAHL DER DIENSTLEISTER</h5>
+              <h5 className='title'>WAHL DER ANBIETER</h5>
               <ListGroupItemText>
                 Haben Sie Ihren Stromversorger ausgewählt? Welche Art von
                 Dienstleister suchen Sie für Ihre neue Immobilie? Sie können
@@ -142,6 +142,7 @@ const RelocationTipsScreenDE = () => {
                 alt='mietkaution'
                 height='200px'
                 width='auto'></img>
+                <p>
               <Button
                 href='https://www.awin1.com/cread.php?s=2052056&v=10963&q=323863&r=753739'
                 className='btn-round buttons-ad'
@@ -149,6 +150,7 @@ const RelocationTipsScreenDE = () => {
                 color='danger'>
                 Besuchen
               </Button>
+              </p>
             </ListGroupItem>
           </ListGroup>
 
@@ -166,6 +168,7 @@ const RelocationTipsScreenDE = () => {
                 alt='home24'
                 height='80px'
                 width='auto'></img>
+                <p>
               <Button
                 href='https://www.awin1.com/cread.php?s=2052056&v=10963&q=323863&r=753739'
                 className='btn-round buttons-ad'
@@ -173,6 +176,7 @@ const RelocationTipsScreenDE = () => {
                 color='default'>
                 Besuchen
               </Button>
+              </p>
             </ListGroupItem>
           </ListGroup>
           <br />

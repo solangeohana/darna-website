@@ -33,9 +33,9 @@ const RentingObjectDE = ({ renting }) => {
           {renting.nbRooms} Zimmer | {renting.sqm} qm
         </CardText>
         {renting.available ? (
-          <CardText className='text-muted'>Derzeit Verfügbar</CardText>
+          <CardText className='h6'>Derzeit Verfügbar</CardText>
         ) : (
-          <CardText className='text-muted'>Vor Kurzem Vermietet !</CardText>
+          <CardText className='h6'>Vor Kurzem Vermietet !</CardText>
         )}
       </CardBody>
     </Card>

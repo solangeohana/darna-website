@@ -82,7 +82,7 @@ const Friends = () => {
             </ListGroupItem>
           </ListGroup>
 
-          <ListGroup className='section'>
+          <ListGroup>
             <ListGroupItem>
               <ListGroupItemHeading>
                 <img
@@ -104,7 +104,7 @@ const Friends = () => {
             </ListGroupItem>
           </ListGroup>
 
-          <ListGroup>
+          <ListGroup className='section'>
             <ListGroupItem>
               <ListGroupItemHeading>
                 <img

@@ -56,7 +56,7 @@ const CommercialScreenDE = () => {
           </p>
         </div>
         <div>
-          <h3 className='title'>Neuesten Angebote</h3> <br /> <br />
+          <h3 className='title'>DARNA's neueste Angebote</h3> <br /> <br />
           {loading ? (
             <Loader />
           ) : error ? (

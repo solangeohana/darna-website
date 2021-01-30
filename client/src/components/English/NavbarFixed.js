@@ -98,7 +98,7 @@ const NavbarFixed = () => {
               </NavItem>
 
               <NavItem>
-                <NavLink href='/en/house-management'>House Managements & Landlords</NavLink>
+                <NavLink href='/en/house-management'>Landlords & House Managements</NavLink>
               </NavItem>
 
               <NavItem>

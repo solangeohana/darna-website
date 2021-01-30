@@ -90,6 +90,7 @@ const ContactScreen = () => {
                 type='text'
                 name='interest'
                 value={state.interest}
+                required
                 placeholder='Rent, Buy, Sell, Commercial'
                 onChange={onInputChange}
               />
@@ -101,6 +102,7 @@ const ContactScreen = () => {
                 type='text'
                 name='pronouns'
                 value={state.pronouns}
+                required
                 placeholder='He/him, She/her, They/them'
                 onChange={onInputChange}
               />
@@ -114,6 +116,7 @@ const ContactScreen = () => {
                   type='text'
                   name='firstName'
                   value={state.firstName}
+                  required
                   placeholder='Enter your first name'
                   onChange={onInputChange}
                 />
@@ -125,6 +128,7 @@ const ContactScreen = () => {
                   type='text'
                   name='lastName'
                   value={state.lastName}
+                  required
                   placeholder='Enter your last name'
                   onChange={onInputChange}
                 />
@@ -137,6 +141,7 @@ const ContactScreen = () => {
                 type='text'
                 name='email'
                 value={state.email}
+                required
                 placeholder='Enter your email'
                 onChange={onInputChange}
               />
@@ -148,6 +153,7 @@ const ContactScreen = () => {
                 type='text'
                 name='phoneNumber'
                 value={state.phoneNumber}
+                required
                 placeholder='Enter your phone number'
                 onChange={onInputChange}
               />
@@ -159,6 +165,7 @@ const ContactScreen = () => {
                 type='textarea'
                 name='message'
                 value={state.message}
+                required
                 rows='3'
                 placeholder='Enter your message'
                 onChange={onInputChange}

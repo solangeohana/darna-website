@@ -83,7 +83,7 @@ class App extends Component {
     return (
       <Router>
         <Route exact path='/'>
-          <Redirect to='/en' /> : <HomePageScreen />
+          <Redirect to='/de' /> : <HomePageScreenDE />
         </Route>
         <Route
           exact

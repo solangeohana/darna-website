@@ -71,7 +71,7 @@ const BuyingPageDe = () => {
           </p>
         </div>
         <div>
-          <h3 className='title'>Neuesten Angebote</h3>
+          <h3 className='title'>DARNA's neueste Angebote</h3>
           {loading ? (
             <Loader />
           ) : error ? (

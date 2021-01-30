@@ -33,9 +33,9 @@ const CommercialObject = ({ commercial }) => {
           {commercial.nbRooms} rooms | {commercial.sqm} sqm
         </CardText>
         {commercial.available ? (
-          <CardText className='text-muted'>Available</CardText>
+          <CardText className='h6'>Available</CardText>
         ) : (
-          <CardText className='text-muted'>Recently Rented Out !</CardText>
+          <CardText className='h6'>Recently Rented Out !</CardText>
         )}
       </CardBody>
     </Card>

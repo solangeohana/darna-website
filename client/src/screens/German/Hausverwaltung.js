@@ -34,7 +34,7 @@ const Hausverwaltung = () => {
           <Row>
             <Col md={6}>
               <Card outline className='text-center'>
-                <Link to={`/de/hausverwaltung/verkauf`}>
+                <Link to={`/de/hausverwaltungen/verkauf`}>
                   <CardTitle className='title'>
                     Zusammenarbeit beim VERKAUF
                   </CardTitle>
@@ -58,7 +58,7 @@ const Hausverwaltung = () => {
             </Col>
             <Col md={6}>
               <Card outline className='text-center'>
-                <Link to={`/de/hausverwaltung/vermietung`}>
+                <Link to={`/de/hausverwaltungen/vermietung`}>
                   <CardTitle className='title'>
                     Zusammenarbeit bei der VERMIETUNG
                   </CardTitle>

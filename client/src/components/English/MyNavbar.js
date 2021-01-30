@@ -131,7 +131,7 @@ const MyNavbar = () => {
 
               <NavItem>
                 <NavLink href='/en/house-management'>
-                  House Managements & Landlords
+                Landlords & House Managements
                 </NavLink>
               </NavItem>
 

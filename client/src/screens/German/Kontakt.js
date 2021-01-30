@@ -91,6 +91,7 @@ const Kontakt = ({ history }) => {
                 type='text'
                 name='interest'
                 value={state.interest}
+                required
                 placeholder='Mieten, Kaufen, Verkaufen, Gewerbe'
                 onChange={onInputChange}
               />
@@ -103,6 +104,7 @@ const Kontakt = ({ history }) => {
                   type='text'
                   name='firstName'
                   value={state.firstName}
+                  required
                   placeholder='Vorname'
                   onChange={onInputChange}
                 />
@@ -114,6 +116,7 @@ const Kontakt = ({ history }) => {
                   type='text'
                   name='lastName'
                   value={state.lastName}
+                  required
                   placeholder='Nachname'
                   onChange={onInputChange}
                 />
@@ -126,6 +129,7 @@ const Kontakt = ({ history }) => {
                 type='text'
                 name='email'
                 value={state.email}
+                required
                 placeholder='Email'
                 onChange={onInputChange}
               />
@@ -137,6 +141,7 @@ const Kontakt = ({ history }) => {
                 type='text'
                 name='phoneNumber'
                 value={state.phoneNumber}
+                required
                 placeholder='Telefonnummer'
                 onChange={onInputChange}
               />
@@ -149,6 +154,7 @@ const Kontakt = ({ history }) => {
                 name='message'
                 value={state.message}
                 rows='3'
+                required 
                 placeholder='Nachricht'
                 onChange={onInputChange}
               />
