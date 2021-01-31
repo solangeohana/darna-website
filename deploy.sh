@@ -2,9 +2,10 @@
 npm install
 cd client && npm install && npm run build && cd ..
 
-if command -v pm2 &> /dev/null
-then
-    sudo -u nodejs rm -rf /var/www/public && sudo -u nodejs cp -R client/build /var/www/public/
+if command -v pm2 &> /dev/null; then
+    if [ ! -L "/var/www/public" ]; then
+        ln -s /var/www/darna-website/client/build /var/www/public
+    fi
     sudo -u nodejs pm2 restart darna
     sudo systemctl restart nginx
 fi
