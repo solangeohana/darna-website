@@ -54,6 +54,7 @@ const storage = multerS3({
   s3: s3,
   bucket: env.DO_SPACE_BUCKET,
   acl: 'public-read',
+  contentType: multerS3.AUTO_CONTENT_TYPE,
   key: function (request, file, cb) {
     cb(null, `${file.fieldname}/${uuidv4()}${path.extname(file.originalname)}`)
   },
