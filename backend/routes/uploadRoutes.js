@@ -140,9 +140,10 @@ router.post('/images', upload.array('images', 20), async (req, res) => {
     }
 
     const newImages = files.map((file) => {
-      listing.images.push(`${env.DO_SPACE_CDN}/${file.key}`)
+      const url = `${env.DO_SPACE_CDN}/${file.key}`
+      listing.images.push(url)
 
-      return file.location
+      return url
     })
 
     await listing.save()
