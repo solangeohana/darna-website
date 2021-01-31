@@ -77,7 +77,7 @@ router.post('/coverPhoto', upload.single('coverPhoto'), (req, res) => {
       return
     }
 
-    res.status(200).send({ uri: coverPhoto.location })
+    res.status(200).send({ uri: `${env.DO_SPACE_CDN}/${coverPhoto.key}` })
   } catch (err) {
     res.status(500).send({ error: err })
   }
@@ -139,7 +139,7 @@ router.post('/images', upload.array('images', 20), async (req, res) => {
     }
 
     const newImages = files.map((file) => {
-      listing.images.push(file.location)
+      listing.images.push(`${env.DO_SPACE_CDN}/${file.key}`)
 
       return file.location
     })

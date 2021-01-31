@@ -26,7 +26,7 @@ export function handleImages(newImages, existingImages) {
     // }
 
     // TODO: validate newImage is a URL with the domain of your storage bucke
-    if (!file.startsWith(env.DO_SPACE)) {
+    if (!file.startsWith(env.DO_SPACE_CDN)) {
       badImages.push(file)
     }
 
