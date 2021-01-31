@@ -146,7 +146,7 @@ router.post('/images', upload.array('images', 20), async (req, res) => {
       return url
     })
 
-    await listing.save()
+    // await listing.save()
 
     res.status(200).send({ images: newImages })
   } catch (err) {
