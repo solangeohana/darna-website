@@ -10,7 +10,7 @@ import Buying from '../models/buyingModel.js'
 import Commercial from '../models/commercialModel.js'
 
 import { protect, admin } from '../middleware/authMiddleware.js'
-import * as constants from '../config/constants.js'
+import env from '../config/env.js'
 
 const router = express.Router()
 
@@ -43,14 +43,16 @@ function checkFileType(file, cb) {
 
 //s3
 
-const spacesEndpoint = new aws.Endpoint(constants.STORAGE_HOST)
+const spacesEndpoint = new aws.Endpoint(env.DO_SPACE)
 const s3 = new aws.S3({
   endpoint: spacesEndpoint,
+  accessKeyId: env.DO_SPACE_KEY,
+  secretAccessKey: env.DO_SPACE_SECRET,
 })
 
 const storage = multerS3({
   s3: s3,
-  bucket: 'darna-images-upload',
+  bucket: env.DO_SPACE_BUCKET,
   acl: 'public-read',
   key: function (request, file, cb) {
     cb(null, `${file.fieldname}/${uuidv4()}${path.extname(file.originalname)}`)

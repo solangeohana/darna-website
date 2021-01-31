@@ -1,4 +1,4 @@
-import * as constants from '../config/constants.js'
+import env from '../config/env.js'
 
 // returns { error: string | null, changed: boolean, urls: string[] }
 export function handleImages(newImages, existingImages) {
@@ -26,7 +26,7 @@ export function handleImages(newImages, existingImages) {
     // }
 
     // TODO: validate newImage is a URL with the domain of your storage bucke
-    if (!file.startsWith(constants.PUBLIC_STORAGE_HOST)) {
+    if (!file.startsWith(env.DO_SPACE)) {
       badImages.push(file)
     }
 

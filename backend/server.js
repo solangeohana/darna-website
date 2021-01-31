@@ -1,7 +1,7 @@
-import path from 'path'
 import express from 'express'
-import dotenv from 'dotenv'
 import pinoHttp from 'pino-http'
+
+import env from './config/env.js'
 
 import { notFound, errorHandler } from './middleware/errorMiddleware.js'
 
@@ -14,21 +14,19 @@ import buyingRoutes from './routes/buyingRoutes.js'
 import uploadRoutes from './routes/uploadRoutes.js'
 import contactRoutes from './routes/contactRoutes.js'
 
-dotenv.config()
-
 connectDB()
 
 const app = express()
 
 const pino = pinoHttp({
-  prettyPrint: process.env.NODE_ENV === 'development',
+  prettyPrint: env.isDev,
 })
 
 app.use(pino)
 
 app.use(express.json())
 
-app.get('/api', (req, res) => {
+app.get('/api/', (req, res) => {
   res.send('API is running...')
 })
 
@@ -45,9 +43,9 @@ app.use('/api/send', contactRoutes)
 app.use(notFound)
 app.use(errorHandler)
 
-const PORT = process.env.PORT || 5000
+const PORT = env.PORT || 5000
 
 app.listen(
   PORT,
-  console.log(`Server running in ${process.env.NODE_ENV} mode on port ${PORT}`)
+  console.log(`Server running in ${env.NODE_ENV} mode on port ${PORT}`)
 )
