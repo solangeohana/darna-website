@@ -21,7 +21,8 @@ const buyingSchema = mongoose.Schema(
     },
     coverPhoto: {
       type: String,
-      required: true,
+      required: false,
+      default:''
     },
     price: {
       type: Number,
@@ -103,6 +104,7 @@ const buyingSchema = mongoose.Schema(
     images: [
       {
         type: String,
+        required:true
       },
     ],
   },

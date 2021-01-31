@@ -21,7 +21,7 @@ const commercialSchema = mongoose.Schema(
     },
     coverPhoto: {
       type: String,
-      required: true,
+      required: false,
     },
     nbRooms: {
       type: Number,
@@ -85,7 +85,7 @@ const commercialSchema = mongoose.Schema(
       address: { type: String, required: true },
       city: { type: String, required: true },
       postalCode: { type: Number, required: true },
-      country: { type: String, required: true }
+      country: { type: String, required: true },
     },
     available: {
       type: Boolean,
@@ -103,6 +103,7 @@ const commercialSchema = mongoose.Schema(
     images: [
       {
         type: String,
+        required: true,
       },
     ],
   },

@@ -1,8 +1,7 @@
 import path from 'path'
 import express from 'express'
 import dotenv from 'dotenv'
-import colors from 'colors'
-import morgan from 'morgan'
+import pinoHttp from 'pino-http'
 
 import { notFound, errorHandler } from './middleware/errorMiddleware.js'
 
@@ -17,15 +16,15 @@ import contactRoutes from './routes/contactRoutes.js'
 
 dotenv.config()
 
-import { UPLOADS_DIRECTORY } from './config/constants.js'
-
 connectDB()
 
 const app = express()
 
-if (process.env.NODE_ENV === 'development') {
-  app.use(morgan('dev'))
-}
+const pino = pinoHttp({
+  prettyPrint: process.env.NODE_ENV === 'development',
+})
+
+app.use(pino)
 
 app.use(express.json())
 
@@ -41,7 +40,7 @@ app.use('/api/buyings', buyingRoutes)
 app.use('/api/upload', uploadRoutes)
 app.use('/api/send', contactRoutes)
 
-app.use('/uploads', express.static(UPLOADS_DIRECTORY))
+// app.use('/uploads', express.static(UPLOADS_DIRECTORY))
 
 app.use(notFound)
 app.use(errorHandler)
@@ -50,7 +49,5 @@ const PORT = process.env.PORT || 5000
 
 app.listen(
   PORT,
-  console.log(
-    `Server running in ${process.env.NODE_ENV} mode on port ${PORT}`.yellow.bold
-  )
+  console.log(`Server running in ${process.env.NODE_ENV} mode on port ${PORT}`)
 )

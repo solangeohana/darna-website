@@ -1,43 +1,18 @@
 import path from 'path'
 import express from 'express'
 import multer from 'multer'
+import aws from 'aws-sdk'
+import multerS3 from 'multer-s3'
 import Renting from '../models/rentingModel.js'
 import Buying from '../models/buyingModel.js'
 import Commercial from '../models/commercialModel.js'
 
-import { UPLOADS_DIRECTORY } from '../config/constants.js'
-
 import { protect, admin } from '../middleware/authMiddleware.js'
-
-function getPublicPath(filepath) {
-  const filename = path.basename(filepath)
-  return `/uploads/${filename}`
-}
+import * as constants from '../config/constants.js'
 
 const router = express.Router()
 
 router.use(protect, admin)
-
-const storage = multer.diskStorage({
-  destination: UPLOADS_DIRECTORY,
-  filename(req, file, cb) {
-    cb(
-      null,
-      // TODO: change data.now() to either cryptiles or uuid, as when uploading
-      // multiple files this funcion could potentially be called multiple
-      // times in the same millisecond.
-      `${file.fieldname}-${file.originalname}-${Date.now()}${path.extname(file.originalname)}`
-    )
-  },
-})
-
-// const storage = new CloudinaryStorage({
-//   cloudinary: cloudinary,
-//   params: {
-//       folder: 'images',
-//       public_id: (req, file) => file.originalname
-//   }
-// });
 
 function checkFileType(file, cb) {
   const filetypes = /jpg|jpeg|png/
@@ -52,6 +27,38 @@ function checkFileType(file, cb) {
     cb('Images only !')
   }
 }
+
+// for local storage:
+// const storage = multer.diskStorage({
+//   destination: UPLOADS_DIRECTORY,
+//   filename(req, file, cb) {
+//     cb(
+//       null,
+//       `${file.fieldname}-${file.originalname}-${Date.now()}${path.extname(file.originalname)}`
+//     )
+//   },
+// })
+
+//s3
+
+const spacesEndpoint = new aws.Endpoint(constants.STORAGE_HOST)
+const s3 = new aws.S3({
+  endpoint: spacesEndpoint,
+})
+
+const storage = multerS3({
+  s3: s3,
+  bucket: 'darna-images-upload',
+  acl: 'public-read',
+  key: function (request, file, cb) {
+    cb(
+      null,
+      `${file.fieldname}-${file.originalname}-${Date.now()}${path.extname(
+        file.originalname
+      )}`
+    )
+  },
+})
 
 const upload = multer({
   storage,
@@ -71,66 +78,13 @@ router.post('/coverPhoto', upload.single('coverPhoto'), (req, res) => {
       return
     }
 
-    const imagePath = getPublicPath(req.file.path)
-
-    res.status(200).send({ uri: imagePath })
-  } catch (err) {
-    res.status(500).send({error: err })
-  }
-})
-
-router.post('/rent-images', upload.array('images', 20), async (req, res) => {
-  const { files, body } = req
-
-  // Check there were images:
-  if (files.length === 0) {
-    res.status(400).send({
-      error: 'No images is selected.',
-    })
-
-    return
-  }
-
-  if (!body.rentingId) {
-    res.status(400).send({
-      error: 'Missing rentingId.',
-    })
-
-    return
-  }
-
-  try {
-    const listing = await Renting.findById(body.rentingId)
-
-    if (!listing) {
-      res.status(404).send({
-        error: `Could not find rent listing by ID ${body.rentingId}`,
-      })
-
-      return
-    }
-
-    // defensive coding for mongodb not having migrations of data:
-    if (!listing.images) {
-      listing.images = []
-    }
-
-    const newImages = files.map((file) => {
-      const imagePath = getPublicPath(file.path)
-      listing.images.push(imagePath)
-
-      return imagePath
-    })
-
-    await listing.save()
-
-    res.status(200).send({ images: newImages })
+    res.status(200).send({ uri: coverPhoto.location })
   } catch (err) {
     res.status(500).send({ error: err })
   }
 })
 
-router.post('/buy-images', upload.array('images', 20), async (req, res) => {
+router.post('/images', upload.array('images', 20), async (req, res) => {
   const { files, body } = req
 
   // Check there were images:
@@ -142,20 +96,39 @@ router.post('/buy-images', upload.array('images', 20), async (req, res) => {
     return
   }
 
-  if (!body.buyingId) {
+  if (!body.listingId) {
     res.status(400).send({
-      error: 'Missing buyingId.',
+      error: 'Missing listingId.',
+    })
+
+    return
+  }
+
+  if (
+    !body.listingType ||
+    !['rent', 'buy', 'commercial'].includes(body.listingType)
+  ) {
+    res.status(400).send({
+      error: 'Missing listingId.',
     })
 
     return
   }
 
   try {
-    const listing = await Buying.findById(body.buyingId)
+    let Model
+    if (body.listingType === 'rent') {
+      Model = Renting
+    } else if (body.listingType === 'buy') {
+      Model = Buying
+    } else {
+      Model = Commercial
+    }
+    const listing = await Model.findById(body.listingId)
 
     if (!listing) {
       res.status(404).send({
-        error: `Could not find rent listing by ID ${body.buyingId}`,
+        error: `Could not find rent listing by ID ${body.listingId}`,
       })
 
       return
@@ -167,61 +140,9 @@ router.post('/buy-images', upload.array('images', 20), async (req, res) => {
     }
 
     const newImages = files.map((file) => {
-      const imagePath = getPublicPath(file.path)
-      listing.images.push(imagePath)
+      listing.images.push(file.location)
 
-      return imagePath
-    })
-
-    await listing.save()
-
-    res.status(200).send({ images: newImages })
-  } catch (err) {
-    res.status(500).send({ error: err })
-  }
-})
-
-router.post('/commercial-images', upload.array('images', 20), async (req, res) => {
-  const { files, body } = req
-
-  // Check there were images:
-  if (files.length === 0) {
-    res.status(400).send({
-      error: 'No images is selected.',
-    })
-
-    return
-  }
-
-  if (!body.commercialId) {
-    res.status(400).send({
-      error: 'Missing commercialId.',
-    })
-
-    return
-  }
-
-  try {
-    const listing = await Commercial.findById(body.commercialId)
-
-    if (!listing) {
-      res.status(404).send({
-        error: `Could not find rent listing by ID ${body.commercialId}`,
-      })
-
-      return
-    }
-
-    // defensive coding for mongodb not having migrations of data:
-    if (!listing.images) {
-      listing.images = []
-    }
-
-    const newImages = files.map((file) => {
-      const imagePath = getPublicPath(file.path)
-      listing.images.push(imagePath)
-
-      return imagePath
+      return file.location
     })
 
     await listing.save()

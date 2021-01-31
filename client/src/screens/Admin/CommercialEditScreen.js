@@ -4,9 +4,12 @@ import { Form, FormGroup, Input, Label, Button, CustomInput } from 'reactstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import Message from 'components/Message'
 import Loader from 'components/Loader'
-
+import { UploadedImages, CoverPhoto } from 'components/imageManagement'
 import FormContainer from 'components/FormContainer'
-import { listCommercialDetails, updateCommercial } from 'actions/commercialActions'
+import {
+  listCommercialDetails,
+  updateCommercial,
+} from 'actions/commercialActions'
 import {
   COMMERCIAL_UPDATE_RESET,
   COMMERCIAL_DETAILS_RESET,
@@ -138,7 +141,8 @@ const CommercialEditScreen = ({ match, history }) => {
       formData.append('images', files[i])
     }
 
-    formData.append('commercialId', commercialId)
+    formData.append('listingId', commercialId)
+    formData.append('listingType', 'commercial')
 
     setUploading(true)
 
@@ -150,11 +154,7 @@ const CommercialEditScreen = ({ match, history }) => {
         },
       }
 
-      const { data } = await axios.post(
-        '/api/upload/commercial-images',
-        formData,
-        config
-      )
+      const { data } = await axios.post('/api/upload/images', formData, config)
 
       setUploading(false)
       setImagesFileInputKey(imagesFileInputKey + 1)
@@ -261,11 +261,11 @@ const CommercialEditScreen = ({ match, history }) => {
               <Label for='coverPhoto' className='title'>
                 Cover Photo
               </Label>
+              <CoverPhoto src={coverPhoto} uploading={uploading} />
               <CustomInput
                 id='image-file'
                 type='file'
                 onChange={uploadCoverPhotoHandler}></CustomInput>
-              {uploading && <Loader />}
             </FormGroup>
 
             <FormGroup>
@@ -478,30 +478,19 @@ const CommercialEditScreen = ({ match, history }) => {
               <Label for='images' className='title'>
                 Photos
               </Label>
-              <ul>
-                {images.map((path, i) => {
-                  return (
-                    <li key={i}>
-                      {path}{' '}
-                      <button
-                        onClick={(e) => {
-                          e.preventDefault()
-                          setImages(images.filter((image) => image !== path))
-                        }}>
-                        remove
-                      </button>
-                    </li>
-                  )
-                })}
-              </ul>
-
+              <UploadedImages
+                images={images}
+                uploading={uploading}
+                onRemove={(url) => {
+                  setImages(images.filter((image) => image !== url))
+                }}
+              />
               <CustomInput
                 id='image-file'
                 key={imagesFileInputKey}
                 type='file'
                 multiple
                 onChange={uploadImagesHandler}></CustomInput>
-              {uploading && <Loader />}
             </FormGroup>
 
             <Button type='submit' className='btn-round btn-white' color='info'>
