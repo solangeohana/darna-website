@@ -3,6 +3,8 @@ import express from 'express'
 import multer from 'multer'
 import aws from 'aws-sdk'
 import multerS3 from 'multer-s3'
+import { v4 as uuidv4 } from 'uuid'
+
 import Renting from '../models/rentingModel.js'
 import Buying from '../models/buyingModel.js'
 import Commercial from '../models/commercialModel.js'
@@ -51,12 +53,7 @@ const storage = multerS3({
   bucket: 'darna-images-upload',
   acl: 'public-read',
   key: function (request, file, cb) {
-    cb(
-      null,
-      `${file.fieldname}-${file.originalname}-${Date.now()}${path.extname(
-        file.originalname
-      )}`
-    )
+    cb(null, `${file.fieldname}/${uuidv4()}${path.extname(file.originalname)}`)
   },
 })
 
